@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Coaching Session - Eduflare</title>
+    <meta name="description" content="Book a personalized coaching session with expert game coaches at Eduflare.">
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#6366f1',
+                        secondary: '#8b5cf6',
+                        accent: '#f59e0b',
+                        dark: '#0f172a',
+                        'dark-light': '#1e293b'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-dark text-white">
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 bg-dark/95 backdrop-blur-sm border-b border-gray-800 z-40">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center space-x-8">
+                    <a href="/" class="flex items-center space-x-2">
+                        <img src="/assets/images/logo.png" alt="Eduflare Logo" class="h-8 w-8">
+                        <span class="text-xl font-bold text-primary">Eduflare</span>
+                    </a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <div id="userSection" class="hidden">
+                        <span id="userName" class="text-sm"></span>
+                        <button onclick="logout()" class="ml-2 text-sm text-red-400 hover:text-red-300">Logout</button>
+                    </div>
+                    <div id="authSection">
+                        <a href="/login/" class="bg-primary hover:bg-primary/80 px-4 py-2 rounded transition-colors">Login</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Booking Section -->
+    <section class="min-h-screen flex items-center justify-center py-20">
+        <div class="container mx-auto px-4">
+            <div class="bg-dark-light rounded-xl max-w-md w-full mx-auto p-6">
+                <h2 class="text-2xl font-bold mb-6 text-center">Book Coaching Session</h2>
+                <p id="coachInfo" class="text-gray-400 mb-6 text-center"></p>
+                <form id="bookingForm" class="space-y-4">
+                    <div>
+                        <label for="bookingName" class="block text-sm font-medium mb-2">Name</label>
+                        <input type="text" id="bookingName" required class="w-full bg-dark border border-gray-600 rounded px-3 py-2 focus:border-primary focus:outline-none">
+                    </div>
+                    <div>
+                        <label for="bookingEmail" class="block text-sm font-medium mb-2">Email</label>
+                        <input type="email" id="bookingEmail" required class="w-full bg-dark border border-gray-600 rounded px-3 py-2 focus:border-primary focus:outline-none">
+                    </div>
+                    <div>
+                        <label for="bookingPhone" class="block text-sm font-medium mb-2">Phone Number</label>
+                        <input type="tel" id="bookingPhone" required class="w-full bg-dark border border-gray-600 rounded px-3 py-2 focus:border-primary focus:outline-none">
+                    </div>
+                    <div>
+                        <label for="bookingDate" class="block text-sm font-medium mb-2">Booking Date</label>
+                        <input type="text" id="bookingDate" required class="w-full bg-dark border border-gray-600 rounded px-3 py-2 focus:border-primary focus:outline-none" readonly>
+                    </div>
+                    <div>
+                        <label for="bookingComments" class="block text-sm font-medium mb-2">Comments (Optional)</label>
+                        <textarea id="bookingComments" rows="3" class="w-full bg-dark border border-gray-600 rounded px-3 py-2 focus:border-primary focus:outline-none"></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-primary hover:bg-primary/80 py-3 rounded font-semibold transition-colors">
+                        Book Session
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Confirmation Popup -->
+    <div id="confirmationPopup" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden">
+        <div class="flex items-center justify-center min-h-screen p-4">
+            <div class="bg-dark-light rounded-xl max-w-sm w-full p-6 text-center">
+                <p class="text-lg mb-4">Your booking has been submitted! We'll get back to you ASAP via email.</p>
+                <button onclick="closeConfirmationPopup()" class="bg-primary hover:bg-primary/80 px-6 py-2 rounded font-semibold transition-colors">
+                    OK
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // User Login Status
+            const userSection = document.getElementById('userSection');
+            const authSection = document.getElementById('authSection');
+            const userName = document.getElementById('userName');
+            const user = JSON.parse(localStorage.getItem('user'));
+            if (user && user.name) {
+                userSection.classList.remove('hidden');
+                authSection.classList.add('hidden');
+                userName.textContent = `Welcome, ${user.name}`;
+                document.getElementById('bookingName').value = user.name;
+                document.getElementById('bookingEmail').value = user.email;
+            } else {
+                window.location.href = '/login/';
+            }
+
+            window.logout = () => {
+                localStorage.removeItem('user');
+                window.location.href = '/';
+            };
+
+            // Get URL Parameters
+            const urlParams = new URLSearchParams(window.location.search);
+            const coach = urlParams.get('coach');
+            const game = urlParams.get('game');
+            if (coach && game) {
+                document.getElementById('coachInfo').textContent = `Booking with ${coach} for ${game.charAt(0).toUpperCase() + game.slice(1).replace('lol', 'League of Legends').replace('cs2', 'Counter-Strike 2').replace('dota2', 'Dota 2').replace('apex', 'Apex Legends')}`;
+            }
+
+            // Initialize Flatpickr
+            const today = new Date();
+            const fullyBookedDates = [
+                new Date(today.getTime() + 2 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
+                new Date(today.getTime() + 4 * 24 * 60 * 60 * 1000).toISOString().split('T')[0]
+            ];
+            flatpickr('#bookingDate', {
+                minDate: 'today',
+                maxDate: new Date(today.getTime() + 5 * 24 * 60 * 60 * 1000),
+                disable: fullyBookedDates,
+                dateFormat: 'Y-m-d',
+                altInput: true,
+                altFormat: 'F j, Y (l)',
+            });
+
+            // Booking Form Submission
+            const bookingForm = document.getElementById('bookingForm');
+            bookingForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const bookingData = {
+                    name: document.getElementById('bookingName').value,
+                    email: document.getElementById('bookingEmail').value,
+                    phone: document.getElementById('bookingPhone').value,
+                    date: document.getElementById('bookingDate').value,
+                    comments: document.getElementById('bookingComments').value,
+                    coach,
+                    game
+                };
+                // Store booking data in localStorage (simulating backend)
+                const bookings = JSON.parse(localStorage.getItem('bookings') || '[]');
+                bookings.push(bookingData);
+                localStorage.setItem('bookings', JSON.stringify(bookings));
+                // Show confirmation
+                document.getElementById('confirmationPopup').classList.remove('hidden');
+            });
+
+            // Close Confirmation Popup
+            window.closeConfirmationPopup = () => {
+                document.getElementById('confirmationPopup').classList.add('hidden');
+                bookingForm.reset();
+                if (user) {
+                    document.getElementById('bookingName').value = user.name;
+                    document.getElementById('bookingEmail').value = user.email;
+                }
+                window.location.href = '/';
+            };
+        });
+    </script>
+</body>
+</html>

@@ -28,7 +28,7 @@
 </head>
 <body class="bg-dark text-white min-h-screen">
     <!-- Navigation -->
-   <nav class="fixed top-0 left-0 right-0 bg-dark/95 backdrop-blur-sm border-b border-gray-800 z-40">
+    <nav class="fixed top-0 left-0 right-0 bg-dark/95 backdrop-blur-sm border-b border-gray-800 z-40">
         <div class="container mx-auto px-4">
             <div class="flex items-center justify-between h-16">
                 <div class="flex items-center space-x-8">
@@ -187,34 +187,60 @@
     </footer>
 
     <script>
+        // Simple client-side hashing function (for demo purposes)
+        function simpleHash(str) {
+            let hash = 0;
+            for (let i = 0; i < str.length; i++) {
+                hash = ((hash << 5) - hash) + str.charCodeAt(i);
+                hash |= 0; // Convert to 32-bit integer
+            }
+            return hash.toString();
+        }
+
         // Check for message parameter
         const urlParams = new URLSearchParams(window.location.search);
         const message = urlParams.get('message');
         if (message) {
             document.getElementById('messageAlert').classList.remove('hidden');
+            document.getElementById('messageAlert').querySelector('p').textContent = message;
         }
 
+        // Form submission
         document.getElementById('registerForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            
-            const firstName = document.getElementById('firstName').value;
-            const lastName = document.getElementById('lastName').value;
-            const email = document.getElementById('email').value;
+
+            const firstName = document.getElementById('firstName').value.trim();
+            const lastName = document.getElementById('lastName').value.trim();
+            const email = document.getElementById('email').value.trim();
             const password = document.getElementById('password').value;
             const confirmPassword = document.getElementById('confirmPassword').value;
-            
+            const favoriteGame = document.getElementById('favoriteGame').value;
+
+            // Validate passwords match
             if (password !== confirmPassword) {
-                alert('Passwords do not match!');
+                alert('Passwords do not match. Please try again.');
                 return;
             }
-            
-            // Simulate registration success
-            const userName = firstName + ' ' + lastName;
-            localStorage.setItem('eduflareUser', userName);
-            localStorage.setItem('eduflareEmail', email);
-            
-            alert('Registration successful! Welcome to Eduflare!');
-            window.location.href = '/';
+
+            // Store user data in localStorage
+            const userData = {
+                name: `${firstName} ${lastName}`,
+                email: email,
+                password: simpleHash(password), // Store hashed password
+                favoriteGame: favoriteGame
+            };
+            localStorage.setItem('user', JSON.stringify(userData));
+
+            // Handle redirect
+            const urlParams = new URLSearchParams(window.location.search);
+            const redirect = urlParams.get('redirect');
+            const coach = urlParams.get('coach');
+            const game = urlParams.get('game');
+            if (redirect && coach && game) {
+                window.location.href = `${redirect}?coach=${encodeURIComponent(coach)}&game=${encodeURIComponent(game)}`;
+            } else {
+                window.location.href = '/';
+            }
         });
     </script>
 </body>
