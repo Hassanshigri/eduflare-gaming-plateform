@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gaming Products - Skins, Mods & Cards | Eduflare Store</title>
+    <meta name="description" content="Shop premium gaming products at Eduflare. Find exclusive skins, game modifications, trading cards, and gaming accessories to enhance your experience.">
+    <meta name="keywords" content="gaming products, game skins, gaming mods, trading cards, gaming accessories, eduflare store, gaming merchandise">
+    <link rel="canonical" href="https://eduflare.org/products/">
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#6366f1',
+                        secondary: '#8b5cf6',
+                        accent: '#f59e0b',
+                        dark: '#0f172a',
+                        'dark-light': '#1e293b'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-dark text-white">
+    <!-- Navigation -->
+    <nav class="bg-dark/95 backdrop-blur-sm border-b border-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between h-16">
+                <a href="/" class="flex items-center space-x-2">
+                    <img src="/assets/images/logo.png" alt="Eduflare Logo" class="h-8 w-8">
+                    <span class="text-xl font-bold text-primary">Eduflare</span>
+                </a>
+                <div class="hidden md:flex space-x-6">
+                    <a href="/" class="hover:text-primary transition-colors">Home</a>
+                    <a href="/products/" class="text-primary">Products</a>
+                    <a href="/blog/" class="hover:text-primary transition-colors">Blog</a>
+                    <a href="/contact/" class="hover:text-primary transition-colors">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="py-20 bg-gradient-to-r from-primary/20 to-secondary/20">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6">Gaming Products Store</h1>
+            <p class="text-xl text-gray-300 mb-8">Enhance your gaming experience with premium products</p>
+        </div>
+    </section>
+
+    <!-- Product Categories -->
+    <section class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+                <button onclick="filterProducts('all')" class="filter-btn active bg-primary hover:bg-primary/80 px-6 py-3 rounded-lg font-semibold transition-colors">
+                    All Products
+                </button>
+                <button onclick="filterProducts('skins')" class="filter-btn bg-dark-light hover:bg-gray-700 px-6 py-3 rounded-lg font-semibold transition-colors">
+                    Game Skins
+                </button>
+                <button onclick="filterProducts('mods')" class="filter-btn bg-dark-light hover:bg-gray-700 px-6 py-3 rounded-lg font-semibold transition-colors">
+                    Modifications
+                </button>
+                <button onclick="filterProducts('cards')" class="filter-btn bg-dark-light hover:bg-gray-700 px-6 py-3 rounded-lg font-semibold transition-colors">
+                    Trading Cards
+                </button>
+            </div>
+
+            <!-- Products Grid -->
+            <div id="productsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                <!-- Skins -->
+                <div class="product-card skins bg-dark-light rounded-xl overflow-hidden hover:transform hover:scale-105 transition-all duration-300">
+                    <img src="/assets/images/products/valorant-phantom-skin.jpg" alt="Valorant Phantom Skin" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Valorant Phantom Elderflame</h3>
+                        <p class="text-gray-400 mb-4">Premium animated skin with unique effects</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold text-accent">$24.99</span>
+                            <button class="bg-primary hover:bg-primary/80 px-4 py-2 rounded transition-colors">
+                                Buy Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card skins bg-dark-light rounded-xl overflow-hidden hover:transform hover:scale-105 transition-all duration-300">
+                    <img src="/assets/images/products/cs2-ak47-skin.jpg" alt="CS2 AK-47 Skin" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">CS2 AK-47 Redline</h3>
+                        <p class="text-gray-400 mb-4">Classic red design with minimal wear</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold text-accent">$89.99</span>
+                            <button class="bg-primary hover:bg-primary/80 px-4 py-2 rounded transition-colors">
+                                Buy Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card skins bg-dark-light rounded-xl overflow-hidden hover:transform hover:scale-105 transition-all duration-300">
+                    <img src="/assets/images/products/lol-champion-skin.jpg" alt="League of Legends Skin" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">LoL Yasuo Spirit Blossom</h3>
+                        <p class="text-gray-400 mb-4">Legendary skin with new animations</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold text-accent">$19.99</span>
+                            <button class="bg-primary hover:bg-primary/80 px-4 py-2 rounded transition-colors">
+                                Buy Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mods -->
+                <div class="product-card mods bg-dark-light rounded-xl overflow-hidden hover:transform hover:scale-105 transition-all duration-300">
+                    <img src="/assets/images/products/crosshair-mod.jpg" alt="Crosshair Modification" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Pro Crosshair Pack</h3>
+                        <p class="text-gray-400 mb-4">Professional crosshair configurations</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold text-accent">$9.99</span>
+                            <button class="bg-primary hover:bg-primary/80 px-4 py-2 rounded transition-colors">
+                                Buy Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card mods bg-dark-light rounded-xl overflow-hidden hover:transform hover:scale-105 transition-all duration-300">
+                    <img src="/assets/images/products/hud-mod.jpg" alt="HUD Modification" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Enhanced HUD Pack</h3>
+                        <p class="text-gray-400 mb-4">Improved UI elements for better gameplay</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold text-accent">$14.99</span>
+                            <button class="bg-primary hover:bg-primary/80 px-4 py-2 rounded transition-colors">
+                                Buy Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card mods bg-dark-light rounded-xl overflow-hidden hover:transform hover:scale-105 transition-all duration-300">
+                    <img src="/assets/images/products/sound-mod.jpg" alt="Sound Modification" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Audio Enhancement Mod</h3>
+                        <p class="text-gray-400 mb-4">Improved sound effects and clarity</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold text-accent">$12.99</span>
+                            <button class="bg-primary hover:bg-primary/80 px-4 py-2 rounded transition-colors">
+                                Buy Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Trading Cards -->
+                <div class="product-card cards bg-dark-light rounded-xl overflow-hidden hover:transform hover:scale-105 transition-all duration-300">
+                    <img src="/assets/images/products/valorant-cards.jpg" alt="Valorant Trading Cards" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Valorant Agent Cards</h3>
+                        <p class="text-gray-400 mb-4">Collectible cards featuring all agents</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold text-accent">$29.99</span>
+                            <button class="bg-primary hover:bg-primary/80 px-4 py-2 rounded transition-colors">
+                                Buy Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card cards bg-dark-light rounded-xl overflow-hidden hover:transform hover:scale-105 transition-all duration-300">
+                    <img src="/assets/images/products/cs2-cards.jpg" alt="CS2 Trading Cards" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">CS2 Weapon Cards</h3>
+                        <p class="text-gray-400 mb-4">Rare weapon collection cards</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold text-accent">$34.99</span>
+                            <button class="bg-primary hover:bg-primary/80 px-4 py-2 rounded transition-colors">
+                                Buy Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card cards bg-dark-light rounded-xl overflow-hidden hover:transform hover:scale-105 transition-all duration-300">
+                    <img src="/assets/images/products/lol-cards.jpg" alt="League of Legends Cards" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">LoL Champion Cards</h3>
+                        <p class="text-gray-400 mb-4">Complete champion collection set</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold text-accent">$39.99</span>
+                            <button class="bg-primary hover:bg-primary/80 px-4 py-2 rounded transition-colors">
+                                Buy Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Additional Products -->
+                <div class="product-card skins bg-dark-light rounded-xl overflow-hidden hover:transform hover:scale-105 transition-all duration-300">
+                    <img src="/assets/images/products/apex-wraith-skin.jpg" alt="Apex Legends Wraith Skin" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Apex Wraith Voidwalker</h3>
+                        <p class="text-gray-400 mb-4">Exclusive legendary skin</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold text-accent">$18.99</span>
+                            <button class="bg-primary hover:bg-primary/80 px-4 py-2 rounded transition-colors">
+                                Buy Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card mods bg-dark-light rounded-xl overflow-hidden hover:transform hover:scale-105 transition-all duration-300">
+                    <img src="/assets/images/products/performance-mod.jpg" alt="Performance Optimization Mod" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">FPS Boost Pack</h3>
+                        <p class="text-gray-400 mb-4">Optimize game performance settings</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold text-accent">$7.99</span>
+                            <button class="bg-primary hover:bg-primary/80 px-4 py-2 rounded transition-colors">
+                                Buy Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card cards bg-dark-light rounded-xl overflow-hidden hover:transform hover:scale-105 transition-all duration-300">
+                    <img src="/assets/images/products/esports-cards.jpg" alt="Esports Team Cards" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Pro Team Cards</h3>
+                        <p class="text-gray-400 mb-4">Professional esports team collection</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold text-accent">$49.99</span>
+                            <button class="bg-primary hover:bg-primary/80 px-4 py-2 rounded transition-colors">
+                                Buy Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark-light border-t border-gray-800 py-12">
+        <div class="container mx-auto px-4">
+            <div class="text-center text-gray-400">
+                <p>&copy; 2024 Eduflare. All rights reserved.</p>
+                <p class="mt-2">We are not an affiliate agency. All products are sold independently through our platform.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function filterProducts(category) {
+            const products = document.querySelectorAll('.product-card');
+            const buttons = document.querySelectorAll('.filter-btn');
+            
+            // Update button states
+            buttons.forEach(btn => btn.classList.remove('active', 'bg-primary'));
+            buttons.forEach(btn => btn.classList.add('bg-dark-light'));
+            event.target.classList.add('active', 'bg-primary');
+            event.target.classList.remove('bg-dark-light');
+            
+            // Filter products
+            products.forEach(product => {
+                if (category === 'all' || product.classList.contains(category)) {
+                    product.style.display = 'block';
+                } else {
+                    product.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>

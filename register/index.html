@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Join Eduflare Gaming Coaching Platform</title>
+    <meta name="description" content="Create your Eduflare account and start your journey to gaming excellence. Get access to professional coaches and exclusive training content.">
+    <meta name="keywords" content="eduflare register, gaming coaching signup, esports training registration, gaming coach platform signup">
+    <link rel="canonical" href="https://eduflare.org/register/">
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#6366f1',
+                        secondary: '#8b5cf6',
+                        accent: '#f59e0b',
+                        dark: '#0f172a',
+                        'dark-light': '#1e293b'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-dark text-white min-h-screen">
+    <!-- Navigation -->
+    <nav class="bg-dark/95 backdrop-blur-sm border-b border-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between h-16">
+                <a href="/" class="flex items-center space-x-2">
+                    <img src="/assets/images/logo.png" alt="Eduflare Logo" class="h-8 w-8">
+                    <span class="text-xl font-bold text-primary">Eduflare</span>
+                </a>
+                <a href="/" class="text-gray-400 hover:text-white transition-colors">← Back to Home</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Registration Form -->
+    <div class="flex items-center justify-center min-h-[calc(100vh-4rem)] px-4 py-8">
+        <div class="bg-dark-light rounded-xl p-8 w-full max-w-md">
+            <div class="text-center mb-8">
+                <h1 class="text-3xl font-bold mb-2">Join Eduflare</h1>
+                <p class="text-gray-400">Create your account and start your gaming journey</p>
+                
+                <!-- Message from login redirect -->
+                <div id="messageAlert" class="hidden mt-4 p-3 bg-accent/20 border border-accent rounded-lg">
+                    <p class="text-accent text-sm">Please create an account.</p>
+                </div>
+            </div>
+
+            <form id="registerForm" class="space-y-6">
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label for="firstName" class="block text-sm font-medium mb-2">First Name</label>
+                        <input type="text" id="firstName" required 
+                               class="w-full bg-dark border border-gray-600 rounded-lg px-4 py-3 focus:border-primary focus:outline-none transition-colors">
+                    </div>
+                    <div>
+                        <label for="lastName" class="block text-sm font-medium mb-2">Last Name</label>
+                        <input type="text" id="lastName" required 
+                               class="w-full bg-dark border border-gray-600 rounded-lg px-4 py-3 focus:border-primary focus:outline-none transition-colors">
+                    </div>
+                </div>
+
+                <div>
+                    <label for="email" class="block text-sm font-medium mb-2">Email Address</label>
+                    <input type="email" id="email" required 
+                           class="w-full bg-dark border border-gray-600 rounded-lg px-4 py-3 focus:border-primary focus:outline-none transition-colors">
+                </div>
+
+                <div>
+                    <label for="password" class="block text-sm font-medium mb-2">Password</label>
+                    <input type="password" id="password" required 
+                           class="w-full bg-dark border border-gray-600 rounded-lg px-4 py-3 focus:border-primary focus:outline-none transition-colors">
+                </div>
+
+                <div>
+                    <label for="confirmPassword" class="block text-sm font-medium mb-2">Confirm Password</label>
+                    <input type="password" id="confirmPassword" required 
+                           class="w-full bg-dark border border-gray-600 rounded-lg px-4 py-3 focus:border-primary focus:outline-none transition-colors">
+                </div>
+
+                <div>
+                    <label for="favoriteGame" class="block text-sm font-medium mb-2">Favorite Game</label>
+                    <select id="favoriteGame" required 
+                            class="w-full bg-dark border border-gray-600 rounded-lg px-4 py-3 focus:border-primary focus:outline-none transition-colors">
+                        <option value="">Select your main game</option>
+                        <option value="valorant">Valorant</option>
+                        <option value="cs2">Counter-Strike 2</option>
+                        <option value="lol">League of Legends</option>
+                        <option value="dota2">Dota 2</option>
+                        <option value="apex">Apex Legends</option>
+                    </select>
+                </div>
+
+                <div class="flex items-start">
+                    <input type="checkbox" id="terms" required class="mt-1 rounded border-gray-600 text-primary focus:ring-primary">
+                    <label for="terms" class="ml-2 text-sm text-gray-400">
+                        I agree to the <a href="/terms/" class="text-primary hover:text-primary/80">Terms of Service</a> 
+                        and <a href="/privacy/" class="text-primary hover:text-primary/80">Privacy Policy</a>
+                    </label>
+                </div>
+
+                <button type="submit" 
+                        class="w-full bg-primary hover:bg-primary/80 py-3 rounded-lg font-semibold transition-colors">
+                    Create Account
+                </button>
+            </form>
+
+            <div class="mt-6 text-center">
+                <p class="text-gray-400">Already have an account? 
+                    <a href="/login/" class="text-primary hover:text-primary/80">Sign in here</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Check for message parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        const message = urlParams.get('message');
+        if (message) {
+            document.getElementById('messageAlert').classList.remove('hidden');
+        }
+
+        document.getElementById('registerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const firstName = document.getElementById('firstName').value;
+            const lastName = document.getElementById('lastName').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            
+            if (password !== confirmPassword) {
+                alert('Passwords do not match!');
+                return;
+            }
+            
+            // Simulate registration success
+            const userName = firstName + ' ' + lastName;
+            localStorage.setItem('eduflareUser', userName);
+            localStorage.setItem('eduflareEmail', email);
+            
+            alert('Registration successful! Welcome to Eduflare!');
+            window.location.href = '/';
+        });
+    </script>
+</body>
+</html>

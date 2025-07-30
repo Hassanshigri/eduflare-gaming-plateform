@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eduflare - Premium Gaming Coaching Platform | Expert Game Coaches</title>
+    <meta name="description" content="Join Eduflare for professional gaming coaching. Expert coaches for Valorant, CS2, League of Legends, Dota 2, and more. Boost your skills with personalized training sessions.">
+    <meta name="keywords" content="gaming coaching, esports training, valorant coach, cs2 coach, league of legends coach, dota 2 coach, gaming skills, professional gaming">
+    <link rel="canonical" href="https://eduflare.org/">
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#6366f1',
+                        secondary: '#8b5cf6',
+                        accent: '#f59e0b',
+                        dark: '#0f172a',
+                        'dark-light': '#1e293b'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-dark text-white">
+    <!-- Cookie Consent Banner -->
+    <div id="cookieConsent" class="fixed bottom-0 left-0 right-0 bg-dark-light border-t border-gray-700 p-4 z-50 hidden">
+        <div class="container mx-auto flex flex-col md:flex-row items-center justify-between">
+            <p class="text-sm mb-4 md:mb-0">We use cookies to enhance your experience. By continuing to visit this site you agree to our use of cookies.</p>
+            <div class="flex space-x-4">
+                <button onclick="acceptCookies()" class="bg-primary hover:bg-primary/80 px-4 py-2 rounded text-sm transition-colors">Accept</button>
+                <button onclick="declineCookies()" class="border border-gray-600 hover:border-gray-500 px-4 py-2 rounded text-sm transition-colors">Decline</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 bg-dark/95 backdrop-blur-sm border-b border-gray-800 z-40">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center space-x-8">
+                    <a href="/" class="flex items-center space-x-2">
+                        <img src="/assets/images/logo.png" alt="Eduflare Logo" class="h-8 w-8">
+                        <span class="text-xl font-bold text-primary">Eduflare</span>
+                    </a>
+                    <div class="hidden md:flex space-x-6">
+                        <a href="/" class="hover:text-primary transition-colors">Home</a>
+                        <a href="/products/" class="hover:text-primary transition-colors">Products</a>
+                        <a href="/blog/" class="hover:text-primary transition-colors">Blog</a>
+                        <a href="/contact/" class="hover:text-primary transition-colors">Contact</a>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <div id="userSection" class="hidden">
+                        <span id="userName" class="text-sm"></span>
+                        <button onclick="logout()" class="ml-2 text-sm text-red-400 hover:text-red-300">Logout</button>
+                    </div>
+                    <div id="authSection">
+                        <a href="/login/" class="bg-primary hover:bg-primary/80 px-4 py-2 rounded transition-colors">Login</a>
+                    </div>
+                    <button id="mobileMenuBtn" class="md:hidden">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <video autoplay muted loop class="absolute inset-0 w-full h-full object-cover opacity-30">
+            <source src="/assets/videos/hero-bg.mp4" type="video/mp4">
+        </video>
+        <div class="absolute inset-0 bg-gradient-to-r from-dark/80 to-dark/60"></div>
+        <div class="relative z-10 text-center max-w-4xl mx-auto px-4">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 animate-fade-in">
+                Level Up Your <span class="text-primary">Gaming</span>
+            </h1>
+            <p class="text-xl md:text-2xl mb-8 text-gray-300 animate-fade-in-delay">
+                Train with professional coaches and dominate your favorite games
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-delay-2">
+                <a href="#games" class="bg-primary hover:bg-primary/80 px-8 py-4 rounded-lg text-lg font-semibold transition-all transform hover:scale-105">
+                    Find Your Coach
+                </a>
+                <a href="/register/" class="border-2 border-primary hover:bg-primary/20 px-8 py-4 rounded-lg text-lg font-semibold transition-all transform hover:scale-105">
+                    Register Now - Get Bonuses!
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Games Section -->
+    <section id="games" class="py-20 bg-dark-light">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">Choose Your Game</h2>
+                <p class="text-xl text-gray-400">Expert coaching available for all major esports titles</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Valorant -->
+                <div class="game-card bg-dark rounded-xl overflow-hidden hover:transform hover:scale-105 transition-all duration-300">
+                    <img src="/assets/images/games/valorant.jpg" alt="Valorant Coaching" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-2">Valorant</h3>
+                        <p class="text-gray-400 mb-4">Master tactical FPS gameplay with our Radiant-level coaches</p>
+                        <button onclick="showCoaches('valorant')" class="bg-primary hover:bg-primary/80 px-6 py-2 rounded transition-colors">
+                            View Coaches
+                        </button>
+                    </div>
+                </div>
+
+                <!-- CS2 -->
+                <div class="game-card bg-dark rounded-xl overflow-hidden hover:transform hover:scale-105 transition-all duration-300">
+                    <img src="/assets/images/games/cs2.jpg" alt="CS2 Coaching" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-2">Counter-Strike 2</h3>
+                        <p class="text-gray-400 mb-4">Improve your aim, positioning, and game sense with pros</p>
+                        <button onclick="showCoaches('cs2')" class="bg-primary hover:bg-primary/80 px-6 py-2 rounded transition-colors">
+                            View Coaches
+                        </button>
+                    </div>
+                </div>
+
+                <!-- League of Legends -->
+                <div class="game-card bg-dark rounded-xl overflow-hidden hover:transform hover:scale-105 transition-all duration-300">
+                    <img src="/assets/images/games/lol.jpg" alt="League of Legends Coaching" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-2">League of Legends</h3>
+                        <p class="text-gray-400 mb-4">Climb the ranked ladder with Challenger-tier guidance</p>
+                        <button onclick="showCoaches('lol')" class="bg-primary hover:bg-primary/80 px-6 py-2 rounded transition-colors">
+                            View Coaches
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Dota 2 -->
+                <div class="game-card bg-dark rounded-xl overflow-hidden hover:transform hover:scale-105 transition-all duration-300">
+                    <img src="/assets/images/games/dota2.jpg" alt="Dota 2 Coaching" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-2">Dota 2</h3>
+                        <p class="text-gray-400 mb-4">Master the most complex MOBA with Immortal coaches</p>
+                        <button onclick="showCoaches('dota2')" class="bg-primary hover:bg-primary/80 px-6 py-2 rounded transition-colors">
+                            View Coaches
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Apex Legends -->
+                <div class="game-card bg-dark rounded-xl overflow-hidden hover:transform hover:scale-105 transition-all duration-300">
+                    <img src="/assets/images/games/apex.jpg" alt="Apex Legends Coaching" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-2">Apex Legends</h3>
+                        <p class="text-gray-400 mb-4">Dominate the battle royale with Predator-level strategies</p>
+                        <button onclick="showCoaches('apex')" class="bg-primary hover:bg-primary/80 px-6 py-2 rounded transition-colors">
+                            View Coaches
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Coaches Modal -->
+    <div id="coachesModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden">
+        <div class="flex items-center justify-center min-h-screen p-4">
+            <div class="bg-dark-light rounded-xl max-w-6xl w-full max-h-[90vh] overflow-y-auto">
+                <div class="p-6 border-b border-gray-700 flex justify-between items-center">
+                    <h3 id="modalTitle" class="text-2xl font-bold"></h3>
+                    <button onclick="closeCoachesModal()" class="text-gray-400 hover:text-white">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div id="coachesContent" class="p-6">
+                    <!-- Coaches will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Booking Modal -->
+    <div id="bookingModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden">
+        <div class="flex items-center justify-center min-h-screen p-4">
+            <div class="bg-dark-light rounded-xl max-w-md w-full">
+                <div class="p-6 border-b border-gray-700 flex justify-between items-center">
+                    <h3 class="text-xl font-bold">Book Coaching Session</h3>
+                    <button onclick="closeBookingModal()" class="text-gray-400 hover:text-white">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+                <form id="bookingForm" class="p-6 space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Name</label>
+                        <input type="text" id="bookingName" required class="w-full bg-dark border border-gray-600 rounded px-3 py-2 focus:border-primary focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Email</label>
+                        <input type="email" id="bookingEmail" required class="w-full bg-dark border border-gray-600 rounded px-3 py-2 focus:border-primary focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Phone Number</label>
+                        <input type="tel" id="bookingPhone" required class="w-full bg-dark border border-gray-600 rounded px-3 py-2 focus:border-primary focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Booking Date</label>
+                        <select id="bookingDate" required class="w-full bg-dark border border-gray-600 rounded px-3 py-2 focus:border-primary focus:outline-none">
+                            <!-- Dates will be populated by JavaScript -->
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Comments (Optional)</label>
+                        <textarea id="bookingComments" rows="3" class="w-full bg-dark border border-gray-600 rounded px-3 py-2 focus:border-primary focus:outline-none"></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-primary hover:bg-primary/80 py-3 rounded font-semibold transition-colors">
+                        Book Session
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Testimonials Section -->
+    <section class="py-20 bg-dark">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">What Our Students Say</h2>
+                <p class="text-xl text-gray-400">Real results from real gamers</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-dark-light p-6 rounded-xl">
+                    <div class="flex items-center mb-4">
+                        <img src="/assets/images/testimonials/player1.jpg" alt="Alex Chen" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-semibold">Alex Chen</h4>
+                            <p class="text-sm text-gray-400">Valorant Player</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300">"Went from Gold to Immortal in just 3 months with my Eduflare coach. The personalized training made all the difference!"</p>
+                </div>
+                
+                <div class="bg-dark-light p-6 rounded-xl">
+                    <div class="flex items-center mb-4">
+                        <img src="/assets/images/testimonials/player2.jpg" alt="Sarah Johnson" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-semibold">Sarah Johnson</h4>
+                            <p class="text-sm text-gray-400">CS2 Player</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300">"My aim and game sense improved dramatically. Now I'm consistently top fragging in my matches!"</p>
+                </div>
+                
+                <div class="bg-dark-light p-6 rounded-xl">
+                    <div class="flex items-center mb-4">
+                        <img src="/assets/images/testimonials/player3.jpg" alt="Mike Rodriguez" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-semibold">Mike Rodriguez</h4>
+                            <p class="text-sm text-gray-400">League of Legends Player</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300">"Finally reached Diamond after being stuck in Platinum for years. The coaching was worth every penny!"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-gradient-to-r from-primary to-secondary">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl md:text-5xl font-bold mb-6">Ready to Dominate?</h2>
+            <p class="text-xl mb-8 opacity-90">Join thousands of gamers who've already leveled up their skills</p>
+            <a href="/register/" class="bg-white text-primary hover:bg-gray-100 px-8 py-4 rounded-lg text-lg font-semibold transition-all transform hover:scale-105 inline-block">
+                Start Your Journey Today
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark-light border-t border-gray-800 py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <img src="/assets/images/logo.png" alt="Eduflare Logo" class="h-8 w-8">
+                        <span class="text-xl font-bold text-primary">Eduflare</span>
+                    </div>
+                    <p class="text-gray-400">Premium gaming coaching platform for serious gamers.</p>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="/" class="hover:text-primary transition-colors">Home</a></li>
+                        <li><a href="/products/" class="hover:text-primary transition-colors">Products</a></li>
+                        <li><a href="/blog/" class="hover:text-primary transition-colors">Blog</a></li>
+                        <li><a href="/contact/" class="hover:text-primary transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Legal</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="/privacy/" class="hover:text-primary transition-colors">Privacy Policy</a></li>
+                        <li><a href="/terms/" class="hover:text-primary transition-colors">Terms of Service</a></li>
+                        <li><a href="/cookies/" class="hover:text-primary transition-colors">Cookies Policy</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Contact</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li>Email: info@eduflare.org</li>
+                        <li>Phone: +1 555-123-4567</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 Eduflare. All rights reserved.</p>
+                <p class="mt-2">We are not an affiliate agency. All products are sold independently through our platform.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/assets/js/main.js"></script>
+</body>
+</html>
