@@ -27,9 +27,78 @@
     </script>
 </head>
 <body class="bg-dark text-white">
+    <!-- Cookie Consent Banner -->
+    <div
+      id="cookieConsent"
+      class="fixed bottom-0 left-0 right-0 bg-dark-light border-t border-gray-700 p-4 z-50 hidden animate-fade-in"
+    >
+      <div
+        class="container mx-auto flex flex-col md:flex-row items-center justify-between"
+      >
+        <p class="text-sm mb-4 md:mb-0">
+          We use cookies to enhance your experience. By continuing to visit this
+          site you agree to our use of cookies.
+        </p>
+        <div class="flex space-x-4">
+          <button
+            onclick="acceptCookies()"
+            class="bg-primary hover:bg-primary/80 px-4 py-2 rounded text-sm transition-colors transform hover:scale-105"
+          >
+            Accept
+          </button>
+          <button
+            onclick="declineCookies()"
+            class="border border-gray-600 hover:border-gray-500 px-4 py-2 rounded text-sm transition-colors transform hover:scale-105"
+          >
+            Decline
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Login/Register Modal -->
+    <div id="authModal" class="fixed inset-0 bg-black/50 z-50 hidden flex items-center justify-center">
+      <div class="bg-dark-light p-6 rounded-lg w-full max-w-md relative">
+        <button id="closeModal" class="absolute top-2 right-2 text-gray-400 hover:text-white">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+        <!-- Login Form -->
+        <div id="loginForm" class="">
+          <h3 class="text-2xl font-bold mb-4 text-center">Login</h3>
+          <div class="space-y-4">
+            <input id="loginEmail" type="email" placeholder="Email" class="w-full p-2 rounded bg-dark text-white border border-gray-600 focus:outline-none focus:border-primary" />
+            <input id="loginPassword" type="password" placeholder="Password" class="w-full p-2 rounded bg-dark text-white border border-gray-600 focus:outline-none focus:border-primary" />
+            <button onclick="handleLogin()" class="w-full bg-primary hover:bg-primary/80 px-4 py-2 rounded transition-colors transform hover:scale-105">
+              Login
+            </button>
+            <p class="text-center text-sm text-gray-400">
+              Don't have an account? <a href="#" onclick="toggleForm('register')" class="text-primary hover:underline">Register</a>
+            </p>
+          </div>
+        </div>
+        <!-- Register Form -->
+        <div id="registerForm" class="hidden">
+          <h3 class="text-2xl font-bold mb-4 text-center">Register</h3>
+          <div class="space-y-4">
+            <input id="registerName" type="text" placeholder="Full Name" class="w-full p-2 rounded bg-dark text-white border border-gray-600 focus:outline-none focus:border-primary" />
+            <input id="registerEmail" type="email" placeholder="Email" class="w-full p-2 rounded bg-dark text-white border border-gray-600 focus:outline-none focus:border-primary" />
+            <input id="registerPassword" type="password" placeholder="Password" class="w-full p-2 rounded bg-dark text-white border border-gray-600 focus:outline-none focus:border-primary" />
+            <button onclick="handleRegister()" class="w-full bg-primary hover:bg-primary/80 px-4 py-2 rounded transition-colors transform hover:scale-105">
+              Register
+            </button>
+            <p class="text-center text-sm text-gray-400">
+              Already have an account? <a href="#" onclick="toggleForm('login')" class="text-primary hover:underline">Login</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- Navigation -->
-   <nav
-      class="fixed top-0 left-0 right-0 bg-dark/95 backdrop-blur-sm border-b border-gray-800 z-40"
+    <nav
+      class="fixed top-0 left-0 right-0 bg-dark/95 backdrop-blur-sm border-b border-gray-800 z-40 animate-fade-in"
     >
       <div class="container mx-auto px-4">
         <div class="flex items-center justify-between h-16">
@@ -47,37 +116,33 @@
 
           <!-- Center: Menu -->
           <div class="hidden md:flex justify-center space-x-6 flex-1">
-            <a href="/" class="hover:text-primary transition-colors">Home</a>
-            <a href="/products/" class="hover:text-primary transition-colors"
-              >Products</a
-            >
-            <a href="/blog/" class="hover:text-primary transition-colors"
-              >Blog</a
-            >
-            <a href="/contact/" class="hover:text-primary transition-colors"
-              >Contact</a
-            >
+            <a href="/" class="hover:text-primary transition-colors transform hover:scale-105">Home</a>
+            <a href="/products/" class="hover:text-primary transition-colors transform hover:scale-105">Products</a>
+            <a href="/blog/" class="hover:text-primary transition-colors transform hover:scale-105">Blog</a>
+            <a href="/contact/" class="hover:text-primary transition-colors transform hover:scale-105">Contact</a>
           </div>
 
           <!-- Right: Auth & Mobile Menu -->
           <div class="flex items-center space-x-4 flex-shrink-0">
-            <div id="userSection" class="hidden">
+            <div id="userSection" class="hidden flex items-center">
               <span id="userName" class="text-sm"></span>
               <button
                 onclick="logout()"
-                class="ml-2 text-sm text-red-400 hover:text-red-300"
+                class="ml-2 text-sm text-red-400 hover:text-red-300 flex items-center transform hover:scale-105"
               >
+                <svg class="w-5 h-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h3a3 3 0 013 3v1"></path>
+                </svg>
                 Logout
               </button>
             </div>
             <div id="authSection">
-              <a
-                href="/login/"
-                class="bg-primary hover:bg-primary/80 px-4 py-2 rounded transition-colors"
-                >Login</a
-              >
+              <button
+                onclick="showAuthModal('login')"
+                class="bg-primary hover:bg-primary/80 px-4 py-2 rounded transition-colors transform hover:scale-105"
+              >Login</button>
             </div>
-            <button id="mobileMenuBtn" class="md:hidden">
+            <button id="mobileMenuBtn" class="md:hidden transform hover:scale-105">
               <svg
                 class="w-6 h-6"
                 fill="none"
@@ -93,6 +158,15 @@
               </svg>
             </button>
           </div>
+        </div>
+      </div>
+      <!-- Mobile Menu -->
+      <div id="mobileMenu" class="hidden md:hidden bg-dark-light border-t border-gray-800">
+        <div class="container mx-auto px-4 py-4 flex flex-col space-y-4">
+          <a href="/" class="hover:text-primary">Home</a>
+          <a href="/products/" class="hover:text-primary">Products</a>
+          <a href="/blog/" class="hover:text-primary">Blog</a>
+          <a href="/contact/" class="hover:text-primary">Contact</a>
         </div>
       </div>
     </nav>
@@ -133,7 +207,7 @@
                         <p class="text-gray-400 mb-4">Premium animated skin with unique effects</p>
                         <div class="flex justify-between items-center">
                             <span class="text-2xl font-bold text-accent">$24.99</span>
-                            <button class="bg-primary hover:bg-primary/80 px-4 py-2 rounded transition-colors">
+                            <button onclick="buyProduct('Valorant Phantom Elderflame')" class="bg-primary hover:bg-primary/80 px-4 py-2 rounded transition-colors">
                                 Buy Now
                             </button>
                         </div>
@@ -147,7 +221,7 @@
                         <p class="text-gray-400 mb-4">Classic red design with minimal wear</p>
                         <div class="flex justify-between items-center">
                             <span class="text-2xl font-bold text-accent">$89.99</span>
-                            <button class="bg-primary hover:bg-primary/80 px-4 py-2 rounded transition-colors">
+                            <button onclick="buyProduct('CS2 AK-47 Redline')" class="bg-primary hover:bg-primary/80 px-4 py-2 rounded transition-colors">
                                 Buy Now
                             </button>
                         </div>
@@ -161,7 +235,7 @@
                         <p class="text-gray-400 mb-4">Legendary skin with new animations</p>
                         <div class="flex justify-between items-center">
                             <span class="text-2xl font-bold text-accent">$19.99</span>
-                            <button class="bg-primary hover:bg-primary/80 px-4 py-2 rounded transition-colors">
+                            <button onclick="buyProduct('LoL Yasuo Spirit Blossom')" class="bg-primary hover:bg-primary/80 px-4 py-2 rounded transition-colors">
                                 Buy Now
                             </button>
                         </div>
@@ -176,7 +250,7 @@
                         <p class="text-gray-400 mb-4">Professional crosshair configurations</p>
                         <div class="flex justify-between items-center">
                             <span class="text-2xl font-bold text-accent">$9.99</span>
-                            <button class="bg-primary hover:bg-primary/80 px-4 py-2 rounded transition-colors">
+                            <button onclick="buyProduct('Pro Crosshair Pack')" class="bg-primary hover:bg-primary/80 px-4 py-2 rounded transition-colors">
                                 Buy Now
                             </button>
                         </div>
@@ -190,7 +264,7 @@
                         <p class="text-gray-400 mb-4">Improved UI elements for better gameplay</p>
                         <div class="flex justify-between items-center">
                             <span class="text-2xl font-bold text-accent">$14.99</span>
-                            <button class="bg-primary hover:bg-primary/80 px-4 py-2 rounded transition-colors">
+                            <button onclick="buyProduct('Enhanced HUD Pack')" class="bg-primary hover:bg-primary/80 px-4 py-2 rounded transition-colors">
                                 Buy Now
                             </button>
                         </div>
@@ -204,7 +278,7 @@
                         <p class="text-gray-400 mb-4">Improved sound effects and clarity</p>
                         <div class="flex justify-between items-center">
                             <span class="text-2xl font-bold text-accent">$12.99</span>
-                            <button class="bg-primary hover:bg-primary/80 px-4 py-2 rounded transition-colors">
+                            <button onclick="buyProduct('Audio Enhancement Mod')" class="bg-primary hover:bg-primary/80 px-4 py-2 rounded transition-colors">
                                 Buy Now
                             </button>
                         </div>
@@ -219,7 +293,7 @@
                         <p class="text-gray-400 mb-4">Collectible cards featuring all agents</p>
                         <div class="flex justify-between items-center">
                             <span class="text-2xl font-bold text-accent">$29.99</span>
-                            <button class="bg-primary hover:bg-primary/80 px-4 py-2 rounded transition-colors">
+                            <button onclick="buyProduct('Valorant Agent Cards')" class="bg-primary hover:bg-primary/80 px-4 py-2 rounded transition-colors">
                                 Buy Now
                             </button>
                         </div>
@@ -233,7 +307,7 @@
                         <p class="text-gray-400 mb-4">Rare weapon collection cards</p>
                         <div class="flex justify-between items-center">
                             <span class="text-2xl font-bold text-accent">$34.99</span>
-                            <button class="bg-primary hover:bg-primary/80 px-4 py-2 rounded transition-colors">
+                            <button onclick="buyProduct('CS2 Weapon Cards')" class="bg-primary hover:bg-primary/80 px-4 py-2 rounded transition-colors">
                                 Buy Now
                             </button>
                         </div>
@@ -247,7 +321,7 @@
                         <p class="text-gray-400 mb-4">Complete champion collection set</p>
                         <div class="flex justify-between items-center">
                             <span class="text-2xl font-bold text-accent">$39.99</span>
-                            <button class="bg-primary hover:bg-primary/80 px-4 py-2 rounded transition-colors">
+                            <button onclick="buyProduct('LoL Champion Cards')" class="bg-primary hover:bg-primary/80 px-4 py-2 rounded transition-colors">
                                 Buy Now
                             </button>
                         </div>
@@ -262,7 +336,7 @@
                         <p class="text-gray-400 mb-4">Exclusive legendary skin</p>
                         <div class="flex justify-between items-center">
                             <span class="text-2xl font-bold text-accent">$18.99</span>
-                            <button class="bg-primary hover:bg-primary/80 px-4 py-2 rounded transition-colors">
+                            <button onclick="buyProduct('Apex Wraith Voidwalker')" class="bg-primary hover:bg-primary/80 px-4 py-2 rounded transition-colors">
                                 Buy Now
                             </button>
                         </div>
@@ -276,7 +350,7 @@
                         <p class="text-gray-400 mb-4">Optimize game performance settings</p>
                         <div class="flex justify-between items-center">
                             <span class="text-2xl font-bold text-accent">$7.99</span>
-                            <button class="bg-primary hover:bg-primary/80 px-4 py-2 rounded transition-colors">
+                            <button onclick="buyProduct('FPS Boost Pack')" class="bg-primary hover:bg-primary/80 px-4 py-2 rounded transition-colors">
                                 Buy Now
                             </button>
                         </div>
@@ -290,7 +364,7 @@
                         <p class="text-gray-400 mb-4">Professional esports team collection</p>
                         <div class="flex justify-between items-center">
                             <span class="text-2xl font-bold text-accent">$49.99</span>
-                            <button class="bg-primary hover:bg-primary/80 px-4 py-2 rounded transition-colors">
+                            <button onclick="buyProduct('Pro Team Cards')" class="bg-primary hover:bg-primary/80 px-4 py-2 rounded transition-colors">
                                 Buy Now
                             </button>
                         </div>
@@ -341,13 +415,163 @@
             </div>
             
             <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-                <p>&copy; 2024 Eduflare. All rights reserved.</p>
+                <p>&copy; 2025 Eduflare. All rights reserved.</p>
                 <p class="mt-2">We are not an affiliate agency. All products are sold independently through our platform.</p>
             </div>
         </div>
     </footer>
 
+    <script src="/assets/js/main.js"></script>
     <script>
+        // User Login Status
+        const userSection = document.getElementById('userSection');
+        const authSection = document.getElementById('authSection');
+        const userName = document.getElementById('userName');
+        const authModal = document.getElementById('authModal');
+        const loginForm = document.getElementById('loginForm');
+        const registerForm = document.getElementById('registerForm');
+        const closeModal = document.getElementById('closeModal');
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        let user;
+        let redirectParams = null;
+
+        // Load user from localStorage
+        function loadUser() {
+            try {
+                user = JSON.parse(localStorage.getItem('user'));
+                console.log('User data loaded:', user);
+            } catch (e) {
+                console.error('Error parsing user data:', e);
+                user = null;
+            }
+            if (user && user.name && user.email) {
+                userSection.classList.remove('hidden');
+                authSection.classList.add('hidden');
+                userName.textContent = `Welcome, ${user.name}`;
+            } else {
+                userSection.classList.add('hidden');
+                authSection.classList.remove('hidden');
+            }
+        }
+
+        // Show auth modal
+        function showAuthModal(formType) {
+            authModal.classList.remove('hidden');
+            toggleForm(formType);
+        }
+
+        // Close auth modal
+        closeModal.addEventListener('click', () => {
+            authModal.classList.add('hidden');
+            loginForm.classList.remove('hidden');
+            registerForm.classList.add('hidden');
+        });
+
+        // Toggle between login and register forms
+        function toggleForm(formType) {
+            if (formType === 'login') {
+                loginForm.classList.remove('hidden');
+                registerForm.classList.add('hidden');
+            } else {
+                loginForm.classList.add('hidden');
+                registerForm.classList.remove('hidden');
+            }
+        }
+
+        // Handle login
+        function handleLogin() {
+            const email = document.getElementById('loginEmail').value;
+            const password = document.getElementById('loginPassword').value;
+            if (email && password) {
+                // Mock login (replace with actual authentication logic)
+                user = { name: email.split('@')[0], email };
+                localStorage.setItem('user', JSON.stringify(user));
+                authModal.classList.add('hidden');
+                loadUser();
+                if (redirectParams) {
+                    window.location.href = `/checkout/index.html?product=${encodeURIComponent(redirectParams.product)}`;
+                }
+                // Clear form
+                document.getElementById('loginEmail').value = '';
+                document.getElementById('loginPassword').value = '';
+            } else {
+                alert('Please fill in all fields');
+            }
+        }
+
+        // Handle register
+        function handleRegister() {
+            const name = document.getElementById('registerName').value;
+            const email = document.getElementById('registerEmail').value;
+            const password = document.getElementById('registerPassword').value;
+            if (name && email && password) {
+                // Mock register (replace with actual registration logic)
+                user = { name, email };
+                localStorage.setItem('user', JSON.stringify(user));
+                authModal.classList.add('hidden');
+                loadUser();
+                if (redirectParams) {
+                    window.location.href = `/checkout/index.html?product=${encodeURIComponent(redirectParams.product)}`;
+                }
+                // Clear form
+                document.getElementById('registerName').value = '';
+                document.getElementById('registerEmail').value = '';
+                document.getElementById('registerPassword').value = '';
+            } else {
+                alert('Please fill in all fields');
+            }
+        }
+
+        // Buy Product
+        window.buyProduct = (productName) => {
+            console.log(`Buying product: ${productName}`);
+            try {
+                user = JSON.parse(localStorage.getItem('user'));
+            } catch (e) {
+                console.error('Error parsing user data:', e);
+                user = null;
+            }
+            if (user && user.name && user.email) {
+                window.location.href = `/checkout/index.html?product=${encodeURIComponent(productName)}`;
+            } else {
+                redirectParams = { product: productName };
+                showAuthModal('login');
+            }
+        };
+
+        // Logout
+        window.logout = () => {
+            localStorage.removeItem('user');
+            user = null;
+            loadUser();
+        };
+
+        // Mobile Menu Toggle
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Cookie Consent
+        function acceptCookies() {
+            localStorage.setItem('cookiesAccepted', 'true');
+            document.getElementById('cookieConsent').classList.add('hidden');
+        }
+
+        function declineCookies() {
+            localStorage.setItem('cookiesAccepted', 'false');
+            document.getElementById('cookieConsent').classList.add('hidden');
+        }
+
+        // Show cookie banner if not previously accepted/declined
+        window.addEventListener('load', () => {
+            if (!localStorage.getItem('cookiesAccepted')) {
+                document.getElementById('cookieConsent').classList.remove('hidden');
+            }
+            loadUser();
+        });
+
+        // Filter Products
         function filterProducts(category) {
             const products = document.querySelectorAll('.product-card');
             const buttons = document.querySelectorAll('.filter-btn');
