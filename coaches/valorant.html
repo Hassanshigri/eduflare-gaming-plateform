@@ -1,274 +1,772 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Eduflare - Valorant Coaches</title>
-    <meta name="description" content="Find expert Valorant coaches at Eduflare to master tactical FPS gameplay.">
-    <meta name="keywords" content="valorant coaching, gaming coaching, esports training, valorant coach">
-    <link rel="canonical" href="https://eduflare.org/valorant.html">
-    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+    <meta
+      name="description"
+      content="Find expert Valorant coaches at Eduflare to master tactical FPS gameplay."
+    />
+    <meta
+      name="keywords"
+      content="valorant coaching, gaming coaching, esports training, valorant coach"
+    />
+    <link rel="canonical" href="https://eduflare.org/valorant.html" />
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico" />
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/style.css" />
     <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#6366f1',
-                        secondary: '#8b5cf6',
-                        accent: '#f59e0b',
-                        dark: '#0f172a',
-                        'dark-light': '#1e293b'
-                    }
-                }
-            }
-        }
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#6366f1",
+              secondary: "#8b5cf6",
+              accent: "#f59e0b",
+              dark: "#0f172a",
+              "dark-light": "#1e293b",
+            },
+          },
+        },
+      };
     </script>
-</head>
-<body class="bg-dark-light text-white">
-    <!-- Navigation -->
-    <nav class="fixed top-0 left-0 right-0 bg-dark-light/95 backdrop-blur-sm border-b border-gray-800 z-40">
-        <div class="container mx-auto px-4">
-            <div class="flex items-center justify-between h-16">
-                <div class="flex items-center space-x-8">
-                    <a href="/" class="flex items-center space-x-2">
-                        <img src="/assets/images/logo.png" alt="Eduflare Logo" class="h-8 w-8">
-                        <span class="text-xl font-bold text-primary">Eduflare</span>
-                    </a>
-                    <div class="hidden md:flex space-x-6">
-                        <a href="/" class="hover:text-primary transition-colors">Home</a>
-                        <a href="/products/" class="hover:text-primary transition-colors">Products</a>
-                        <a href="/blog/" class="hover:text-primary transition-colors">Blog</a>
-                        <a href="/contact/" class="hover:text-primary transition-colors">Contact</a>
-                    </div>
-                </div>
-                <div class="flex items-center space-x-4">
-                    <div id="userSection" class="hidden">
-                        <span id="userName" class="text-sm"></span>
-                        <button onclick="logout()" class="ml-2 text-sm text-red-400 hover:text-red-300">Logout</button>
-                    </div>
-                    <div id="authSection">
-                        <a href="/login/" class="bg-primary hover:bg-primary/80 px-4 py-2 rounded transition-colors">Login</a>
-                    </div>
-                    <button id="mobileMenuBtn" class="md:hidden">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                        </svg>
-                    </button>
-                </div>
-            </div>
+  </head>
+  <body class="bg-dark-light text-white">
+    <!-- Cookie Consent Banner -->
+    <div
+      id="cookieConsent"
+      class="fixed bottom-0 left-0 right-0 bg-dark-light border-t border-gray-700 p-4 z-50 hidden animate-fade-in"
+    >
+      <div
+        class="container mx-auto flex flex-col md:flex-row items-center justify-between"
+      >
+        <p class="text-sm mb-4 md:mb-0">
+          We use cookies to enhance your experience. By continuing to visit this
+          site you agree to our use of cookies.
+        </p>
+        <div class="flex space-x-4">
+          <button
+            onclick="acceptCookies()"
+            class="bg-primary hover:bg-primary/80 px-4 py-2 rounded text-sm transition-colors transform hover:scale-105"
+          >
+            Accept
+          </button>
+          <button
+            onclick="declineCookies()"
+            class="border border-gray-600 hover:border-gray-500 px-4 py-2 rounded text-sm transition-colors transform hover:scale-105"
+          >
+            Decline
+          </button>
         </div>
+      </div>
+    </div>
+
+    <!-- Login/Register Modal -->
+    <div
+      id="authModal"
+      class="fixed inset-0 bg-black/50 z-50 hidden flex items-center justify-center"
+    >
+      <div class="bg-dark-light p-6 rounded-lg w-full max-w-md relative">
+        <button
+          id="closeModal"
+          class="absolute top-2 right-2 text-gray-400 hover:text-white"
+        >
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"
+            ></path>
+          </svg>
+        </button>
+        <!-- Login Form -->
+        <div id="loginForm" class="">
+          <h3 class="text-2xl font-bold mb-4 text-center">Login</h3>
+          <div class="space-y-4">
+            <input
+              id="loginEmail"
+              type="email"
+              placeholder="Email"
+              class="w-full p-2 rounded bg-dark text-white border border-gray-600 focus:outline-none focus:border-primary"
+            />
+            <input
+              id="loginPassword"
+              type="password"
+              placeholder="Password"
+              class="w-full p-2 rounded bg-dark text-white border border-gray-600 focus:outline-none focus:border-primary"
+            />
+            <button
+              onclick="handleLogin()"
+              class="w-full bg-primary hover:bg-primary/80 px-4 py-2 rounded transition-colors transform hover:scale-105"
+            >
+              Login
+            </button>
+            <p class="text-center text-sm text-gray-400">
+              Don't have an account?
+              <a
+                href="#"
+                onclick="toggleForm('register')"
+                class="text-primary hover:underline"
+                >Register</a
+              >
+            </p>
+          </div>
+        </div>
+        <!-- Register Form -->
+        <div id="registerForm" class="hidden">
+          <h3 class="text-2xl font-bold mb-4 text-center">Register</h3>
+          <div class="space-y-4">
+            <input
+              id="registerName"
+              type="text"
+              placeholder="Full Name"
+              class="w-full p-2 rounded bg-dark text-white border border-gray-600 focus:outline-none focus:border-primary"
+            />
+            <input
+              id="registerEmail"
+              type="email"
+              placeholder="Email"
+              class="w-full p-2 rounded bg-dark text-white border border-gray-600 focus:outline-none focus:border-primary"
+            />
+            <input
+              id="registerPassword"
+              type="password"
+              placeholder="Password"
+              class="w-full p-2 rounded bg-dark text-white border border-gray-600 focus:outline-none focus:border-primary"
+            />
+            <button
+              onclick="handleRegister()"
+              class="w-full bg-primary hover:bg-primary/80 px-4 py-2 rounded transition-colors transform hover:scale-105"
+            >
+              Register
+            </button>
+            <p class="text-center text-sm text-gray-400">
+              Already have an account?
+              <a
+                href="#"
+                onclick="toggleForm('login')"
+                class="text-primary hover:underline"
+                >Login</a
+              >
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav
+      class="fixed top-0 left-0 right-0 bg-dark/95 backdrop-blur-sm border-b border-gray-800 z-40 animate-fade-in"
+    >
+      <div class="container mx-auto px-4">
+        <div class="flex items-center justify-between h-16">
+          <!-- Left: Logo -->
+          <div class="flex items-center space-x-2 flex-shrink-0">
+            <a href="/" class="flex items-center space-x-2">
+              <img
+                src="/assets/images/logo.png"
+                alt="Eduflare Logo"
+                class="h-10 w-10"
+              />
+              <span class="text-xl font-bold text-primary">Eduflare</span>
+            </a>
+          </div>
+
+          <!-- Center: Menu -->
+          <div class="hidden md:flex justify-center space-x-6 flex-1">
+            <a
+              href="/"
+              class="hover:text-primary transition-colors transform hover:scale-105"
+              >Home</a
+            >
+            <a
+              href="/products/"
+              class="hover:text-primary transition-colors transform hover:scale-105"
+              >Products</a
+            >
+            <a
+              href="/blog/"
+              class="hover:text-primary transition-colors transform hover:scale-105"
+              >Blog</a
+            >
+            <a
+              href="/contact/"
+              class="hover:text-primary transition-colors transform hover:scale-105"
+              >Contact</a
+            >
+          </div>
+
+          <!-- Right: Auth & Mobile Menu -->
+          <div class="flex items-center space-x-4 flex-shrink-0">
+            <div id="userSection" class="hidden flex items-center">
+              <span id="userName" class="text-sm"></span>
+              <button
+                onclick="logout()"
+                class="ml-2 text-sm text-red-400 hover:text-red-300 flex items-center transform hover:scale-105"
+              >
+                <svg
+                  class="w-5 h-5 mr-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M17 16l4-4m0 0l-4-4m4 4H7m5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h3a3 3 0 013 3v1"
+                  ></path>
+                </svg>
+                Logout
+              </button>
+            </div>
+            <div id="authSection">
+              <button
+                onclick="showAuthModal('login')"
+                class="bg-primary hover:bg-primary/80 px-4 py-2 rounded transition-colors transform hover:scale-105"
+              >
+                Login
+              </button>
+            </div>
+            <button
+              id="mobileMenuBtn"
+              class="md:hidden transform hover:scale-105"
+            >
+              <svg
+                class="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h16M4 18h16"
+                ></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- Mobile Menu -->
+      <div
+        id="mobileMenu"
+        class="hidden md:hidden bg-dark-light border-t border-gray-800"
+      >
+        <div class="container mx-auto px-4 py-4 flex flex-col space-y-4">
+          <a href="/" class="hover:text-primary">Home</a>
+          <a href="/products/" class="hover:text-primary">Products</a>
+          <a href="/blog/" class="hover:text-primary">Blog</a>
+          <a href="/contact/" class="hover:text-primary">Contact</a>
+        </div>
+      </div>
     </nav>
 
     <!-- Hero Section with Background Image -->
-    <section class="relative bg-cover bg-center h-[600px] flex items-center justify-center" style="background-image: url('/assets/images/valorantt.png');">
-        <div class="absolute inset-0 bg-dark-light/60"></div>
-        <div class="relative text-center z-10">
-            <h1 class="text-5xl md:text-6xl font-bold text-white mb-4">Valorant Coaching</h1>
-            <p class="text-2xl text-gray-400">Master tactical FPS with our Radiant-level coaches</p>
-        </div>
+    <section
+      class="relative bg-cover bg-center h-[600px] flex items-center justify-center"
+      style="background-image: url('/assets/images/valorantt.png')"
+    >
+      <div class="absolute inset-0 bg-dark-light/60"></div>
+      <div class="relative text-center z-10">
+        <h1 class="text-5xl md:text-6xl font-bold text-white mb-4">
+          Valorant Coaching
+        </h1>
+        <p class="text-2xl text-gray-400">
+          Master tactical FPS with our Radiant-level coaches
+        </p>
+      </div>
     </section>
-
 
     <!-- Coaches Section -->
     <section class="py-16 bg-dark-light">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-12">
-                <h2 class="text-4xl md:text-5xl font-bold mb-4">Valorant Coaches</h2>
-                <p class="text-xl text-gray-400">Choose from our expert Radiant-level coaches</p>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="bg-dark p-6 rounded-lg shadow-lg hover:transform hover:scale-105 transition-all duration-300">
-                    <img src="/assets/images/coaches/c1.avif" alt="Alex 'Viper' Chen" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover">
-                    <h4 class="text-xl font-bold text-center mb-2">Alex 'Viper' Chen</h4>
-                    <p class="text-gray-400 text-center mb-4">Radiant-ranked Valorant pro with 5+ years of competitive experience. Specializes in aim training and team coordination.</p>
-                    <ul class="space-y-2 mb-4">
-                        <li class="text-gray-300">1-hour Session: $30</li>
-                        <li class="text-gray-300">3-hour Package: $80</li>
-                        <li class="text-gray-300">5-hour Package: $120</li>
-                    </ul>
-                    <button onclick="bookCoach('Alex \'Viper\' Chen', 'valorant')" class="bg-primary hover:bg-primary/80 px-6 py-2 rounded w-full transition-colors font-semibold">Book Now</button>
-                </div>
-                <div class="bg-dark p-6 rounded-lg shadow-lg hover:transform hover:scale-105 transition-all duration-300">
-                    <img src="/assets/images/coaches/c9.avif" alt="Xhing 'Neon' Lee" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover">
-                    <h4 class="text-xl font-bold text-center mb-2">Xhing 'Neon' Lee</h4>
-                    <p class="text-gray-400 text-center mb-4">Expert in Valorant strategies and map control. Top-ranked NA player with a focus on clutch plays.</p>
-                    <ul class="space-y-2 mb-4">
-                        <li class="text-gray-300">1-hour Session: $35</li>
-                        <li class="text-gray-300">3-hour Package: $90</li>
-                        <li class="text-gray-300">5-hour Package: $130</li>
-                    </ul>
-                    <button onclick="bookCoach('Xhing \'Neon\' Lee', 'valorant')" class="bg-primary hover:bg-primary/80 px-6 py-2 rounded w-full transition-colors font-semibold">Book Now</button>
-                </div>
-                <div class="bg-dark p-6 rounded-lg shadow-lg hover:transform hover:scale-105 transition-all duration-300">
-                    <img src="/assets/images/coaches/c3.avif" alt="Mike 'Sova' Tran" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover">
-                    <h4 class="text-xl font-bold text-center mb-2">Mike 'Sova' Tran</h4>
-                    <p class="text-gray-400 text-center mb-4">Specializes in utility usage and game sense. Coached 50+ players to Immortal rank.</p>
-                    <ul class="space-y-2 mb-4">
-                        <li class="text-gray-300">1-hour Session: $28</li>
-                        <li class="text-gray-300">3-hour Package: $75</li>
-                        <li class="text-gray-300">5-hour Package: $110</li>
-                    </ul>
-                    <button onclick="bookCoach('Mike \'Sova\' Tran', 'valorant')" class="bg-primary hover:bg-primary/80 px-6 py-2 rounded w-full transition-colors font-semibold">Book Now</button>
-                </div>
-                <div class="bg-dark p-6 rounded-lg shadow-lg hover:transform hover:scale-105 transition-all duration-300">
-                    <img src="/assets/images/coaches/c4.jpg" alt="Emma 'Jett' Kim" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover">
-                    <h4 class="text-xl font-bold text-center mb-2">Emma 'Jett' Kim</h4>
-                    <p class="text-gray-400 text-center mb-4">Focuses on aggressive playstyles and duelist mastery. Former pro player in VCT.</p>
-                    <ul class="space-y-2 mb-4">
-                        <li class="text-gray-300">1-hour Session: $32</li>
-                        <li class="text-gray-300">3-hour Package: $85</li>
-                        <li class="text-gray-300">5-hour Package: $125</li>
-                    </ul>
-                    <button onclick="bookCoach('Emma \'Jett\' Kim', 'valorant')" class="bg-primary hover:bg-primary/80 px-6 py-2 rounded w-full transition-colors font-semibold">Book Now</button>
-                </div>
-                <div class="bg-dark p-6 rounded-lg shadow-lg hover:transform hover:scale-105 transition-all duration-300">
-                    <img src="/assets/images/coaches/c8.jpg" alt="James 'Omen' Park" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover">
-                    <h4 class="text-xl font-bold text-center mb-2">James 'Omen' Park</h4>
-                    <p class="text-gray-400 text-center mb-4">Expert in controller roles and team synergy. Helped teams win regional tournaments.</p>
-                    <ul class="space-y-2 mb-4">
-                        <li class="text-gray-300">1-hour Session: $30</li>
-                        <li class="text-gray-300">3-hour Package: $80</li>
-                        <li class="text-gray-300">5-hour Package: $120</li>
-                    </ul>
-                    <button onclick="bookCoach('James \'Omen\' Park', 'valorant')" class="bg-primary hover:bg-primary/80 px-6 py-2 rounded w-full transition-colors font-semibold">Book Now</button>
-                </div>
-            </div>
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+          <h2 class="text-4xl md:text-5xl font-bold mb-4">Valorant Coaches</h2>
+          <p class="text-xl text-gray-400">
+            Choose from our expert Radiant-level coaches
+          </p>
         </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div
+            class="bg-dark p-6 rounded-lg shadow-lg hover:transform hover:scale-105 transition-all duration-300"
+          >
+            <img
+              src="/assets/images/coaches/c1.avif"
+              alt="Alex 'Viper' Chen"
+              class="w-32 h-32 rounded-full mx-auto mb-4 object-cover"
+            />
+            <h4 class="text-xl font-bold text-center mb-2">
+              Alex 'Viper' Chen
+            </h4>
+            <p class="text-gray-400 text-center mb-4">
+              Radiant-ranked Valorant pro with 5+ years of competitive
+              experience. Specializes in aim training and team coordination.
+            </p>
+            <ul class="space-y-2 mb-4">
+              <li class="text-gray-300">1-hour Session: $30</li>
+              <li class="text-gray-300">3-hour Package: $80</li>
+              <li class="text-gray-300">5-hour Package: $120</li>
+            </ul>
+            <button
+              onclick="bookCoach('Alex \'Viper\' Chen', 'valorant')"
+              class="bg-primary hover:bg-primary/80 px-6 py-3 rounded-lg w-full font-semibold transition-all transform hover:scale-105"
+            >
+              Book Now
+            </button>
+          </div>
+          <div
+            class="bg-dark p-6 rounded-lg shadow-lg hover:transform hover:scale-105 transition-all duration-300"
+          >
+            <img
+              src="/assets/images/coaches/c9.avif"
+              alt="Xhing 'Neon' Lee"
+              class="w-32 h-32 rounded-full mx-auto mb-4 object-cover"
+            />
+            <h4 class="text-xl font-bold text-center mb-2">Xhing 'Neon' Lee</h4>
+            <p class="text-gray-400 text-center mb-4">
+              Expert in Valorant strategies and map control. Top-ranked NA
+              player with a focus on clutch plays.
+            </p>
+            <ul class="space-y-2 mb-4">
+              <li class="text-gray-300">1-hour Session: $35</li>
+              <li class="text-gray-300">3-hour Package: $90</li>
+              <li class="text-gray-300">5-hour Package: $130</li>
+            </ul>
+            <button
+              onclick="bookCoach('Xhing \'Neon\' Lee', 'valorant')"
+              class="bg-primary hover:bg-primary/80 px-6 py-3 rounded-lg w-full font-semibold transition-all transform hover:scale-105"
+            >
+              Book Now
+            </button>
+          </div>
+          <div
+            class="bg-dark p-6 rounded-lg shadow-lg hover:transform hover:scale-105 transition-all duration-300"
+          >
+            <img
+              src="/assets/images/coaches/c3.avif"
+              alt="Mike 'Sova' Tran"
+              class="w-32 h-32 rounded-full mx-auto mb-4 object-cover"
+            />
+            <h4 class="text-xl font-bold text-center mb-2">Mike 'Sova' Tran</h4>
+            <p class="text-gray-400 text-center mb-4">
+              Specializes in utility usage and game sense. Coached 50+ players
+              to Immortal rank.
+            </p>
+            <ul class="space-y-2 mb-4">
+              <li class="text-gray-300">1-hour Session: $28</li>
+              <li class="text-gray-300">3-hour Package: $75</li>
+              <li class="text-gray-300">5-hour Package: $110</li>
+            </ul>
+            <button
+              onclick="bookCoach('Mike \'Sova\' Tran', 'valorant')"
+              class="bg-primary hover:bg-primary/80 px-6 py-3 rounded-lg w-full font-semibold transition-all transform hover:scale-105"
+            >
+              Book Now
+            </button>
+          </div>
+          <div
+            class="bg-dark p-6 rounded-lg shadow-lg hover:transform hover:scale-105 transition-all duration-300"
+          >
+            <img
+              src="/assets/images/coaches/c4.jpg"
+              alt="Emma 'Jett' Kim"
+              class="w-32 h-32 rounded-full mx-auto mb-4 object-cover"
+            />
+            <h4 class="text-xl font-bold text-center mb-2">Emma 'Jett' Kim</h4>
+            <p class="text-gray-400 text-center mb-4">
+              Focuses on aggressive playstyles and duelist mastery. Former pro
+              player in VCT.
+            </p>
+            <ul class="space-y-2 mb-4">
+              <li class="text-gray-300">1-hour Session: $32</li>
+              <li class="text-gray-300">3-hour Package: $85</li>
+              <li class="text-gray-300">5-hour Package: $125</li>
+            </ul>
+            <button
+              onclick="bookCoach('Emma \'Jett\' Kim', 'valorant')"
+              class="bg-primary hover:bg-primary/80 px-6 py-3 rounded-lg w-full font-semibold transition-all transform hover:scale-105"
+            >
+              Book Now
+            </button>
+          </div>
+          <div
+            class="bg-dark p-6 rounded-lg shadow-lg hover:transform hover:scale-105 transition-all duration-300"
+          >
+            <img
+              src="/assets/images/coaches/c8.jpg"
+              alt="James 'Omen' Park"
+              class="w-32 h-32 rounded-full mx-auto mb-4 object-cover"
+            />
+            <h4 class="text-xl font-bold text-center mb-2">
+              James 'Omen' Park
+            </h4>
+            <p class="text-gray-400 text-center mb-4">
+              Expert in controller roles and team synergy. Helped teams win
+              regional tournaments.
+            </p>
+            <ul class="space-y-2 mb-4">
+              <li class="text-gray-300">1-hour Session: $30</li>
+              <li class="text-gray-300">3-hour Package: $80</li>
+              <li class="text-gray-300">5-hour Package: $120</li>
+            </ul>
+            <button
+              onclick="bookCoach('James \'Omen\' Park', 'valorant')"
+              class="bg-primary hover:bg-primary/80 px-6 py-3 rounded-lg w-full font-semibold transition-all transform hover:scale-105"
+            >
+              Book Now
+            </button>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Valorant Success Stories -->
     <section class="py-16 bg-dark-light">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-12">
-                <h2 class="text-4xl md:text-5xl font-bold mb-4">Valorant Success Stories</h2>
-                <p class="text-xl text-gray-400">Hear from players who transformed their game with Eduflare</p>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="bg-dark p-6 rounded-lg shadow-lg hover:transform hover:scale-105 transition-all duration-300">
-                    <div class="flex items-center mb-4">
-                        <img src="/assets/images/testimonials/player3.jpg" alt="Ryan T." class="w-12 h-12 rounded-full mr-4 object-cover">
-                        <h4 class="text-lg font-semibold text-white">Ryan T.</h4>
-                    </div>
-                    <p class="text-gray-300 italic mb-4">"Alex 'Viper' Chen broke down my aim mechanics and gave me drills that boosted my headshot accuracy. From Gold to Immortal in two months—his coaching was worth every penny!"</p>
-                    <p class="text-gray-400 font-semibold text-right">– Valorant Player, Immortal Rank</p>
-                </div>
-                <div class="bg-dark p-6 rounded-lg shadow-lg hover:transform hover:scale-105 transition-all duration-300">
-                    <div class="flex items-center mb-4">
-                        <img src="/assets/images/testimonials/player2.jpeg" alt="Emily S." class="w-12 h-12 rounded-full mr-4 object-cover">
-                        <h4 class="text-lg font-semibold text-white">Emily S.</h4>
-                    </div>
-                    <p class="text-gray-300 italic mb-4">"Xhing 'Neon' Lee's map control lessons were a revelation. Her strategies helped me coordinate with my team, leading us to a local tournament win!"</p>
-                    <p class="text-gray-400 font-semibold text-right">– Valorant Player, Platinum Rank</p>
-                </div>
-                <div class="bg-dark p-6 rounded-lg shadow-lg hover:transform hover:scale-105 transition-all duration-300">
-                    <div class="flex items-center mb-4">
-                        <img src="/assets/images/testimonials/player1.jpeg" alt="Jason L." class="w-12 h-12 rounded-full mr-4 object-cover">
-                        <h4 class="text-lg font-semibold text-white">Jason L.</h4>
-                    </div>
-                    <p class="text-gray-300 italic mb-4">"Mike 'Sova' Tran's utility coaching transformed my Sova gameplay. His lineups and game sense tips made me the backbone of my squad."</p>
-                    <p class="text-gray-400 font-semibold text-right">– Valorant Player, Diamond Rank</p>
-                </div>
-            </div>
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+          <h2 class="text-4xl md:text-5xl font-bold mb-4">
+            Valorant Success Stories
+          </h2>
+          <p class="text-xl text-gray-400">
+            Hear from players who transformed their game with Eduflare
+          </p>
         </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div
+            class="bg-dark p-6 rounded-lg shadow-lg hover:transform hover:scale-105 transition-all duration-300"
+          >
+            <div class="flex items-center mb-4">
+              <img
+                src="/assets/images/testimonials/player3.jpg"
+                alt="Ryan T."
+                class="w-12 h-12 rounded-full mr-4 object-cover"
+              />
+              <h4 class="text-lg font-semibold text-white">Ryan T.</h4>
+            </div>
+            <p class="text-gray-300 italic mb-4">
+              "Alex 'Viper' Chen broke down my aim mechanics and gave me drills
+              that boosted my headshot accuracy. From Gold to Immortal in two
+              months—his coaching was worth every penny!"
+            </p>
+            <p class="text-gray-400 font-semibold text-right">
+              – Valorant Player, Immortal Rank
+            </p>
+          </div>
+          <div
+            class="bg-dark p-6 rounded-lg shadow-lg hover:transform hover:scale-105 transition-all duration-300"
+          >
+            <div class="flex items-center mb-4">
+              <img
+                src="/assets/images/testimonials/player2.jpeg"
+                alt="Emily S."
+                class="w-12 h-12 rounded-full mr-4 object-cover"
+              />
+              <h4 class="text-lg font-semibold text-white">Emily S.</h4>
+            </div>
+            <p class="text-gray-300 italic mb-4">
+              "Xhing 'Neon' Lee's map control lessons were a revelation. Her
+              strategies helped me coordinate with my team, leading us to a
+              local tournament win!"
+            </p>
+            <p class="text-gray-400 font-semibold text-right">
+              – Valorant Player, Platinum Rank
+            </p>
+          </div>
+          <div
+            class="bg-dark p-6 rounded-lg shadow-lg hover:transform hover:scale-105 transition-all duration-300"
+          >
+            <div class="flex items-center mb-4">
+              <img
+                src="/assets/images/testimonials/player1.jpeg"
+                alt="Jason L."
+                class="w-12 h-12 rounded-full mr-4 object-cover"
+              />
+              <h4 class="text-lg font-semibold text-white">Jason L.</h4>
+            </div>
+            <p class="text-gray-300 italic mb-4">
+              "Mike 'Sova' Tran's utility coaching transformed my Sova gameplay.
+              His lineups and game sense tips made me the backbone of my squad."
+            </p>
+            <p class="text-gray-400 font-semibold text-right">
+              – Valorant Player, Diamond Rank
+            </p>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Valorant in Action -->
     <section class="py-16 bg-dark-light">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-12">
-                <h2 class="text-4xl md:text-5xl font-bold mb-4">Valorant in Action</h2>
-                <p class="text-xl text-gray-400">Watch top-tier Valorant gameplay to inspire your journey</p>
-            </div>
-            <div class="flex justify-center">
-                <iframe class="w-full max-w-5xl h-[600px] rounded-lg" src="https://www.youtube.com/embed/IhhjcB2ZjIM" title="Valorant Gameplay Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+          <h2 class="text-4xl md:text-5xl font-bold mb-4">
+            Valorant in Action
+          </h2>
+          <p class="text-xl text-gray-400">
+            Watch top-tier Valorant gameplay to inspire your journey
+          </p>
         </div>
+        <div class="flex justify-center">
+          <iframe
+            class="w-full max-w-5xl h-[600px] rounded-lg"
+            src="https://www.youtube.com/embed/IhhjcB2ZjIM"
+            title="Valorant Gameplay Trailer"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
     </section>
 
     <!-- Footer -->
     <footer class="bg-dark-light border-t border-gray-800 py-16">
-        <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <div>
-                    <div class="flex items-center space-x-2 mb-4">
-                        <img src="/assets/images/logo.png" alt="Eduflare Logo" class="h-8 w-8">
-                        <span class="text-xl font-bold text-primary">Eduflare</span>
-                    </div>
-                    <p class="text-gray-400">Premium gaming coaching platform for serious gamers.</p>
-                </div>
-                <div>
-                    <h4 class="text-xl font-bold mb-4">Quick Links</h4>
-                    <ul class="space-y-2 text-gray-400">
-                        <li><a href="/" class="hover:text-primary transition-colors">Home</a></li>
-                        <li><a href="/products/" class="hover:text-primary transition-colors">Products</a></li>
-                        <li><a href="/blog/" class="hover:text-primary transition-colors">Blog</a></li>
-                        <li><a href="/contact/" class="hover:text-primary transition-colors">Contact</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="text-xl font-bold mb-4">Legal</h4>
-                    <ul class="space-y-2 text-gray-400">
-                        <li><a href="/privacy/" class="hover:text-primary transition-colors">Privacy Policy</a></li>
-                        <li><a href="/terms/" class="hover:text-primary transition-colors">Terms of Service</a></li>
-                        <li><a href="/cookies/" class="hover:text-primary transition-colors">Cookies Policy</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="text-xl font-bold mb-4">Contact</h4>
-                    <ul class="space-y-2 text-gray-400">
-                        <li>Email: info@eduflare.org</li>
-                        <li>Phone: +1 555-123-4567</li>
-                    </ul>
-                </div>
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div>
+            <div class="flex items-center space-x-2 mb-4">
+              <img
+                src="/assets/images/logo.png"
+                alt="Eduflare Logo"
+                class="h-8 w-8"
+              />
+              <span class="text-xl font-bold text-primary">Eduflare</span>
             </div>
-            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-                <p>&copy; 2025 Eduflare. All rights reserved.</p>
-                <p class="mt-2">We are not an affiliate agency. All products are sold independently through our platform.</p>
-            </div>
+            <p class="text-gray-400">
+              Premium gaming coaching platform for serious gamers.
+            </p>
+          </div>
+          <div>
+            <h4 class="text-xl font-bold mb-4">Quick Links</h4>
+            <ul class="space-y-2 text-gray-400">
+              <li>
+                <a href="/" class="hover:text-primary transition-colors"
+                  >Home</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/products/"
+                  class="hover:text-primary transition-colors"
+                  >Products</a
+                >
+              </li>
+              <li>
+                <a href="/blog/" class="hover:text-primary transition-colors"
+                  >Blog</a
+                >
+              </li>
+              <li>
+                <a href="/contact/" class="hover:text-primary transition-colors"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-xl font-bold mb-4">Legal</h4>
+            <ul class="space-y-2 text-gray-400">
+              <li>
+                <a href="/privacy/" class="hover:text-primary transition-colors"
+                  >Privacy Policy</a
+                >
+              </li>
+              <li>
+                <a href="/terms/" class="hover:text-primary transition-colors"
+                  >Terms of Service</a
+                >
+              </li>
+              <li>
+                <a href="/cookies/" class="hover:text-primary transition-colors"
+                  >Cookies Policy</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-xl font-bold mb-4">Contact</h4>
+            <ul class="space-y-2 text-gray-400">
+              <li>Email: info@eduflare.org</li>
+              <li>Phone: +1 555-123-4567</li>
+            </ul>
+          </div>
         </div>
+        <div
+          class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400"
+        >
+          <p>&copy; 2025 Eduflare. All rights reserved.</p>
+          <p class="mt-2">
+            We are not an affiliate agency. All products are sold independently
+            through our platform.
+          </p>
+        </div>
+      </div>
     </footer>
 
     <script src="/assets/js/main.js"></script>
     <script>
-        // User Login Status
-        const userSection = document.getElementById('userSection');
-        const authSection = document.getElementById('authSection');
-        const userName = document.getElementById('userName');
-        let user;
+      // User Login Status
+      const userSection = document.getElementById("userSection");
+      const authSection = document.getElementById("authSection");
+      const userName = document.getElementById("userName");
+      const authModal = document.getElementById("authModal");
+      const loginForm = document.getElementById("loginForm");
+      const registerForm = document.getElementById("registerForm");
+      const closeModal = document.getElementById("closeModal");
+      const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+      const mobileMenu = document.getElementById("mobileMenu");
+      let user;
+      let redirectParams = null;
+
+      // Load user from localStorage
+      function loadUser() {
         try {
-            user = JSON.parse(localStorage.getItem('user'));
-            console.log('User data loaded:', user);
+          user = JSON.parse(localStorage.getItem("user"));
+          console.log("User data loaded:", user);
         } catch (e) {
-            console.error('Error parsing user data:', e);
-            user = null;
+          console.error("Error parsing user data:", e);
+          user = null;
         }
         if (user && user.name && user.email) {
-            userSection.classList.remove('hidden');
-            authSection.classList.add('hidden');
-            userName.textContent = `Welcome, ${user.name}`;
+          userSection.classList.remove("hidden");
+          authSection.classList.add("hidden");
+          userName.textContent = `Welcome, ${user.name}`;
         } else {
-            userSection.classList.add('hidden');
-            authSection.classList.remove('hidden');
+          userSection.classList.add("hidden");
+          authSection.classList.remove("hidden");
         }
+      }
 
-        // Book Coach
-        window.bookCoach = (coachName, game) => {
-            console.log(`Booking coach: ${coachName} for ${game}`);
-            let user;
-            try {
-                user = JSON.parse(localStorage.getItem('user'));
-            } catch (e) {
-                console.error('Error parsing user data:', e);
-                user = null;
-            }
-            if (user && user.name && user.email) {
-                window.location.href = `/booking/index.html?coach=${encodeURIComponent(coachName)}&game=${encodeURIComponent(game)}`;
-            } else {
-                window.location.href = `/login/?redirect=/booking/index.html&coach=${encodeURIComponent(coachName)}&game=${encodeURIComponent(game)}`;
-            }
-        };
+      // Show auth modal
+      function showAuthModal(formType) {
+        authModal.classList.remove("hidden");
+        toggleForm(formType);
+      }
+
+      // Close auth modal
+      closeModal.addEventListener("click", () => {
+        authModal.classList.add("hidden");
+        loginForm.classList.remove("hidden");
+        registerForm.classList.add("hidden");
+      });
+
+      // Toggle between login and register forms
+      function toggleForm(formType) {
+        if (formType === "login") {
+          loginForm.classList.remove("hidden");
+          registerForm.classList.add("hidden");
+        } else {
+          loginForm.classList.add("hidden");
+          registerForm.classList.remove("hidden");
+        }
+      }
+
+      // Handle login
+      function handleLogin() {
+        const email = document.getElementById("loginEmail").value;
+        const password = document.getElementById("loginPassword").value;
+        if (email && password) {
+          // Mock login (replace with actual authentication logic)
+          user = { name: email.split("@")[0], email };
+          localStorage.setItem("user", JSON.stringify(user));
+          authModal.classList.add("hidden");
+          loadUser();
+          if (redirectParams) {
+            window.location.href = `/booking/index.html?coach=${encodeURIComponent(
+              redirectParams.coach
+            )}&game=${encodeURIComponent(redirectParams.game)}`;
+          }
+          // Clear form
+          document.getElementById("loginEmail").value = "";
+          document.getElementById("loginPassword").value = "";
+        } else {
+          alert("Please fill in all fields");
+        }
+      }
+
+      // Handle register
+      function handleRegister() {
+        const name = document.getElementById("registerName").value;
+        const email = document.getElementById("registerEmail").value;
+        const password = document.getElementById("registerPassword").value;
+        if (name && email && password) {
+          // Mock register (replace with actual registration logic)
+          user = { name, email };
+          localStorage.setItem("user", JSON.stringify(user));
+          authModal.classList.add("hidden");
+          loadUser();
+          if (redirectParams) {
+            window.location.href = `/booking/index.html?coach=${encodeURIComponent(
+              redirectParams.coach
+            )}&game=${encodeURIComponent(redirectParams.game)}`;
+          }
+          // Clear form
+          document.getElementById("registerName").value = "";
+          document.getElementById("registerEmail").value = "";
+          document.getElementById("registerPassword").value = "";
+        } else {
+          alert("Please fill in all fields");
+        }
+      }
+
+      // Book Coach
+      window.bookCoach = (coachName, game) => {
+        console.log(`Booking coach: ${coachName} for ${game}`);
+        try {
+          user = JSON.parse(localStorage.getItem("user"));
+        } catch (e) {
+          console.error("Error parsing user data:", e);
+          user = null;
+        }
+        if (user && user.name && user.email) {
+          window.location.href = `/booking/index.html?coach=${encodeURIComponent(
+            coachName
+          )}&game=${encodeURIComponent(game)}`;
+        } else {
+          redirectParams = { coach: coachName, game };
+          showAuthModal("login");
+        }
+      };
+
+      // Logout
+      window.logout = () => {
+        localStorage.removeItem("user");
+        user = null;
+        loadUser();
+      };
+
+      // Mobile Menu Toggle
+      mobileMenuBtn.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
+
+      // Cookie Consent
+      function acceptCookies() {
+        localStorage.setItem("cookiesAccepted", "true");
+        document.getElementById("cookieConsent").classList.add("hidden");
+      }
+
+      function declineCookies() {
+        localStorage.setItem("cookiesAccepted", "false");
+        document.getElementById("cookieConsent").classList.add("hidden");
+      }
+
+      // Show cookie banner if not previously accepted/declined
+      window.addEventListener("load", () => {
+        if (!localStorage.getItem("cookiesAccepted")) {
+          document.getElementById("cookieConsent").classList.remove("hidden");
+        }
+        loadUser();
+      });
     </script>
-</body>
+  </body>
 </html>
