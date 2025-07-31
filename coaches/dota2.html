@@ -27,38 +27,148 @@
     </script>
 </head>
 <body class="bg-dark-light text-white">
-    <!-- Navigation -->
-    <nav class="fixed top-0 left-0 right-0 bg-dark-light/95 backdrop-blur-sm border-b border-gray-800 z-40">
-        <div class="container mx-auto px-4">
-            <div class="flex items-center justify-between h-16">
-                <div class="flex items-center space-x-8">
-                    <a href="/" class="flex items-center space-x-2">
-                        <img src="/assets/images/logo.png" alt="Eduflare Logo" class="h-8 w-8">
-                        <span class="text-xl font-bold text-primary">Eduflare</span>
-                    </a>
-                    <div class="hidden md:flex space-x-6">
-                        <a href="/" class="hover:text-primary transition-colors">Home</a>
-                        <a href="/products/" class="hover:text-primary transition-colors">Products</a>
-                        <a href="/blog/" class="hover:text-primary transition-colors">Blog</a>
-                        <a href="/contact/" class="hover:text-primary transition-colors">Contact</a>
-                    </div>
-                </div>
-                <div class="flex items-center space-x-4">
-                    <div id="userSection" class="hidden">
-                        <span id="userName" class="text-sm"></span>
-                        <button onclick="logout()" class="ml-2 text-sm text-red-400 hover:text-red-300">Logout</button>
-                    </div>
-                    <div id="authSection">
-                        <a href="/login/" class="bg-primary hover:bg-primary/80 px-4 py-2 rounded transition-colors">Login</a>
-                    </div>
-                    <button id="mobileMenuBtn" class="md:hidden">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                        </svg>
-                    </button>
-                </div>
-            </div>
+    <!-- Cookie Consent Banner -->
+    <div
+      id="cookieConsent"
+      class="fixed bottom-0 left-0 right-0 bg-dark-light border-t border-gray-700 p-4 z-50 hidden animate-fade-in"
+    >
+      <div
+        class="container mx-auto flex flex-col md:flex-row items-center justify-between"
+      >
+        <p class="text-sm mb-4 md:mb-0">
+          We use cookies to enhance your experience. By continuing to visit this
+          site you agree to our use of cookies.
+        </p>
+        <div class="flex space-x-4">
+          <button
+            onclick="acceptCookies()"
+            class="bg-primary hover:bg-primary/80 px-4 py-2 rounded text-sm transition-colors transform hover:scale-105"
+          >
+            Accept
+          </button>
+          <button
+            onclick="declineCookies()"
+            class="border border-gray-600 hover:border-gray-500 px-4 py-2 rounded text-sm transition-colors transform hover:scale-105"
+          >
+            Decline
+          </button>
         </div>
+      </div>
+    </div>
+
+    <!-- Login/Register Modal -->
+    <div id="authModal" class="fixed inset-0 bg-black/50 z-50 hidden flex items-center justify-center">
+      <div class="bg-dark-light p-6 rounded-lg w-full max-w-md relative">
+        <button id="closeModal" class="absolute top-2 right-2 text-gray-400 hover:text-white">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+        <!-- Login Form -->
+        <div id="loginForm" class="">
+          <h3 class="text-2xl font-bold mb-4 text-center">Login</h3>
+          <div class="space-y-4">
+            <input id="loginEmail" type="email" placeholder="Email" class="w-full p-2 rounded bg-dark text-white border border-gray-600 focus:outline-none focus:border-primary" />
+            <input id="loginPassword" type="password" placeholder="Password" class="w-full p-2 rounded bg-dark text-white border border-gray-600 focus:outline-none focus:border-primary" />
+            <button onclick="handleLogin()" class="w-full bg-primary hover:bg-primary/80 px-4 py-2 rounded transition-colors transform hover:scale-105">
+              Login
+            </button>
+            <p class="text-center text-sm text-gray-400">
+              Don't have an account? <a href="#" onclick="toggleForm('register')" class="text-primary hover:underline">Register</a>
+            </p>
+          </div>
+        </div>
+        <!-- Register Form -->
+        <div id="registerForm" class="hidden">
+          <h3 class="text-2xl font-bold mb-4 text-center">Register</h3>
+          <div class="space-y-4">
+            <input id="registerName" type="text" placeholder="Full Name" class="w-full p-2 rounded bg-dark text-white border border-gray-600 focus:outline-none focus:border-primary" />
+            <input id="registerEmail" type="email" placeholder="Email" class="w-full p-2 rounded bg-dark text-white border border-gray-600 focus:outline-none focus:border-primary" />
+            <input id="registerPassword" type="password" placeholder="Password" class="w-full p-2 rounded bg-dark text-white border border-gray-600 focus:outline-none focus:border-primary" />
+            <button onclick="handleRegister()" class="w-full bg-primary hover:bg-primary/80 px-4 py-2 rounded transition-colors transform hover:scale-105">
+              Register
+            </button>
+            <p class="text-center text-sm text-gray-400">
+              Already have an account? <a href="#" onclick="toggleForm('login')" class="text-primary hover:underline">Login</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav
+      class="fixed top-0 left-0 right-0 bg-dark/95 backdrop-blur-sm border-b border-gray-800 z-40 animate-fade-in"
+    >
+      <div class="container mx-auto px-4">
+        <div class="flex items-center justify-between h-16">
+          <!-- Left: Logo -->
+          <div class="flex items-center space-x-2 flex-shrink-0">
+            <a href="/" class="flex items-center space-x-2">
+              <img
+                src="/assets/images/logo.png"
+                alt="Eduflare Logo"
+                class="h-10 w-10"
+              />
+              <span class="text-xl font-bold text-primary">Eduflare</span>
+            </a>
+          </div>
+
+          <!-- Center: Menu -->
+          <div class="hidden md:flex justify-center space-x-6 flex-1">
+            <a href="/" class="hover:text-primary transition-colors transform hover:scale-105">Home</a>
+            <a href="/products/" class="hover:text-primary transition-colors transform hover:scale-105">Products</a>
+            <a href="/blog/" class="hover:text-primary transition-colors transform hover:scale-105">Blog</a>
+            <a href="/contact/" class="hover:text-primary transition-colors transform hover:scale-105">Contact</a>
+          </div>
+
+          <!-- Right: Auth & Mobile Menu -->
+          <div class="flex items-center space-x-4 flex-shrink-0">
+            <div id="userSection" class="hidden flex items-center">
+              <span id="userName" class="text-sm"></span>
+              <button
+                onclick="logout()"
+                class="ml-2 text-sm text-red-400 hover:text-red-300 flex items-center transform hover:scale-105"
+              >
+                <svg class="w-5 h-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h3a3 3 0 013 3v1"></path>
+                </svg>
+                Logout
+              </button>
+            </div>
+            <div id="authSection">
+              <button
+                onclick="showAuthModal('login')"
+                class="bg-primary hover:bg-primary/80 px-4 py-2 rounded transition-colors transform hover:scale-105"
+              >Login</button>
+            </div>
+            <button id="mobileMenuBtn" class="md:hidden transform hover:scale-105">
+              <svg
+                class="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h16M4 18h16"
+                ></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- Mobile Menu -->
+      <div id="mobileMenu" class="hidden md:hidden bg-dark-light border-t border-gray-800">
+        <div class="container mx-auto px-4 py-4 flex flex-col space-y-4">
+          <a href="/" class="hover:text-primary">Home</a>
+          <a href="/products/" class="hover:text-primary">Products</a>
+          <a href="/blog/" class="hover:text-primary">Blog</a>
+          <a href="/contact/" class="hover:text-primary">Contact</a>
+        </div>
+      </div>
     </nav>
 
     <!-- Hero Section with Background Image -->
@@ -69,8 +179,6 @@
             <p class="text-2xl text-gray-400">Master MOBA with our Immortal-rank coaches</p>
         </div>
     </section>
-
-
 
     <!-- Coaches Section -->
     <section class="py-16 bg-dark-light">
@@ -89,7 +197,7 @@
                         <li class="text-gray-300">3-hour Package: $80</li>
                         <li class="text-gray-300">5-hour Package: $120</li>
                     </ul>
-                    <button onclick="bookCoach('Victor \'Shadow\' Nguyen', 'dota2')" class="bg-primary hover:bg-primary/80 px-6 py-2 rounded w-full transition-colors font-semibold">Book Now</button>
+                    <button onclick="bookCoach('Victor \'Shadow\' Nguyen', 'dota2')" class="bg-primary hover:bg-primary/80 px-6 py-3 rounded-lg w-full font-semibold transition-all transform hover:scale-105">Book Now</button>
                 </div>
                 <div class="bg-dark p-6 rounded-lg shadow-lg hover:transform hover:scale-105 transition-all duration-300">
                     <img src="/assets/images/coaches/c9.avif" alt="Lina 'Storm' Petrov" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover">
@@ -100,7 +208,7 @@
                         <li class="text-gray-300">3-hour Package: $90</li>
                         <li class="text-gray-300">5-hour Package: $130</li>
                     </ul>
-                    <button onclick="bookCoach('Lina \'Storm\' Petrov', 'dota2')" class="bg-primary hover:bg-primary/80 px-6 py-2 rounded w-full transition-colors font-semibold">Book Now</button>
+                    <button onclick="bookCoach('Lina \'Storm\' Petrov', 'dota2')" class="bg-primary hover:bg-primary/80 px-6 py-3 rounded-lg w-full font-semibold transition-all transform hover:scale-105">Book Now</button>
                 </div>
                 <div class="bg-dark p-6 rounded-lg shadow-lg hover:transform hover:scale-105 transition-all duration-300">
                     <img src="/assets/images/coaches/c3.avif" alt="Mark 'Tide' Lim" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover">
@@ -111,7 +219,7 @@
                         <li class="text-gray-300">3-hour Package: $75</li>
                         <li class="text-gray-300">5-hour Package: $110</li>
                     </ul>
-                    <button onclick="bookCoach('Mark \'Tide\' Lim', 'dota2')" class="bg-primary hover:bg-primary/80 px-6 py-2 rounded w-full transition-colors font-semibold">Book Now</button>
+                    <button onclick="bookCoach('Mark \'Tide\' Lim', 'dota2')" class="bg-primary hover:bg-primary/80 px-6 py-3 rounded-lg w-full font-semibold transition-all transform hover:scale-105">Book Now</button>
                 </div>
                 <div class="bg-dark p-6 rounded-lg shadow-lg hover:transform hover:scale-105 transition-all duration-300">
                     <img src="/assets/images/coaches/c4.jpg" alt="Clara 'Ember' Wu" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover">
@@ -122,7 +230,7 @@
                         <li class="text-gray-300">3-hour Package: $85</li>
                         <li class="text-gray-300">5-hour Package: $125</li>
                     </ul>
-                    <button onclick="bookCoach('Clara \'Ember\' Wu', 'dota2')" class="bg-primary hover:bg-primary/80 px-6 py-2 rounded w-full transition-colors font-semibold">Book Now</button>
+                    <button onclick="bookCoach('Clara \'Ember\' Wu', 'dota2')" class="bg-primary hover:bg-primary/80 px-6 py-3 rounded-lg w-full font-semibold transition-all transform hover:scale-105">Book Now</button>
                 </div>
                 <div class="bg-dark p-6 rounded-lg shadow-lg hover:transform hover:scale-105 transition-all duration-300">
                     <img src="/assets/images/coaches/c8.jpg" alt="Jasper 'Pudge' Khan" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover">
@@ -133,7 +241,7 @@
                         <li class="text-gray-300">3-hour Package: $80</li>
                         <li class="text-gray-300">5-hour Package: $120</li>
                     </ul>
-                    <button onclick="bookCoach('Jasper \'Pudge\' Khan', 'dota2')" class="bg-primary hover:bg-primary/80 px-6 py-2 rounded w-full transition-colors font-semibold">Book Now</button>
+                    <button onclick="bookCoach('Jasper \'Pudge\' Khan', 'dota2')" class="bg-primary hover:bg-primary/80 px-6 py-3 rounded-lg w-full font-semibold transition-all transform hover:scale-105">Book Now</button>
                 </div>
             </div>
         </div>
@@ -237,27 +345,105 @@
         const userSection = document.getElementById('userSection');
         const authSection = document.getElementById('authSection');
         const userName = document.getElementById('userName');
+        const authModal = document.getElementById('authModal');
+        const loginForm = document.getElementById('loginForm');
+        const registerForm = document.getElementById('registerForm');
+        const closeModal = document.getElementById('closeModal');
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
         let user;
-        try {
-            user = JSON.parse(localStorage.getItem('user'));
-            console.log('User data loaded:', user);
-        } catch (e) {
-            console.error('Error parsing user data:', e);
-            user = null;
+        let redirectParams = null;
+
+        // Load user from localStorage
+        function loadUser() {
+            try {
+                user = JSON.parse(localStorage.getItem('user'));
+                console.log('User data loaded:', user);
+            } catch (e) {
+                console.error('Error parsing user data:', e);
+                user = null;
+            }
+            if (user && user.name && user.email) {
+                userSection.classList.remove('hidden');
+                authSection.classList.add('hidden');
+                userName.textContent = `Welcome, ${user.name}`;
+            } else {
+                userSection.classList.add('hidden');
+                authSection.classList.remove('hidden');
+            }
         }
-        if (user && user.name && user.email) {
-            userSection.classList.remove('hidden');
-            authSection.classList.add('hidden');
-            userName.textContent = `Welcome, ${user.name}`;
-        } else {
-            userSection.classList.add('hidden');
-            authSection.classList.remove('hidden');
+
+        // Show auth modal
+        function showAuthModal(formType) {
+            authModal.classList.remove('hidden');
+            toggleForm(formType);
+        }
+
+        // Close auth modal
+        closeModal.addEventListener('click', () => {
+            authModal.classList.add('hidden');
+            loginForm.classList.remove('hidden');
+            registerForm.classList.add('hidden');
+        });
+
+        // Toggle between login and register forms
+        function toggleForm(formType) {
+            if (formType === 'login') {
+                loginForm.classList.remove('hidden');
+                registerForm.classList.add('hidden');
+            } else {
+                loginForm.classList.add('hidden');
+                registerForm.classList.remove('hidden');
+            }
+        }
+
+        // Handle login
+        function handleLogin() {
+            const email = document.getElementById('loginEmail').value;
+            const password = document.getElementById('loginPassword').value;
+            if (email && password) {
+                // Mock login (replace with actual authentication logic)
+                user = { name: email.split('@')[0], email };
+                localStorage.setItem('user', JSON.stringify(user));
+                authModal.classList.add('hidden');
+                loadUser();
+                if (redirectParams) {
+                    window.location.href = `/booking/index.html?coach=${encodeURIComponent(redirectParams.coach)}&game=${encodeURIComponent(redirectParams.game)}`;
+                }
+                // Clear form
+                document.getElementById('loginEmail').value = '';
+                document.getElementById('loginPassword').value = '';
+            } else {
+                alert('Please fill in all fields');
+            }
+        }
+
+        // Handle register
+        function handleRegister() {
+            const name = document.getElementById('registerName').value;
+            const email = document.getElementById('registerEmail').value;
+            const password = document.getElementById('registerPassword').value;
+            if (name && email && password) {
+                // Mock register (replace with actual registration logic)
+                user = { name, email };
+                localStorage.setItem('user', JSON.stringify(user));
+                authModal.classList.add('hidden');
+                loadUser();
+                if (redirectParams) {
+                    window.location.href = `/booking/index.html?coach=${encodeURIComponent(redirectParams.coach)}&game=${encodeURIComponent(redirectParams.game)}`;
+                }
+                // Clear form
+                document.getElementById('registerName').value = '';
+                document.getElementById('registerEmail').value = '';
+                document.getElementById('registerPassword').value = '';
+            } else {
+                alert('Please fill in all fields');
+            }
         }
 
         // Book Coach
         window.bookCoach = (coachName, game) => {
             console.log(`Booking coach: ${coachName} for ${game}`);
-            let user;
             try {
                 user = JSON.parse(localStorage.getItem('user'));
             } catch (e) {
@@ -267,9 +453,41 @@
             if (user && user.name && user.email) {
                 window.location.href = `/booking/index.html?coach=${encodeURIComponent(coachName)}&game=${encodeURIComponent(game)}`;
             } else {
-                window.location.href = `/login/?redirect=/booking/index.html&coach=${encodeURIComponent(coachName)}&game=${encodeURIComponent(game)}`;
+                redirectParams = { coach: coachName, game };
+                showAuthModal('login');
             }
         };
+
+        // Logout
+        window.logout = () => {
+            localStorage.removeItem('user');
+            user = null;
+            loadUser();
+        };
+
+        // Mobile Menu Toggle
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Cookie Consent
+        function acceptCookies() {
+            localStorage.setItem('cookiesAccepted', 'true');
+            document.getElementById('cookieConsent').classList.add('hidden');
+        }
+
+        function declineCookies() {
+            localStorage.setItem('cookiesAccepted', 'false');
+            document.getElementById('cookieConsent').classList.add('hidden');
+        }
+
+        // Show cookie banner if not previously accepted/declined
+        window.addEventListener('load', () => {
+            if (!localStorage.getItem('cookiesAccepted')) {
+                document.getElementById('cookieConsent').classList.remove('hidden');
+            }
+            loadUser();
+        });
     </script>
 </body>
 </html>
