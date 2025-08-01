@@ -1,43 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Psychology of Competitive Gaming - Mindset Guide 2025 | Eduflare</title>
-    <meta name="description" content="Learn mental strategies to overcome tilt, maintain focus, and perform under pressure in competitive gaming.">
-    <meta name="keywords" content="gaming psychology, competitive gaming mindset, esports mental strategies, gaming tips, gaming coaching">
-    <link rel="canonical" href="https://eduflare.org/blog/gaming-psychology-mindset/">
-    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Psychology of Competitive Gaming - Mindset Guide 2025 | Eduflare
+    </title>
+    <meta
+      name="description"
+      content="Learn mental strategies to overcome tilt, maintain focus, and perform under pressure in competitive gaming."
+    />
+    <meta
+      name="keywords"
+      content="gaming psychology, competitive gaming mindset, esports mental strategies, gaming tips, gaming coaching"
+    />
+    <link
+      rel="canonical"
+      href="https://eduflare.org/blog/gaming-psychology-mindset/"
+    />
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico" />
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/style.css" />
     <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#6366f1',
-                        secondary: '#8b5cf6',
-                        accent: '#f59e0b',
-                        dark: '#0f172a',
-                        'dark-light': '#1e293b'
-                    }
-                }
-            }
-        }
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#6366f1",
+              secondary: "#8b5cf6",
+              accent: "#f59e0b",
+              dark: "#0f172a",
+              "dark-light": "#1e293b",
+            },
+          },
+        },
+      };
     </script>
-</head>
-<body class="bg-dark text-white">
+  </head>
+  <body class="bg-dark text-white">
     <!-- Cookie Consent Banner -->
-    <div id="cookieConsent" class="fixed bottom-0 left-0 right-0 bg-dark-light border-t border-gray-700 p-4 z-50 hidden animate-fade-in">
-      <div class="container mx-auto flex flex-col md:flex-row items-center justify-between">
+    <div
+      id="cookieConsent"
+      class="fixed bottom-0 left-0 right-0 bg-dark-light border-t border-gray-700 p-4 z-50 hidden animate-fade-in"
+    >
+      <div
+        class="container mx-auto flex flex-col md:flex-row items-center justify-between"
+      >
         <p class="text-sm mb-4 md:mb-0">
-          We use cookies to enhance your experience. By continuing to visit this site you agree to our use of cookies.
+          We use cookies to enhance your experience. By continuing to visit this
+          site you agree to our use of cookies.
         </p>
         <div class="flex space-x-4">
-          <button onclick="acceptCookies()" class="bg-primary hover:bg-primary/80 px-4 py-2 rounded text-sm transition-colors transform hover:scale-105">
+          <button
+            onclick="acceptCookies()"
+            class="bg-primary hover:bg-primary/80 px-4 py-2 rounded text-sm transition-colors transform hover:scale-105"
+          >
             Accept
           </button>
-          <button onclick="declineCookies()" class="border border-gray-600 hover:border-gray-500 px-4 py-2 rounded text-sm transition-colors transform hover:scale-105">
+          <button
+            onclick="declineCookies()"
+            class="border border-gray-600 hover:border-gray-500 px-4 py-2 rounded text-sm transition-colors transform hover:scale-105"
+          >
             Decline
           </button>
         </div>
@@ -45,37 +68,96 @@
     </div>
 
     <!-- Login/Register Modal -->
-    <div id="authModal" class="fixed inset-0 bg-black/50 z-50 hidden flex items-center justify-center">
+    <div
+      id="authModal"
+      class="fixed inset-0 bg-black/50 z-50 hidden flex items-center justify-center"
+    >
       <div class="bg-dark-light p-6 rounded-lg w-full max-w-md relative">
-        <button id="closeModal" class="absolute top-2 right-2 text-gray-400 hover:text-white">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        <button
+          id="closeModal"
+          class="absolute top-2 right-2 text-gray-400 hover:text-white"
+        >
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"
+            ></path>
           </svg>
         </button>
         <div id="loginForm" class="">
           <h3 class="text-2xl font-bold mb-4 text-center">Login</h3>
           <div class="space-y-4">
-            <input id="loginEmail" type="email" placeholder="Email" class="w-full p-2 rounded bg-dark text-white border border-gray-600 focus:outline-none focus:border-primary" />
-            <input id="loginPassword" type="password" placeholder="Password" class="w-full p-2 rounded bg-dark text-white border border-gray-600 focus:outline-none focus:border-primary" />
-            <button onclick="handleLogin()" class="w-full bg-primary hover:bg-primary/80 px-4 py-2 rounded transition-colors transform hover:scale-105">
+            <input
+              id="loginEmail"
+              type="email"
+              placeholder="Email"
+              class="w-full p-2 rounded bg-dark text-white border border-gray-600 focus:outline-none focus:border-primary"
+            />
+            <input
+              id="loginPassword"
+              type="password"
+              placeholder="Password"
+              class="w-full p-2 rounded bg-dark text-white border border-gray-600 focus:outline-none focus:border-primary"
+            />
+            <button
+              onclick="handleLogin()"
+              class="w-full bg-primary hover:bg-primary/80 px-4 py-2 rounded transition-colors transform hover:scale-105"
+            >
               Login
             </button>
             <p class="text-center text-sm text-gray-400">
-              Don't have an account? <a href="#" onclick="toggleForm('register')" class="text-primary hover:underline">Register</a>
+              Don't have an account?
+              <a
+                href="#"
+                onclick="toggleForm('register')"
+                class="text-primary hover:underline"
+                >Register</a
+              >
             </p>
           </div>
         </div>
         <div id="registerForm" class="hidden">
           <h3 class="text-2xl font-bold mb-4 text-center">Register</h3>
           <div class="space-y-4">
-            <input id="registerName" type="text" placeholder="Full Name" class="w-full p-2 rounded bg-dark text-white border border-gray-600 focus:outline-none focus:border-primary" />
-            <input id="registerEmail" type="email" placeholder="Email" class="w-full p-2 rounded bg-dark text-white border border-gray-600 focus:outline-none focus:border-primary" />
-            <input id="registerPassword" type="password" placeholder="Password" class="w-full p-2 rounded bg-dark text-white border border-gray-600 focus:outline-none focus:border-primary" />
-            <button onclick="handleRegister()" class="w-full bg-primary hover:bg-primary/80 px-4 py-2 rounded transition-colors transform hover:scale-105">
+            <input
+              id="registerName"
+              type="text"
+              placeholder="Full Name"
+              class="w-full p-2 rounded bg-dark text-white border border-gray-600 focus:outline-none focus:border-primary"
+            />
+            <input
+              id="registerEmail"
+              type="email"
+              placeholder="Email"
+              class="w-full p-2 rounded bg-dark text-white border border-gray-600 focus:outline-none focus:border-primary"
+            />
+            <input
+              id="registerPassword"
+              type="password"
+              placeholder="Password"
+              class="w-full p-2 rounded bg-dark text-white border border-gray-600 focus:outline-none focus:border-primary"
+            />
+            <button
+              onclick="handleRegister()"
+              class="w-full bg-primary hover:bg-primary/80 px-4 py-2 rounded transition-colors transform hover:scale-105"
+            >
               Register
             </button>
             <p class="text-center text-sm text-gray-400">
-              Already have an account? <a href="#" onclick="toggleForm('login')" class="text-primary hover:underline">Login</a>
+              Already have an account?
+              <a
+                href="#"
+                onclick="toggleForm('login')"
+                class="text-primary hover:underline"
+                >Login</a
+              >
             </p>
           </div>
         </div>
@@ -83,43 +165,99 @@
     </div>
 
     <!-- Navigation -->
-    <nav class="fixed top-0 left-0 right-0 bg-dark/95 backdrop-blur-sm border-b border-gray-800 z-40 animate-fade-in">
+    <nav
+      class="fixed top-0 left-0 right-0 bg-dark/95 backdrop-blur-sm border-b border-gray-800 z-40 animate-fade-in"
+    >
       <div class="container mx-auto px-4">
         <div class="flex items-center justify-between h-16">
           <div class="flex items-center space-x-2 flex-shrink-0">
             <a href="/" class="flex items-center space-x-2">
-              <img src="/assets/images/logo.png" alt="Eduflare Logo" class="h-10 w-10" />
+              <img
+                src="/assets/images/logo.png"
+                alt="Eduflare Logo"
+                class="h-10 w-10"
+              />
               <span class="text-xl font-bold text-primary">Eduflare</span>
             </a>
           </div>
           <div class="hidden md:flex justify-center space-x-6 flex-1">
-            <a href="/" class="hover:text-primary transition-colors transform hover:scale-105">Home</a>
-            <a href="/products/" class="hover:text-primary transition-colors transform hover:scale-105">Products</a>
-            <a href="/blog/" class="hover:text-primary transition-colors transform hover:scale-105">Blog</a>
-            <a href="/contact/" class="hover:text-primary transition-colors transform hover:scale-105">Contact</a>
+            <a
+              href="/"
+              class="hover:text-primary transition-colors transform hover:scale-105"
+              >Home</a
+            >
+            <a
+              href="/products/"
+              class="hover:text-primary transition-colors transform hover:scale-105"
+              >Products</a
+            >
+            <a
+              href="/blog/"
+              class="hover:text-primary transition-colors transform hover:scale-105"
+              >Blog</a
+            >
+            <a
+              href="/contact/"
+              class="hover:text-primary transition-colors transform hover:scale-105"
+              >Contact</a
+            >
           </div>
           <div class="flex items-center space-x-4 flex-shrink-0">
             <div id="userSection" class="hidden flex items-center">
               <span id="userName" class="text-sm"></span>
-              <button onclick="logout()" class="ml-2 text-sm text-red-400 hover:text-red-300 flex items-center transform hover:scale-105">
-                <svg class="w-5 h-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h3a3 3 0 013 3v1"></path>
+              <button
+                onclick="logout()"
+                class="ml-2 text-sm text-red-400 hover:text-red-300 flex items-center transform hover:scale-105"
+              >
+                <svg
+                  class="w-5 h-5 mr-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M17 16l4-4m0 0l-4-4m4 4H7m5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h3a3 3 0 013 3v1"
+                  ></path>
                 </svg>
                 Logout
               </button>
             </div>
             <div id="authSection">
-              <button onclick="showAuthModal('login')" class="bg-primary hover:bg-primary/80 px-4 py-2 rounded transition-colors transform hover:scale-105">Login</button>
+              <button
+                onclick="showAuthModal('login')"
+                class="bg-primary hover:bg-primary/80 px-4 py-2 rounded transition-colors transform hover:scale-105"
+              >
+                Login
+              </button>
             </div>
-            <button id="mobileMenuBtn" class="md:hidden transform hover:scale-105">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            <button
+              id="mobileMenuBtn"
+              class="md:hidden transform hover:scale-105"
+            >
+              <svg
+                class="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h16M4 18h16"
+                ></path>
               </svg>
             </button>
           </div>
         </div>
       </div>
-      <div id="mobileMenu" class="hidden md:hidden bg-dark-light border-t border-gray-800">
+      <div
+        id="mobileMenu"
+        class="hidden md:hidden bg-dark-light border-t border-gray-800"
+      >
         <div class="container mx-auto px-4 py-4 flex flex-col space-y-4">
           <a href="/" class="hover:text-primary">Home</a>
           <a href="/products/" class="hover:text-primary">Products</a>
@@ -131,294 +269,419 @@
 
     <!-- Article Header -->
     <article class="py-20">
-        <div class="container mx-auto px-4 max-w-4xl">
-            <div class="text-center mb-12">
-                <div class="text-accent mb-4">PSYCHOLOGY • MINDSET</div>
-                <h1 class="text-4xl md:text-5xl font-bold mb-6">Psychology of Competitive Gaming</h1>
-                <div class="flex items-center justify-center space-x-4 text-gray-400">
-                    <div class="flex items-center space-x-2">
-                        <img src="/assets/images/authors/coach-lisa.jpg" alt="Coach Lisa" class="w-8 h-8 rounded-full">
-                        <span>By Coach Lisa</span>
-                    </div>
-                    <span>•</span>
-                    <span>June 15, 2025</span>
-                    <span>•</span>
-                    <span>10 min read</span>
-                </div>
-                <a href="/blog/" class="text-gray-400 hover:text-primary transition-colors block mt-4">← Back to Blog</a>
+      <div class="container mx-auto px-4 max-w-4xl">
+        <div class="text-center mb-12">
+          <div class="text-accent mb-4">PSYCHOLOGY • MINDSET</div>
+          <h1 class="text-4xl md:text-5xl font-bold mb-6">
+            Psychology of Competitive Gaming
+          </h1>
+          <div class="flex items-center justify-center space-x-4 text-gray-400">
+            <div class="flex items-center space-x-2">
+              <img
+                src="/assets/images/authors/coach-lisa.jpg"
+                alt="Coach Lisa"
+                class="w-8 h-8 rounded-full"
+              />
+              <span>By Coach Lisa</span>
             </div>
-
-            <img src="/assets/images/blog/behind.avif" alt="Gaming Psychology" class="w-full rounded-xl mb-12">
-
-            <div class="prose prose-invert max-w-none">
-                <p class="text-xl text-gray-300 mb-8">
-                    Success in competitive gaming goes beyond mechanics. This guide explores mental strategies to overcome tilt, maintain focus, and perform under pressure in 2025.
-                </p>
-
-                <h2 class="text-3xl font-bold mb-6 text-primary">The Role of Mindset in Gaming</h2>
-                <p class="text-gray-300 mb-6">
-                    A strong mental game is crucial for consistent performance. Understanding how to manage emotions and stay focused can elevate your gameplay.
-                </p>
-
-                <h2 class="text-3xl font-bold mb-6 text-primary">Key Mental Strategies</h2>
-                
-                <h3 class="text-2xl font-semibold mb-4 text-accent">1. Managing Tilt</h3>
-                <p class="text-gray-300 mb-6">
-                    Tilt occurs when frustration impacts your decision-making. Take short breaks, practice deep breathing, and focus on the next play to reset your mindset.
-                </p>
-
-                <h3 class="text-2xl font-semibold mb-4 text-accent">2. Maintaining Focus</h3>
-                <p class="text-gray-300 mb-6">
-                    Minimize distractions and set clear in-game goals. Techniques like visualization can help you stay locked in during high-pressure moments.
-                </p>
-
-                <h3 class="text-2xl font-semibold mb-4 text-accent">3. Building Resilience</h3>
-                <p class="text-gray-300 mb-6">
-                    Learn from losses and treat them as opportunities for growth. A growth mindset helps you bounce back stronger after setbacks.
-                </p>
-
-                <h2 class="text-3xl font-bold mb-6 text-primary">Practical Exercises</h2>
-                <p class="text-gray-300 mb-6">
-                    Practice mindfulness meditation to improve focus. Keep a gaming journal to reflect on your performance and identify areas for improvement.
-                </p>
-
-                <h2 class="text-3xl font-bold mb-6 text-primary">Team Dynamics</h2>
-                <p class="text-gray-300 mb-6">
-                    Effective communication and positive team interactions enhance performance. Foster trust and clarity to improve synergy with teammates.
-                </p>
-
-                <h2 class="text-3xl font-bold mb-6 text-primary">Conclusion</h2>
-                <p class="text-gray-300 mb-6">
-                    A strong mental game is as important as mechanical skill in competitive gaming. Apply these strategies to unlock your full potential and excel in any title.
-                </p>
-
-                <div class="bg-primary/20 border border-primary rounded-xl p-6 mt-12">
-                    <h3 class="text-xl font-bold mb-4">Ready to Take Your Game to the Next Level?</h3>
-                    <p class="text-gray-300 mb-4">Get personalized coaching from our expert mindset coaches to build mental resilience and improve performance.</p>
-                    <button onclick="findCoach()" class="bg-primary hover:bg-primary/80 px-6 py-3 rounded-lg font-semibold transition-colors inline-block">
-                        Find a Mindset Coach
-                    </button>
-                </div>
-            </div>
+            <span>•</span>
+            <span>June 15, 2025</span>
+            <span>•</span>
+            <span>10 min read</span>
+          </div>
+          <a
+            href="/blog/"
+            class="text-gray-400 hover:text-primary transition-colors block mt-4"
+            >← Back to Blog</a
+          >
         </div>
+
+        <img
+          src="/assets/images/blog/behind.avif"
+          alt="Gaming Psychology"
+          class="w-full rounded-xl mb-12"
+        />
+
+        <div class="prose prose-invert max-w-none">
+          <p class="text-xl text-gray-300 mb-8">
+            Success in competitive gaming goes beyond mechanics. This guide
+            explores mental strategies to overcome tilt, maintain focus, and
+            perform under pressure in 2025.
+          </p>
+
+          <h2 class="text-3xl font-bold mb-6 text-primary">
+            The Role of Mindset in Gaming
+          </h2>
+          <p class="text-gray-300 mb-6">
+            A strong mental game is crucial for consistent performance.
+            Understanding how to manage emotions and stay focused can elevate
+            your gameplay.
+          </p>
+
+          <h2 class="text-3xl font-bold mb-6 text-primary">
+            Key Mental Strategies
+          </h2>
+
+          <h3 class="text-2xl font-semibold mb-4 text-accent">
+            1. Managing Tilt
+          </h3>
+          <p class="text-gray-300 mb-6">
+            Tilt occurs when frustration impacts your decision-making. Take
+            short breaks, practice deep breathing, and focus on the next play to
+            reset your mindset.
+          </p>
+
+          <h3 class="text-2xl font-semibold mb-4 text-accent">
+            2. Maintaining Focus
+          </h3>
+          <p class="text-gray-300 mb-6">
+            Minimize distractions and set clear in-game goals. Techniques like
+            visualization can help you stay locked in during high-pressure
+            moments.
+          </p>
+
+          <h3 class="text-2xl font-semibold mb-4 text-accent">
+            3. Building Resilience
+          </h3>
+          <p class="text-gray-300 mb-6">
+            Learn from losses and treat them as opportunities for growth. A
+            growth mindset helps you bounce back stronger after setbacks.
+          </p>
+
+          <h2 class="text-3xl font-bold mb-6 text-primary">
+            Practical Exercises
+          </h2>
+          <p class="text-gray-300 mb-6">
+            Practice mindfulness meditation to improve focus. Keep a gaming
+            journal to reflect on your performance and identify areas for
+            improvement.
+          </p>
+
+          <h2 class="text-3xl font-bold mb-6 text-primary">Team Dynamics</h2>
+          <p class="text-gray-300 mb-6">
+            Effective communication and positive team interactions enhance
+            performance. Foster trust and clarity to improve synergy with
+            teammates.
+          </p>
+
+          <h2 class="text-3xl font-bold mb-6 text-primary">Conclusion</h2>
+          <p class="text-gray-300 mb-6">
+            A strong mental game is as important as mechanical skill in
+            competitive gaming. Apply these strategies to unlock your full
+            potential and excel in any title.
+          </p>
+
+          <div class="bg-primary/20 border border-primary rounded-xl p-6 mt-12">
+            <h3 class="text-xl font-bold mb-4">
+              Ready to Take Your Game to the Next Level?
+            </h3>
+            <p class="text-gray-300 mb-4">
+              Get personalized coaching from our expert mindset coaches to build
+              mental resilience and improve performance.
+            </p>
+            <button
+              onclick="findCoach()"
+              class="bg-primary hover:bg-primary/80 px-6 py-3 rounded-lg font-semibold transition-colors inline-block"
+            >
+              Find a Mindset Coach
+            </button>
+          </div>
+        </div>
+      </div>
     </article>
 
     <!-- Related Articles -->
     <section class="py-20 bg-dark-light">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold mb-8 text-center">Related Articles</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-                <article class="bg-dark rounded-xl overflow-hidden">
-                    <img src="/assets/images/blog/val-blog.webp" alt="Valorant Guide" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-lg font-bold mb-2">Valorant Ranking Guide 2025</h3>
-                        <p class="text-gray-400 text-sm mb-4">Climb from Iron to Radiant</p>
-                        <a href="/blog/valorant-ranking-guide-2025/" class="text-primary hover:text-primary/80 text-sm">Read More →</a>
-                    </div>
-                </article>
-                
-                <article class="bg-dark rounded-xl overflow-hidden">
-                    <img src="/assets/images/blog/cs2 blog.avif" alt="CS2 Guide" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-lg font-bold mb-2">Best CS2 Crosshair Settings</h3>
-                        <p class="text-gray-400 text-sm mb-4">Optimize your crosshair for better accuracy</p>
-                        <a href="/blog/cs2-crosshair-settings-2025/" class="text-primary hover:text-primary/80 text-sm">Read More →</a>
-                    </div>
-                </article>
-                
-                <article class="bg-dark rounded-xl overflow-hidden">
-                    <img src="/assets/images/blog/apx=movement.jpg" alt="Apex Movement" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-lg font-bold mb-2">Advanced Apex Movement</h3>
-                        <p class="text-gray-400 text-sm mb-4">Master movement mechanics</p>
-                        <a href="/blog/apex-advanced-movement-guide/" class="text-primary hover:text-primary/80 text-sm">Read More →</a>
-                    </div>
-                </article>
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold mb-8 text-center">Related Articles</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <article class="bg-dark rounded-xl overflow-hidden">
+            <img
+              src="/assets/images/blog/val-blog.webp"
+              alt="Valorant Guide"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="text-lg font-bold mb-2">
+                Valorant Ranking Guide 2025
+              </h3>
+              <p class="text-gray-400 text-sm mb-4">
+                Climb from Iron to Radiant
+              </p>
+              <a
+                href="/blog/valorant-ranking-guide-2025/"
+                class="text-primary hover:text-primary/80 text-sm"
+                >Read More →</a
+              >
             </div>
+          </article>
+
+          <article class="bg-dark rounded-xl overflow-hidden">
+            <img
+              src="/assets/images/blog/cs2 blog.avif"
+              alt="CS2 Guide"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="text-lg font-bold mb-2">
+                Best CS2 Crosshair Settings
+              </h3>
+              <p class="text-gray-400 text-sm mb-4">
+                Optimize your crosshair for better accuracy
+              </p>
+              <a
+                href="/blog/cs2-crosshair-settings-2025/"
+                class="text-primary hover:text-primary/80 text-sm"
+                >Read More →</a
+              >
+            </div>
+          </article>
+
+          <article class="bg-dark rounded-xl overflow-hidden">
+            <img
+              src="/assets/images/blog/apx=movement.jpg"
+              alt="Apex Movement"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="text-lg font-bold mb-2">Advanced Apex Movement</h3>
+              <p class="text-gray-400 text-sm mb-4">
+                Master movement mechanics
+              </p>
+              <a
+                href="/blog/apex-advanced-movement-guide/"
+                class="text-primary hover:text-primary/80 text-sm"
+                >Read More →</a
+              >
+            </div>
+          </article>
         </div>
+      </div>
     </section>
 
     <!-- Footer -->
     <footer class="bg-dark-light border-t border-gray-800 py-12">
-        <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <div>
-                    <div class="flex items-center space-x-2 mb-4">
-                        <img src="/assets/images/logo.png" alt="Eduflare Logo" class="h-8 w-8">
-                        <span class="text-xl font-bold text-primary">Eduflare</span>
-                    </div>
-                    <p class="text-gray-400">We are not an affiliate agency. All products are sold independently through our platform.</p>
-                </div>
-                
-                <div>
-                    <h4 class="font-semibold mb-4">Quick Links</h4>
-                    <ul class="space-y-2 text-gray-400">
-                        <li><a href="/" class="hover:text-primary transition-colors">Home</a></li>
-                        <li><a href="/products/" class="hover:text-primary transition-colors">Products</a></li>
-                        <li><a href="/blog/" class="hover:text-primary transition-colors">Blog</a></li>
-                        <li><a href="/contact/" class="hover:text-primary transition-colors">Contact</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h4 class="font-semibold mb-4">Legal</h4>
-                    <ul class="space-y-2 text-gray-400">
-                        <li><a href="/privacy/" class="hover:text-primary transition-colors">Privacy Policy</a></li>
-                        <li><a href="/terms/" class="hover:text-primary transition-colors">Terms of Service</a></li>
-                        <li><a href="/cookies/" class="hover:text-primary transition-colors">Cookies Policy</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h4 class="font-semibold mb-4">Contact</h4>
-                    <ul class="space-y-2 text-gray-400">
-                        <li>Email: info@eduflare.org</li>
-                        <li>Phone: +1 555-123-4567</li>
-                    </ul>
-                </div>
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div>
+            <div class="flex items-center space-x-2 mb-4">
+              <img
+                src="/assets/images/logo.png"
+                alt="Eduflare Logo"
+                class="h-8 w-8"
+              />
+              <span class="text-xl font-bold text-primary">Eduflare</span>
             </div>
-            
-            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-                <p>&copy; 2025 Eduflare. All rights reserved.</p>
-                <p class="mt-2">We are not an affiliate agency. All products are sold independently through our platform.</p>
-            </div>
+            <p class="text-gray-400">
+              We are not an affiliate agency. All products are sold
+              independently through our platform.
+            </p>
+          </div>
+
+          <div>
+            <h4 class="font-semibold mb-4">Quick Links</h4>
+            <ul class="space-y-2 text-gray-400">
+              <li>
+                <a href="/" class="hover:text-primary transition-colors"
+                  >Home</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/products/"
+                  class="hover:text-primary transition-colors"
+                  >Products</a
+                >
+              </li>
+              <li>
+                <a href="/blog/" class="hover:text-primary transition-colors"
+                  >Blog</a
+                >
+              </li>
+              <li>
+                <a href="/contact/" class="hover:text-primary transition-colors"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="font-semibold mb-4">Legal</h4>
+            <ul class="space-y-2 text-gray-400">
+              <li>
+                <a href="/privacy/" class="hover:text-primary transition-colors"
+                  >Privacy Policy</a
+                >
+              </li>
+              <li>
+                <a href="/terms/" class="hover:text-primary transition-colors"
+                  >Terms of Service</a
+                >
+              </li>
+              <li>
+                <a href="/cookies/" class="hover:text-primary transition-colors"
+                  >Cookies Policy</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="font-semibold mb-4">Contact</h4>
+            <ul class="space-y-2 text-gray-400">
+              <li>Email: info@eduflare.org</li>
+              <li>Phone: +1 555-123-4567</li>
+            </ul>
+          </div>
         </div>
+
+        <div
+          class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400"
+        >
+          <p>&copy; 2025 Eduflare. All rights reserved.</p>
+          <p class="mt-2">
+            We are not an affiliate agency. All products are sold independently
+            through our platform.
+          </p>
+        </div>
+      </div>
     </footer>
 
     <script src="/assets/js/main.js"></script>
     <script>
-        const userSection = document.getElementById('userSection');
-        const authSection = document.getElementById('authSection');
-        const userName = document.getElementById('userName');
-        const authModal = document.getElementById('authModal');
-        const loginForm = document.getElementById('loginForm');
-        const registerForm = document.getElementById('registerForm');
-        const closeModal = document.getElementById('closeModal');
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const mobileMenu = document.getElementById('mobileMenu');
-        let user;
+      const userSection = document.getElementById("userSection");
+      const authSection = document.getElementById("authSection");
+      const userName = document.getElementById("userName");
+      const authModal = document.getElementById("authModal");
+      const loginForm = document.getElementById("loginForm");
+      const registerForm = document.getElementById("registerForm");
+      const closeModal = document.getElementById("closeModal");
+      const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+      const mobileMenu = document.getElementById("mobileMenu");
+      let user;
 
-        function loadUser() {
-            try {
-                user = JSON.parse(localStorage.getItem('user'));
-                console.log('User data loaded:', user);
-            } catch (e) {
-                console.error('Error parsing user data:', e);
-                user = null;
-            }
-            if (user && user.name && user.email) {
-                userSection.classList.remove('hidden');
-                authSection.classList.add('hidden');
-                userName.textContent = `Welcome, ${user.name}`;
-            } else {
-                userSection.classList.add('hidden');
-                authSection.classList.remove('hidden');
-            }
+      function loadUser() {
+        try {
+          user = JSON.parse(localStorage.getItem("user"));
+          console.log("User data loaded:", user);
+        } catch (e) {
+          console.error("Error parsing user data:", e);
+          user = null;
         }
-
-        function showAuthModal(formType) {
-            authModal.classList.remove('hidden');
-            toggleForm(formType);
+        if (user && user.name && user.email) {
+          userSection.classList.remove("hidden");
+          authSection.classList.add("hidden");
+          userName.textContent = `Welcome, ${user.name}`;
+        } else {
+          userSection.classList.add("hidden");
+          authSection.classList.remove("hidden");
         }
+      }
 
-        closeModal.addEventListener('click', () => {
-            authModal.classList.add('hidden');
-            loginForm.classList.remove('hidden');
-            registerForm.classList.add('hidden');
-        });
+      function showAuthModal(formType) {
+        authModal.classList.remove("hidden");
+        toggleForm(formType);
+      }
 
-        function toggleForm(formType) {
-            if (formType === 'login') {
-                loginForm.classList.remove('hidden');
-                registerForm.classList.add('hidden');
-            } else {
-                loginForm.classList.add('hidden');
-                registerForm.classList.remove('hidden');
-            }
+      closeModal.addEventListener("click", () => {
+        authModal.classList.add("hidden");
+        loginForm.classList.remove("hidden");
+        registerForm.classList.add("hidden");
+      });
+
+      function toggleForm(formType) {
+        if (formType === "login") {
+          loginForm.classList.remove("hidden");
+          registerForm.classList.add("hidden");
+        } else {
+          loginForm.classList.add("hidden");
+          registerForm.classList.remove("hidden");
         }
+      }
 
-        function handleLogin() {
-            const email = document.getElementById('loginEmail').value;
-            const password = document.getElementById('loginPassword').value;
-            if (email && password) {
-                user = { name: email.split('@')[0], email };
-                localStorage.setItem('user', JSON.stringify(user));
-                authModal.classList.add('hidden');
-                loadUser();
-                if (window.redirectAfterLogin) {
-                    window.location.href = '/mindset/index.html';
-                    window.redirectAfterLogin = false;
-                }
-                document.getElementById('loginEmail').value = '';
-                document.getElementById('loginPassword').value = '';
-            } else {
-                alert('Please fill in all fields');
-            }
+      function handleLogin() {
+        const email = document.getElementById("loginEmail").value;
+        const password = document.getElementById("loginPassword").value;
+        if (email && password) {
+          user = { name: email.split("@")[0], email };
+          localStorage.setItem("user", JSON.stringify(user));
+          authModal.classList.add("hidden");
+          loadUser();
+          if (window.redirectAfterLogin) {
+            window.location.href = "/mindset/index.html";
+            window.redirectAfterLogin = false;
+          }
+          document.getElementById("loginEmail").value = "";
+          document.getElementById("loginPassword").value = "";
+        } else {
+          alert("Please fill in all fields");
         }
+      }
 
-        function handleRegister() {
-            const name = document.getElementById('registerName').value;
-            const email = document.getElementById('registerEmail').value;
-            const password = document.getElementById('registerPassword').value;
-            if (name && email && password) {
-                user = { name, email };
-                localStorage.setItem('user', JSON.stringify(user));
-                authModal.classList.add('hidden');
-                loadUser();
-                if (window.redirectAfterLogin) {
-                    window.location.href = '/mindset/index.html';
-                    window.redirectAfterLogin = false;
-                }
-                document.getElementById('registerName').value = '';
-                document.getElementById('registerEmail').value = '';
-                document.getElementById('registerPassword').value = '';
-            } else {
-                alert('Please fill in all fields');
-            }
+      function handleRegister() {
+        const name = document.getElementById("registerName").value;
+        const email = document.getElementById("registerEmail").value;
+        const password = document.getElementById("registerPassword").value;
+        if (name && email && password) {
+          user = { name, email };
+          localStorage.setItem("user", JSON.stringify(user));
+          authModal.classList.add("hidden");
+          loadUser();
+          if (window.redirectAfterLogin) {
+            window.location.href = "/mindset/index.html";
+            window.redirectAfterLogin = false;
+          }
+          document.getElementById("registerName").value = "";
+          document.getElementById("registerEmail").value = "";
+          document.getElementById("registerPassword").value = "";
+        } else {
+          alert("Please fill in all fields");
         }
+      }
 
-        window.findCoach = () => {
-            console.log('Finding Mindset coach');
-            try {
-                user = JSON.parse(localStorage.getItem('user'));
-            } catch (e) {
-                console.error('Error parsing user data:', e);
-                user = null;
-            }
-            if (user && user.name && user.email) {
-                window.location.href = '/coaches/mindset.html';
-            } else {
-                window.redirectAfterLogin = true;
-                showAuthModal('login');
-            }
-        };
-
-        window.logout = () => {
-            localStorage.removeItem('user');
-            user = null;
-            loadUser();
-        };
-
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        function acceptCookies() {
-            localStorage.setItem('cookiesAccepted', 'true');
-            document.getElementById('cookieConsent').classList.add('hidden');
+      window.findCoach = () => {
+        console.log("Finding Mindset coach");
+        try {
+          user = JSON.parse(localStorage.getItem("user"));
+        } catch (e) {
+          console.error("Error parsing user data:", e);
+          user = null;
         }
-
-        function declineCookies() {
-            localStorage.setItem('cookiesAccepted', 'false');
-            document.getElementById('cookieConsent').classList.add('hidden');
+        if (user && user.name && user.email) {
+          window.location.href = "/coaches/mindset.html";
+        } else {
+          window.redirectAfterLogin = true;
+          showAuthModal("login");
         }
+      };
 
-        window.addEventListener('load', () => {
-            if (!localStorage.getItem('cookiesAccepted')) {
-                document.getElementById('cookieConsent').classList.remove('hidden');
-            }
-            loadUser();
-        });
+      window.logout = () => {
+        localStorage.removeItem("user");
+        user = null;
+        loadUser();
+      };
+
+      mobileMenuBtn.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
+
+      function acceptCookies() {
+        localStorage.setItem("cookiesAccepted", "true");
+        document.getElementById("cookieConsent").classList.add("hidden");
+      }
+
+      function declineCookies() {
+        localStorage.setItem("cookiesAccepted", "false");
+        document.getElementById("cookieConsent").classList.add("hidden");
+      }
+
+      window.addEventListener("load", () => {
+        if (!localStorage.getItem("cookiesAccepted")) {
+          document.getElementById("cookieConsent").classList.remove("hidden");
+        }
+        loadUser();
+      });
     </script>
-</body>
+  </body>
 </html>
