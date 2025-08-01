@@ -96,6 +96,57 @@
       </div>
     </div>
 
+    <!-- Purchase Modal -->
+    <div id="purchaseModal" class="fixed inset-0 bg-black/50 z-50 hidden flex items-center justify-center">
+      <div class="bg-dark-light p-6 rounded-lg w-full max-w-md relative">
+        <button id="closePurchaseModal" class="absolute top-2 right-2 text-gray-400 hover:text-white">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+        <div id="purchaseForm">
+          <h3 class="text-2xl font-bold mb-4 text-center">Purchase Details</h3>
+          <div class="space-y-4">
+            <p id="productName" class="text-lg font-semibold text-accent"></p>
+            <input id="purchaseName" type="text" placeholder="Full Name" class="w-full p-2 rounded bg-dark text-white border border-gray-600 focus:outline-none focus:border-primary" />
+            <input id="purchaseEmail" type="email" placeholder="Email" class="w-full p-2 rounded bg-dark text-white border border-gray-600 focus:outline-none focus:border-primary" />
+            <select id="paymentMethod" class="w-full p-2 rounded bg-dark text-white border border-gray-600 focus:outline-none focus:border-primary">
+              <option value="">Select Payment Method</option>
+              <option value="credit_card">Credit Card</option>
+              <option value="paypal">PayPal</option>
+              <option value="crypto">Cryptocurrency</option>
+            </select>
+            <button onclick="submitPurchase()" class="w-full bg-primary hover:bg-primary/80 px-4 py-2 rounded transition-colors transform hover:scale-105">
+              Submit Purchase
+            </button>
+          </div>
+        </div>
+        <div id="confirmationMessage" class="hidden">
+          <h3 class="text-2xl font-bold mb-4 text-center text-accent">Purchase Confirmed!</h3>
+          <p class="text-gray-300 mb-4 text-center">Details have been sent to your email.</p>
+          <button onclick="closeConfirmation()" class="w-full bg-primary hover:bg-primary/80 px-4 py-2 rounded transition-colors transform hover:scale-105">
+            OK
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Error Modal -->
+    <div id="errorModal" class="fixed inset-0 bg-black/50 z-50 hidden flex items-center justify-center">
+      <div class="bg-dark-light p-6 rounded-lg w-full max-w-sm relative">
+        <button id="closeErrorModal" class="absolute top-2 right-2 text-gray-400 hover:text-white">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+        <h3 class="text-xl font-bold mb-4 text-center text-accent">Error</h3>
+        <p class="text-gray-300 mb-4 text-center">Please fill in all fields.</p>
+        <button onclick="closeErrorModal()" class="w-full bg-primary hover:bg-primary/80 px-4 py-2 rounded transition-colors transform hover:scale-105">
+          OK
+        </button>
+      </div>
+    </div>
+
     <!-- Navigation -->
     <nav
       class="fixed top-0 left-0 right-0 bg-dark/95 backdrop-blur-sm border-b border-gray-800 z-40 animate-fade-in"
@@ -431,10 +482,17 @@
         const loginForm = document.getElementById('loginForm');
         const registerForm = document.getElementById('registerForm');
         const closeModal = document.getElementById('closeModal');
+        const purchaseModal = document.getElementById('purchaseModal');
+        const closePurchaseModal = document.getElementById('closePurchaseModal');
+        const purchaseForm = document.getElementById('purchaseForm');
+        const confirmationMessage = document.getElementById('confirmationMessage');
+        const productNameDisplay = document.getElementById('productName');
+        const errorModal = document.getElementById('errorModal');
+        const closeErrorModalBtn = document.getElementById('closeErrorModal');
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const mobileMenu = document.getElementById('mobileMenu');
         let user;
-        let redirectParams = null;
+        let currentProduct = null;
 
         // Load user from localStorage
         function loadUser() {
@@ -484,15 +542,13 @@
             const email = document.getElementById('loginEmail').value;
             const password = document.getElementById('loginPassword').value;
             if (email && password) {
-                // Mock login (replace with actual authentication logic)
                 user = { name: email.split('@')[0], email };
                 localStorage.setItem('user', JSON.stringify(user));
                 authModal.classList.add('hidden');
                 loadUser();
-                if (redirectParams) {
-                    window.location.href = `/checkout/index.html?product=${encodeURIComponent(redirectParams.product)}`;
+                if (currentProduct) {
+                    showPurchaseModal(currentProduct);
                 }
-                // Clear form
                 document.getElementById('loginEmail').value = '';
                 document.getElementById('loginPassword').value = '';
             } else {
@@ -506,21 +562,71 @@
             const email = document.getElementById('registerEmail').value;
             const password = document.getElementById('registerPassword').value;
             if (name && email && password) {
-                // Mock register (replace with actual registration logic)
                 user = { name, email };
                 localStorage.setItem('user', JSON.stringify(user));
                 authModal.classList.add('hidden');
                 loadUser();
-                if (redirectParams) {
-                    window.location.href = `/checkout/index.html?product=${encodeURIComponent(redirectParams.product)}`;
+                if (currentProduct) {
+                    showPurchaseModal(currentProduct);
                 }
-                // Clear form
                 document.getElementById('registerName').value = '';
                 document.getElementById('registerEmail').value = '';
                 document.getElementById('registerPassword').value = '';
             } else {
                 alert('Please fill in all fields');
             }
+        }
+
+        // Show purchase modal
+        function showPurchaseModal(productName) {
+            currentProduct = productName;
+            productNameDisplay.textContent = `Product: ${productName}`;
+            purchaseModal.classList.remove('hidden');
+            purchaseForm.classList.remove('hidden');
+            confirmationMessage.classList.add('hidden');
+            document.getElementById('purchaseName').value = user ? user.name : '';
+            document.getElementById('purchaseEmail').value = user ? user.email : '';
+            document.getElementById('paymentMethod').value = '';
+        }
+
+        // Close purchase modal
+        closePurchaseModal.addEventListener('click', () => {
+            purchaseModal.classList.add('hidden');
+            purchaseForm.classList.remove('hidden');
+            confirmationMessage.classList.add('hidden');
+            currentProduct = null;
+        });
+
+        // Show error modal
+        function showErrorModal() {
+            errorModal.classList.remove('hidden');
+        }
+
+        // Close error modal
+        function closeErrorModal() {
+            errorModal.classList.add('hidden');
+        }
+
+        closeErrorModalBtn.addEventListener('click', closeErrorModal);
+
+        // Submit purchase
+        function submitPurchase() {
+            const name = document.getElementById('purchaseName').value;
+            const email = document.getElementById('purchaseEmail').value;
+            const paymentMethod = document.getElementById('paymentMethod').value;
+            if (name && email && paymentMethod) {
+                console.log(`Purchase submitted: ${currentProduct}, Name: ${name}, Email: ${email}, Payment: ${paymentMethod}`);
+                purchaseForm.classList.add('hidden');
+                confirmationMessage.classList.remove('hidden');
+            } else {
+                showErrorModal();
+            }
+        }
+
+        // Close confirmation and redirect
+        function closeConfirmation() {
+            purchaseModal.classList.add('hidden');
+            window.location.href = '/products/';
         }
 
         // Buy Product
@@ -533,9 +639,9 @@
                 user = null;
             }
             if (user && user.name && user.email) {
-                window.location.href = `/checkout/index.html?product=${encodeURIComponent(productName)}`;
+                showPurchaseModal(productName);
             } else {
-                redirectParams = { product: productName };
+                currentProduct = productName;
                 showAuthModal('login');
             }
         };
