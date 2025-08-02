@@ -1,32 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Terms of Service - Eduflare Gaming Coaching Platform</title>
-    <meta name="description" content="Read Eduflare's terms of service to understand the rules and guidelines for using our gaming coaching platform and services.">
-    <meta name="keywords" content="eduflare terms of service, gaming coaching terms, platform rules, user agreement, esports training terms">
-    <link rel="canonical" href="https://eduflare.org/terms/">
-    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Eduflare: Terms of Service</title>
+    <meta
+      name="description"
+      content="Read Eduflare's terms of service for rules and guidelines on using our gaming coaching platform."
+    />
+    <meta
+      name="keywords"
+      content="eduflare terms of service, gaming coaching terms, platform rules, user agreement, esports training terms, coaching platform policy, terms and conditions, gaming services terms, online coaching rules, eduflare policy"
+    />
+    <link rel="canonical" href="https://eduflare.org/terms/" />
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico" />
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/style.css" />
     <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#6366f1',
-                        secondary: '#8b5cf6',
-                        accent: '#f59e0b',
-                        dark: '#0f172a',
-                        'dark-light': '#1e293b'
-                    }
-                }
-            }
-        }
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#6366f1",
+              secondary: "#8b5cf6",
+              accent: "#f59e0b",
+              dark: "#0f172a",
+              "dark-light": "#1e293b",
+            },
+          },
+        },
+      };
     </script>
-</head>
-<body class="bg-dark text-white">
+  </head>
+  <body class="bg-dark text-white">
     <!-- Cookie Consent Banner -->
     <div
       id="cookieConsent"
@@ -57,24 +63,59 @@
     </div>
 
     <!-- Login/Register Modal -->
-    <div id="authModal" class="fixed inset-0 bg-black/50 z-50 hidden flex items-center justify-center">
+    <div
+      id="authModal"
+      class="fixed inset-0 bg-black/50 z-50 hidden flex items-center justify-center"
+    >
       <div class="bg-dark-light p-6 rounded-lg w-full max-w-md relative">
-        <button id="closeModal" class="absolute top-2 right-2 text-gray-400 hover:text-white">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        <button
+          id="closeModal"
+          class="absolute top-2 right-2 text-gray-400 hover:text-white"
+        >
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"
+            ></path>
           </svg>
         </button>
         <!-- Login Form -->
         <div id="loginForm" class="">
           <h3 class="text-2xl font-bold mb-4 text-center">Login</h3>
           <div class="space-y-4">
-            <input id="loginEmail" type="email" placeholder="Email" class="w-full p-2 rounded bg-dark text-white border border-gray-600 focus:outline-none focus:border-primary" />
-            <input id="loginPassword" type="password" placeholder="Password" class="w-full p-2 rounded bg-dark text-white border border-gray-600 focus:outline-none focus:border-primary" />
-            <button onclick="handleLogin()" class="w-full bg-primary hover:bg-primary/80 px-4 py-2 rounded transition-colors transform hover:scale-105">
+            <input
+              id="loginEmail"
+              type="email"
+              placeholder="Email"
+              class="w-full p-2 rounded bg-dark text-white border border-gray-600 focus:outline-none focus:border-primary"
+            />
+            <input
+              id="loginPassword"
+              type="password"
+              placeholder="Password"
+              class="w-full p-2 rounded bg-dark text-white border border-gray-600 focus:outline-none focus:border-primary"
+            />
+            <button
+              onclick="handleLogin()"
+              class="w-full bg-primary hover:bg-primary/80 px-4 py-2 rounded transition-colors transform hover:scale-105"
+            >
               Login
             </button>
             <p class="text-center text-sm text-gray-400">
-              Don't have an account? <a href="javascript:void(0)" onclick="toggleForm('register')" class="text-primary hover:underline">Register</a>
+              Don't have an account?
+              <a
+                href="javascript:void(0)"
+                onclick="toggleForm('register')"
+                class="text-primary hover:underline"
+                >Register</a
+              >
             </p>
           </div>
         </div>
@@ -82,14 +123,38 @@
         <div id="registerForm" class="hidden">
           <h3 class="text-2xl font-bold mb-4 text-center">Register</h3>
           <div class="space-y-4">
-            <input id="registerName" type="text" placeholder="Full Name" class="w-full p-2 rounded bg-dark text-white border border-gray-600 focus:outline-none focus:border-primary" />
-            <input id="registerEmail" type="email" placeholder="Email" class="w-full p-2 rounded bg-dark text-white border border-gray-600 focus:outline-none focus:border-primary" />
-            <input id="registerPassword" type="password" placeholder="Password" class="w-full p-2 rounded bg-dark text-white border border-gray-600 focus:outline-none focus:border-primary" />
-            <button onclick="handleRegister()" class="w-full bg-primary hover:bg-primary/80 px-4 py-2 rounded transition-colors transform hover:scale-105">
+            <input
+              id="registerName"
+              type="text"
+              placeholder="Full Name"
+              class="w-full p-2 rounded bg-dark text-white border border-gray-600 focus:outline-none focus:border-primary"
+            />
+            <input
+              id="registerEmail"
+              type="email"
+              placeholder="Email"
+              class="w-full p-2 rounded bg-dark text-white border border-gray-600 focus:outline-none focus:border-primary"
+            />
+            <input
+              id="registerPassword"
+              type="password"
+              placeholder="Password"
+              class="w-full p-2 rounded bg-dark text-white border border-gray-600 focus:outline-none focus:border-primary"
+            />
+            <button
+              onclick="handleRegister()"
+              class="w-full bg-primary hover:bg-primary/80 px-4 py-2 rounded transition-colors transform hover:scale-105"
+            >
               Register
             </button>
             <p class="text-center text-sm text-gray-400">
-              Already have an account? <a href="javascript:void(0)" onclick="toggleForm('login')" class="text-primary hover:underline">Login</a>
+              Already have an account?
+              <a
+                href="javascript:void(0)"
+                onclick="toggleForm('login')"
+                class="text-primary hover:underline"
+                >Login</a
+              >
             </p>
           </div>
         </div>
@@ -116,10 +181,26 @@
 
           <!-- Center: Menu -->
           <div class="hidden md:flex justify-center space-x-6 flex-1">
-            <a href="/" class="hover:text-primary transition-colors transform hover:scale-105">Home</a>
-            <a href="/products/" class="hover:text-primary transition-colors transform hover:scale-105">Products</a>
-            <a href="/blog/" class="hover:text-primary transition-colors transform hover:scale-105">Blog</a>
-            <a href="/contact/" class="hover:text-primary transition-colors transform hover:scale-105">Contact</a>
+            <a
+              href="/"
+              class="hover:text-primary transition-colors transform hover:scale-105"
+              >Home</a
+            >
+            <a
+              href="/products/"
+              class="hover:text-primary transition-colors transform hover:scale-105"
+              >Products</a
+            >
+            <a
+              href="/blog/"
+              class="hover:text-primary transition-colors transform hover:scale-105"
+              >Blog</a
+            >
+            <a
+              href="/contact/"
+              class="hover:text-primary transition-colors transform hover:scale-105"
+              >Contact</a
+            >
           </div>
 
           <!-- Right: Auth & Mobile Menu -->
@@ -130,8 +211,18 @@
                 onclick="logout()"
                 class="ml-2 text-sm text-red-400 hover:text-red-300 flex items-center transform hover:scale-105"
               >
-                <svg class="w-5 h-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h3a3 3 0 013 3v1"></path>
+                <svg
+                  class="w-5 h-5 mr-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M17 16l4-4m0 0l-4-4m4 4H7m5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h3a3 3 0 013 3v1"
+                  ></path>
                 </svg>
                 Logout
               </button>
@@ -140,9 +231,14 @@
               <button
                 onclick="showAuthModal('login')"
                 class="bg-primary hover:bg-primary/80 px-4 py-2 rounded transition-colors transform hover:scale-105"
-              >Login</button>
+              >
+                Login
+              </button>
             </div>
-            <button id="mobileMenuBtn" class="md:hidden transform hover:scale-105">
+            <button
+              id="mobileMenuBtn"
+              class="md:hidden transform hover:scale-105"
+            >
               <svg
                 class="w-6 h-6"
                 fill="none"
@@ -161,7 +257,10 @@
         </div>
       </div>
       <!-- Mobile Menu -->
-      <div id="mobileMenu" class="hidden md:hidden bg-dark-light border-t border-gray-800">
+      <div
+        id="mobileMenu"
+        class="hidden md:hidden bg-dark-light border-t border-gray-800"
+      >
         <div class="container mx-auto px-4 py-4 flex flex-col space-y-4">
           <a href="/" class="hover:text-primary">Home</a>
           <a href="/products/" class="hover:text-primary">Products</a>
@@ -173,338 +272,490 @@
 
     <!-- Terms of Service Content -->
     <section class="py-20">
-        <div class="container mx-auto px-4 max-w-4xl">
-            <div class="text-center mb-12">
-                <h1 class="text-4xl md:text-5xl font-bold mb-4">Terms of Service</h1>
-                <p class="text-gray-400">Last updated: January 2025</p>
-            </div>
-
-            <div class="bg-dark-light rounded-xl p-8 space-y-8">
-                <section>
-                    <h2 class="text-2xl font-bold mb-4 text-primary">1. Acceptance of Terms</h2>
-                    <p class="text-gray-300 mb-4">
-                        By accessing and using the Eduflare gaming coaching platform, you accept and agree to be bound by the terms and provision of this agreement. If you do not agree to abide by the above, please do not use this service.
-                    </p>
-                    <p class="text-gray-300 mb-4">
-                        These Terms of Service constitute a legally binding agreement between you and Eduflare regarding your use of our platform, services, and any related software, mobile applications, or other services we may provide.
-                    </p>
-                    <p class="text-gray-300">
-                        We reserve the right to modify these terms at any time, and such modifications shall be effective immediately upon posting. Your continued use of the service after any such changes constitutes your acceptance of the new Terms of Service.
-                    </p>
-                </section>
-
-                <section>
-                    <h2 class="text-2xl font-bold mb-4 text-primary">2. Description of Service</h2>
-                    <p class="text-gray-300 mb-4">
-                        Eduflare provides an online platform that connects gamers with professional gaming coaches for personalized training sessions. Our services include one-on-one coaching, group sessions, educational content, and performance tracking tools.
-                    </p>
-                    <p class="text-gray-300 mb-4">
-                        We offer coaching services for various popular games including but not limited to Valorant, Counter-Strike 2, League of Legends, Dota 2, and Apex Legends. Our coaches are experienced players who have demonstrated expertise in their respective games.
-                    </p>
-                    <p class="text-gray-300">
-                        The platform also includes features such as session scheduling, payment processing, progress tracking, and communication tools to facilitate effective coaching relationships.
-                    </p>
-                </section>
-
-                <section>
-                    <h2 class="text-2xl font-bold mb-4 text-primary">3. User Accounts and Registration</h2>
-                    <p class="text-gray-300 mb-4">
-                        To access certain features of our platform, you must create an account by providing accurate and complete information. You are responsible for maintaining the confidentiality of your account credentials and for all activities that occur under your account.
-                    </p>
-                    <p class="text-gray-300 mb-4">
-                        You must be at least 13 years old to create an account. If you are under 18, you must have parental consent to use our services. You agree to notify us immediately of any unauthorized use of your account.
-                    </p>
-                    <p class="text-gray-300">
-                        We reserve the right to suspend or terminate accounts that violate these terms or engage in fraudulent, abusive, or illegal activities.
-                    </p>
-                </section>
-
-                <section>
-                    <h2 class="text-2xl font-bold mb-4 text-primary">4. Payment Terms and Refund Policy</h2>
-                    <p class="text-gray-300 mb-4">
-                        Payment for coaching services is required in advance through our secure payment system. We accept major credit cards and other payment methods as indicated on our platform. All prices are in USD unless otherwise specified.
-                    </p>
-                    <p class="text-gray-300 mb-4">
-                        Refunds may be available under certain circumstances, such as coach unavailability or technical issues that prevent session completion. Refund requests must be submitted within 24 hours of the scheduled session and will be reviewed on a case-by-case basis.
-                    </p>
-                    <p class="text-gray-300 mb-4">
-                        We reserve the right to change our pricing at any time. Price changes will not affect sessions already purchased but will apply to future bookings.
-                    </p>
-                    <p class="text-gray-300">
-                        Chargebacks or payment disputes must be resolved directly with us before involving financial institutions. Unauthorized chargebacks may result in account suspension.
-                    </p>
-                </section>
-
-                <section>
-                    <h2 class="text-2xl font-bold mb-4 text-primary">5. User Conduct and Prohibited Activities</h2>
-                    <p class="text-gray-300 mb-4">
-                        Users must conduct themselves respectfully and professionally when interacting with coaches and other users. Harassment, discrimination, or abusive behavior will not be tolerated and may result in immediate account termination.
-                    </p>
-                    <p class="text-gray-300 mb-4">
-                        Prohibited activities include but are not limited to: sharing account credentials, attempting to circumvent payment systems, using the platform for illegal activities, sharing inappropriate content, or attempting to contact coaches outside of our platform for services.
-                    </p>
-                    <p class="text-gray-300 mb-4">
-                        Users are prohibited from recording coaching sessions without explicit consent from all parties involved. Any recorded content must comply with applicable privacy laws and platform guidelines.
-                    </p>
-                    <p class="text-gray-300">
-                        We reserve the right to monitor user activity and communications to ensure compliance with these terms and to maintain a safe environment for all users.
-                    </p>
-                </section>
-
-                <section>
-                    <h2 class="text-2xl font-bold mb-4 text-primary">6. Coach Responsibilities and Standards</h2>
-                    <p class="text-gray-300 mb-4">
-                        Our coaches are independent contractors who have agreed to maintain high standards of professionalism and expertise. While we vet our coaches, we do not guarantee specific outcomes or improvements from coaching sessions.
-                    </p>
-                    <p class="text-gray-300 mb-4">
-                        Coaches are expected to arrive on time for scheduled sessions, provide constructive feedback, and maintain appropriate professional boundaries. Any concerns about coach conduct should be reported to our support team immediately.
-                    </p>
-                    <p class="text-gray-300">
-                        We are not responsible for the actions or advice of individual coaches outside of our platform guidelines, though we will investigate and address any reported violations of our standards.
-                    </p>
-                </section>
-
-                <section>
-                    <h2 class="text-2xl font-bold mb-4 text-primary">7. Intellectual Property Rights</h2>
-                    <p class="text-gray-300 mb-4">
-                        All content on the Eduflare platform, including but not limited to text, graphics, logos, images, software, and design elements, is the property of Eduflare or its licensors and is protected by copyright and other intellectual property laws.
-                    </p>
-                    <p class="text-gray-300 mb-4">
-                        Users retain ownership of any content they create or upload to the platform, but grant Eduflare a non-exclusive license to use such content for platform operations and improvement purposes.
-                    </p>
-                    <p class="text-gray-300">
-                        You may not reproduce, distribute, modify, or create derivative works of our platform content without explicit written permission from Eduflare.
-                    </p>
-                </section>
-
-                <section>
-                    <h2 class="text-2xl font-bold mb-4 text-primary">8. Privacy and Data Protection</h2>
-                    <p class="text-gray-300 mb-4">
-                        Your privacy is important to us. Our collection and use of personal information is governed by our Privacy Policy, which is incorporated into these terms by reference.
-                    </p>
-                    <p class="text-gray-300">
-                        By using our services, you consent to the collection and use of your information as described in our Privacy Policy and agree to our data processing practices.
-                    </p>
-                </section>
-
-                <section>
-                    <h2 class="text-2xl font-bold mb-4 text-primary">9. Limitation of Liability</h2>
-                    <p class="text-gray-300 mb-4">
-                        Eduflare provides its services on an "as is" and "as available" basis. We make no warranties, express or implied, regarding the platform's functionality, availability, or the quality of coaching services.
-                    </p>
-                    <p class="text-gray-300 mb-4">
-                        To the maximum extent permitted by law, Eduflare shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of our services.
-                    </p>
-                    <p class="text-gray-300">
-                        Our total liability for any claims related to our services shall not exceed the amount you paid for the specific service giving rise to the claim.
-                    </p>
-                </section>
-
-                <section>
-                    <h2 class="text-2xl font-bold mb-4 text-primary">10. Termination</h2>
-                    <p class="text-gray-300 mb-4">
-                        Either party may terminate this agreement at any time. You may delete your account through your account settings or by contacting our support team.
-                    </p>
-                    <p class="text-gray-300 mb-4">
-                        We reserve the right to suspend or terminate your account immediately if you violate these terms or engage in activities that harm our platform or other users.
-                    </p>
-                    <p class="text-gray-300">
-                        Upon termination, your right to use our services will cease immediately, though certain provisions of these terms will survive termination.
-                    </p>
-                </section>
-
-                <section>
-                    <h2 class="text-2xl font-bold mb-4 text-primary">11. Governing Law and Dispute Resolution</h2>
-                    <p class="text-gray-300 mb-4">
-                        These terms shall be governed by and construed in accordance with the laws of the jurisdiction where Eduflare is incorporated, without regard to conflict of law principles.
-                    </p>
-                    <p class="text-gray-300">
-                        Any disputes arising from these terms or your use of our services shall be resolved through binding arbitration, except where prohibited by law.
-                    </p>
-                </section>
-
-                <section>
-                    <h2 class="text-2xl font-bold mb-4 text-primary">12. Contact Information</h2>
-                    <p class="text-gray-300">
-                        If you have any questions about these Terms of Service, please contact us at info@eduflare.org or +1 555-123-4567. We are committed to addressing your concerns and ensuring a positive experience on our platform.
-                    </p>
-                </section>
-            </div>
+      <div class="container mx-auto px-4 max-w-4xl">
+        <div class="text-center mb-12">
+          <h1 class="text-4xl md:text-5xl font-bold mb-4">Terms of <span class="text-primary">Services</span></h1>
+          <p class="text-gray-400">Last updated: January 2025</p>
         </div>
+
+        <div class="bg-dark-light rounded-xl p-8 space-y-8">
+          <section>
+            <h2 class="text-2xl font-bold mb-4 text-primary">
+              1. Acceptance of Terms
+            </h2>
+            <p class="text-gray-300 mb-4">
+              By accessing and using the Eduflare gaming coaching platform, you
+              accept and agree to be bound by the terms and provision of this
+              agreement. If you do not agree to abide by the above, please do
+              not use this service.
+            </p>
+            <p class="text-gray-300 mb-4">
+              These Terms of Service constitute a legally binding agreement
+              between you and Eduflare regarding your use of our platform,
+              services, and any related software, mobile applications, or other
+              services we may provide.
+            </p>
+            <p class="text-gray-300">
+              We reserve the right to modify these terms at any time, and such
+              modifications shall be effective immediately upon posting. Your
+              continued use of the service after any such changes constitutes
+              your acceptance of the new Terms of Service.
+            </p>
+          </section>
+
+          <section>
+            <h2 class="text-2xl font-bold mb-4 text-primary">
+              2. Description of Service
+            </h2>
+            <p class="text-gray-300 mb-4">
+              Eduflare provides an online platform that connects gamers with
+              professional gaming coaches for personalized training sessions.
+              Our services include one-on-one coaching, group sessions,
+              educational content, and performance tracking tools.
+            </p>
+            <p class="text-gray-300 mb-4">
+              We offer coaching services for various popular games including but
+              not limited to Valorant, Counter-Strike 2, League of Legends, Dota
+              2, and Apex Legends. Our coaches are experienced players who have
+              demonstrated expertise in their respective games.
+            </p>
+            <p class="text-gray-300">
+              The platform also includes features such as session scheduling,
+              payment processing, progress tracking, and communication tools to
+              facilitate effective coaching relationships.
+            </p>
+          </section>
+
+          <section>
+            <h2 class="text-2xl font-bold mb-4 text-primary">
+              3. User Accounts and Registration
+            </h2>
+            <p class="text-gray-300 mb-4">
+              To access certain features of our platform, you must create an
+              account by providing accurate and complete information. You are
+              responsible for maintaining the confidentiality of your account
+              credentials and for all activities that occur under your account.
+            </p>
+            <p class="text-gray-300 mb-4">
+              You must be at least 13 years old to create an account. If you are
+              under 18, you must have parental consent to use our services. You
+              agree to notify us immediately of any unauthorized use of your
+              account.
+            </p>
+            <p class="text-gray-300">
+              We reserve the right to suspend or terminate accounts that violate
+              these terms or engage in fraudulent, abusive, or illegal
+              activities.
+            </p>
+          </section>
+
+          <section>
+            <h2 class="text-2xl font-bold mb-4 text-primary">
+              4. Payment Terms and Refund Policy
+            </h2>
+            <p class="text-gray-300 mb-4">
+              Payment for coaching services is required in advance through our
+              secure payment system. We accept major credit cards and other
+              payment methods as indicated on our platform. All prices are in
+              USD unless otherwise specified.
+            </p>
+            <p class="text-gray-300 mb-4">
+              Refunds may be available under certain circumstances, such as
+              coach unavailability or technical issues that prevent session
+              completion. Refund requests must be submitted within 24 hours of
+              the scheduled session and will be reviewed on a case-by-case
+              basis.
+            </p>
+            <p class="text-gray-300 mb-4">
+              We reserve the right to change our pricing at any time. Price
+              changes will not affect sessions already purchased but will apply
+              to future bookings.
+            </p>
+            <p class="text-gray-300">
+              Chargebacks or payment disputes must be resolved directly with us
+              before involving financial institutions. Unauthorized chargebacks
+              may result in account suspension.
+            </p>
+          </section>
+
+          <section>
+            <h2 class="text-2xl font-bold mb-4 text-primary">
+              5. User Conduct and Prohibited Activities
+            </h2>
+            <p class="text-gray-300 mb-4">
+              Users must conduct themselves respectfully and professionally when
+              interacting with coaches and other users. Harassment,
+              discrimination, or abusive behavior will not be tolerated and may
+              result in immediate account termination.
+            </p>
+            <p class="text-gray-300 mb-4">
+              Prohibited activities include but are not limited to: sharing
+              account credentials, attempting to circumvent payment systems,
+              using the platform for illegal activities, sharing inappropriate
+              content, or attempting to contact coaches outside of our platform
+              for services.
+            </p>
+            <p class="text-gray-300 mb-4">
+              Users are prohibited from recording coaching sessions without
+              explicit consent from all parties involved. Any recorded content
+              must comply with applicable privacy laws and platform guidelines.
+            </p>
+            <p class="text-gray-300">
+              We reserve the right to monitor user activity and communications
+              to ensure compliance with these terms and to maintain a safe
+              environment for all users.
+            </p>
+          </section>
+
+          <section>
+            <h2 class="text-2xl font-bold mb-4 text-primary">
+              6. Coach Responsibilities and Standards
+            </h2>
+            <p class="text-gray-300 mb-4">
+              Our coaches are independent contractors who have agreed to
+              maintain high standards of professionalism and expertise. While we
+              vet our coaches, we do not guarantee specific outcomes or
+              improvements from coaching sessions.
+            </p>
+            <p class="text-gray-300 mb-4">
+              Coaches are expected to arrive on time for scheduled sessions,
+              provide constructive feedback, and maintain appropriate
+              professional boundaries. Any concerns about coach conduct should
+              be reported to our support team immediately.
+            </p>
+            <p class="text-gray-300">
+              We are not responsible for the actions or advice of individual
+              coaches outside of our platform guidelines, though we will
+              investigate and address any reported violations of our standards.
+            </p>
+          </section>
+
+          <section>
+            <h2 class="text-2xl font-bold mb-4 text-primary">
+              7. Intellectual Property Rights
+            </h2>
+            <p class="text-gray-300 mb-4">
+              All content on the Eduflare platform, including but not limited to
+              text, graphics, logos, images, software, and design elements, is
+              the property of Eduflare or its licensors and is protected by
+              copyright and other intellectual property laws.
+            </p>
+            <p class="text-gray-300 mb-4">
+              Users retain ownership of any content they create or upload to the
+              platform, but grant Eduflare a non-exclusive license to use such
+              content for platform operations and improvement purposes.
+            </p>
+            <p class="text-gray-300">
+              You may not reproduce, distribute, modify, or create derivative
+              works of our platform content without explicit written permission
+              from Eduflare.
+            </p>
+          </section>
+
+          <section>
+            <h2 class="text-2xl font-bold mb-4 text-primary">
+              8. Privacy and Data Protection
+            </h2>
+            <p class="text-gray-300 mb-4">
+              Your privacy is important to us. Our collection and use of
+              personal information is governed by our Privacy Policy, which is
+              incorporated into these terms by reference.
+            </p>
+            <p class="text-gray-300">
+              By using our services, you consent to the collection and use of
+              your information as described in our Privacy Policy and agree to
+              our data processing practices.
+            </p>
+          </section>
+
+          <section>
+            <h2 class="text-2xl font-bold mb-4 text-primary">
+              9. Limitation of Liability
+            </h2>
+            <p class="text-gray-300 mb-4">
+              Eduflare provides its services on an "as is" and "as available"
+              basis. We make no warranties, express or implied, regarding the
+              platform's functionality, availability, or the quality of coaching
+              services.
+            </p>
+            <p class="text-gray-300 mb-4">
+              To the maximum extent permitted by law, Eduflare shall not be
+              liable for any indirect, incidental, special, consequential, or
+              punitive damages arising from your use of our services.
+            </p>
+            <p class="text-gray-300">
+              Our total liability for any claims related to our services shall
+              not exceed the amount you paid for the specific service giving
+              rise to the claim.
+            </p>
+          </section>
+
+          <section>
+            <h2 class="text-2xl font-bold mb-4 text-primary">
+              10. Termination
+            </h2>
+            <p class="text-gray-300 mb-4">
+              Either party may terminate this agreement at any time. You may
+              delete your account through your account settings or by contacting
+              our support team.
+            </p>
+            <p class="text-gray-300 mb-4">
+              We reserve the right to suspend or terminate your account
+              immediately if you violate these terms or engage in activities
+              that harm our platform or other users.
+            </p>
+            <p class="text-gray-300">
+              Upon termination, your right to use our services will cease
+              immediately, though certain provisions of these terms will survive
+              termination.
+            </p>
+          </section>
+
+          <section>
+            <h2 class="text-2xl font-bold mb-4 text-primary">
+              11. Governing Law and Dispute Resolution
+            </h2>
+            <p class="text-gray-300 mb-4">
+              These terms shall be governed by and construed in accordance with
+              the laws of the jurisdiction where Eduflare is incorporated,
+              without regard to conflict of law principles.
+            </p>
+            <p class="text-gray-300">
+              Any disputes arising from these terms or your use of our services
+              shall be resolved through binding arbitration, except where
+              prohibited by law.
+            </p>
+          </section>
+
+          <section>
+            <h2 class="text-2xl font-bold mb-4 text-primary">
+              12. Contact Information
+            </h2>
+            <p class="text-gray-300">
+              If you have any questions about these Terms of Service, please
+              contact us at info@eduflare.org or +1 555-123-4567. We are
+              committed to addressing your concerns and ensuring a positive
+              experience on our platform.
+            </p>
+          </section>
+        </div>
+      </div>
     </section>
 
     <!-- Footer -->
     <footer class="bg-dark-light border-t border-gray-800 py-12">
-        <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <div>
-                    <div class="flex items-center space-x-2 mb-4">
-                        <img src="/assets/images/logo.png" alt="Eduflare Logo" class="h-8 w-8">
-                        <span class="text-xl font-bold text-primary">Eduflare</span>
-                    </div>
-                    <p class="text-gray-400">We are not an affiliate agency. All products are sold independently through our platform.</p>
-                </div>
-                
-                <div>
-                    <h4 class="font-semibold mb-4">Quick Links</h4>
-                    <ul class="space-y-2 text-gray-400">
-                        <li><a href="/" class="hover:text-primary transition-colors">Home</a></li>
-                        <li><a href="/products/" class="hover:text-primary transition-colors">Products</a></li>
-                        <li><a href="/blog/" class="hover:text-primary transition-colors">Blog</a></li>
-                        <li><a href="/contact/" class="hover:text-primary transition-colors">Contact</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h4 class="font-semibold mb-4">Legal</h4>
-                    <ul class="space-y-2 text-gray-400">
-                        <li><a href="/privacy/" class="hover:text-primary transition-colors">Privacy Policy</a></li>
-                        <li><a href="/terms/" class="hover:text-primary transition-colors">Terms of Service</a></li>
-                        <li><a href="/cookies/" class="hover:text-primary transition-colors">Cookies Policy</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h4 class="font-semibold mb-4">Contact</h4>
-                    <ul class="space-y-2 text-gray-400">
-                        <li>Email: info@eduflare.org</li>
-                        <li>Phone: +1 555-123-4567</li>
-                    </ul>
-                </div>
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div>
+            <div class="flex items-center space-x-2 mb-4">
+              <img
+                src="/assets/images/logo.png"
+                alt="Eduflare Logo"
+                class="h-8 w-8"
+              />
+              <span class="text-xl font-bold text-primary">Eduflare</span>
             </div>
-            
-            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-                <p>&copy; 2025 Eduflare. All rights reserved.</p>
-                <p class="mt-2">We are not an affiliate agency. All products are sold independently through our platform.</p>
-            </div>
+            <p class="text-gray-400">
+              We are not an affiliate agency. All products are sold
+              independently through our platform.
+            </p>
+          </div>
+
+          <div>
+            <h4 class="font-semibold mb-4">Quick Links</h4>
+            <ul class="space-y-2 text-gray-400">
+              <li>
+                <a href="/" class="hover:text-primary transition-colors"
+                  >Home</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/products/"
+                  class="hover:text-primary transition-colors"
+                  >Products</a
+                >
+              </li>
+              <li>
+                <a href="/blog/" class="hover:text-primary transition-colors"
+                  >Blog</a
+                >
+              </li>
+              <li>
+                <a href="/contact/" class="hover:text-primary transition-colors"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="font-semibold mb-4">Legal</h4>
+            <ul class="space-y-2 text-gray-400">
+              <li>
+                <a href="/privacy/" class="hover:text-primary transition-colors"
+                  >Privacy Policy</a
+                >
+              </li>
+              <li>
+                <a href="/terms/" class="hover:text-primary transition-colors"
+                  >Terms of Service</a
+                >
+              </li>
+              <li>
+                <a href="/cookies/" class="hover:text-primary transition-colors"
+                  >Cookies Policy</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="font-semibold mb-4">Contact</h4>
+            <ul class="space-y-2 text-gray-400">
+              <li>Email: info@eduflare.org</li>
+              <li>Phone: +1 555-123-4567</li>
+            </ul>
+          </div>
         </div>
+
+        <div
+          class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400"
+        >
+          <p>&copy; 2025 Eduflare. All rights reserved.</p>
+          <p class="mt-2">
+            We are not an affiliate agency. All products are sold independently
+            through our platform.
+          </p>
+        </div>
+      </div>
     </footer>
 
     <script src="/assets/js/main.js"></script>
     <script>
-        // User Login Status
-        const userSection = document.getElementById('userSection');
-        const authSection = document.getElementById('authSection');
-        const userName = document.getElementById('userName');
-        const authModal = document.getElementById('authModal');
-        const loginForm = document.getElementById('loginForm');
-        const registerForm = document.getElementById('registerForm');
-        const closeModal = document.getElementById('closeModal');
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const mobileMenu = document.getElementById('mobileMenu');
-        let user;
+      // User Login Status
+      const userSection = document.getElementById("userSection");
+      const authSection = document.getElementById("authSection");
+      const userName = document.getElementById("userName");
+      const authModal = document.getElementById("authModal");
+      const loginForm = document.getElementById("loginForm");
+      const registerForm = document.getElementById("registerForm");
+      const closeModal = document.getElementById("closeModal");
+      const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+      const mobileMenu = document.getElementById("mobileMenu");
+      let user;
 
-        // Load user from localStorage
-        function loadUser() {
-            try {
-                user = JSON.parse(localStorage.getItem('user'));
-                console.log('User data loaded:', user);
-            } catch (e) {
-                console.error('Error parsing user data:', e);
-                user = null;
-            }
-            if (user && user.name && user.email) {
-                userSection.classList.remove('hidden');
-                authSection.classList.add('hidden');
-                userName.textContent = `Welcome, ${user.name}`;
-            } else {
-                userSection.classList.add('hidden');
-                authSection.classList.remove('hidden');
-            }
+      // Load user from localStorage
+      function loadUser() {
+        try {
+          user = JSON.parse(localStorage.getItem("user"));
+          console.log("User data loaded:", user);
+        } catch (e) {
+          console.error("Error parsing user data:", e);
+          user = null;
         }
-
-        // Show auth modal
-        function showAuthModal(formType) {
-            authModal.classList.remove('hidden');
-            toggleForm(formType);
+        if (user && user.name && user.email) {
+          userSection.classList.remove("hidden");
+          authSection.classList.add("hidden");
+          userName.textContent = `Welcome, ${user.name}`;
+        } else {
+          userSection.classList.add("hidden");
+          authSection.classList.remove("hidden");
         }
+      }
 
-        // Close auth modal
-        closeModal.addEventListener('click', () => {
-            authModal.classList.add('hidden');
-            loginForm.classList.remove('hidden');
-            registerForm.classList.add('hidden');
-        });
+      // Show auth modal
+      function showAuthModal(formType) {
+        authModal.classList.remove("hidden");
+        toggleForm(formType);
+      }
 
-        // Toggle between login and register forms
-        function toggleForm(formType) {
-            if (formType === 'login') {
-                loginForm.classList.remove('hidden');
-                registerForm.classList.add('hidden');
-            } else {
-                loginForm.classList.add('hidden');
-                registerForm.classList.remove('hidden');
-            }
+      // Close auth modal
+      closeModal.addEventListener("click", () => {
+        authModal.classList.add("hidden");
+        loginForm.classList.remove("hidden");
+        registerForm.classList.add("hidden");
+      });
+
+      // Toggle between login and register forms
+      function toggleForm(formType) {
+        if (formType === "login") {
+          loginForm.classList.remove("hidden");
+          registerForm.classList.add("hidden");
+        } else {
+          loginForm.classList.add("hidden");
+          registerForm.classList.remove("hidden");
         }
+      }
 
-        // Handle login
-        function handleLogin() {
-            const email = document.getElementById('loginEmail').value;
-            const password = document.getElementById('loginPassword').value;
-            if (email && password) {
-                // Mock login (replace with actual authentication logic)
-                user = { name: email.split('@')[0], email };
-                localStorage.setItem('user', JSON.stringify(user));
-                authModal.classList.add('hidden');
-                loadUser();
-                // Clear form
-                document.getElementById('loginEmail').value = '';
-                document.getElementById('loginPassword').value = '';
-            } else {
-                alert('Please fill in all fields');
-            }
+      // Handle login
+      function handleLogin() {
+        const email = document.getElementById("loginEmail").value;
+        const password = document.getElementById("loginPassword").value;
+        if (email && password) {
+          // Mock login (replace with actual authentication logic)
+          user = { name: email.split("@")[0], email };
+          localStorage.setItem("user", JSON.stringify(user));
+          authModal.classList.add("hidden");
+          loadUser();
+          // Clear form
+          document.getElementById("loginEmail").value = "";
+          document.getElementById("loginPassword").value = "";
+        } else {
+          alert("Please fill in all fields");
         }
+      }
 
-        // Handle register
-        function handleRegister() {
-            const name = document.getElementById('registerName').value;
-            const email = document.getElementById('registerEmail').value;
-            const password = document.getElementById('registerPassword').value;
-            if (name && email && password) {
-                // Mock register (replace with actual registration logic)
-                user = { name, email };
-                localStorage.setItem('user', JSON.stringify(user));
-                authModal.classList.add('hidden');
-                loadUser();
-                // Clear form
-                document.getElementById('registerName').value = '';
-                document.getElementById('registerEmail').value = '';
-                document.getElementById('registerPassword').value = '';
-            } else {
-                alert('Please fill in all fields');
-            }
+      // Handle register
+      function handleRegister() {
+        const name = document.getElementById("registerName").value;
+        const email = document.getElementById("registerEmail").value;
+        const password = document.getElementById("registerPassword").value;
+        if (name && email && password) {
+          // Mock register (replace with actual registration logic)
+          user = { name, email };
+          localStorage.setItem("user", JSON.stringify(user));
+          authModal.classList.add("hidden");
+          loadUser();
+          // Clear form
+          document.getElementById("registerName").value = "";
+          document.getElementById("registerEmail").value = "";
+          document.getElementById("registerPassword").value = "";
+        } else {
+          alert("Please fill in all fields");
         }
+      }
 
-        // Logout
-        window.logout = () => {
-            localStorage.removeItem('user');
-            user = null;
-            loadUser();
-        };
+      // Logout
+      window.logout = () => {
+        localStorage.removeItem("user");
+        user = null;
+        loadUser();
+      };
 
-        // Mobile Menu Toggle
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
+      // Mobile Menu Toggle
+      mobileMenuBtn.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
 
-        // Cookie Consent
-        function acceptCookies() {
-            localStorage.setItem('cookiesAccepted', 'true');
-            document.getElementById('cookieConsent').classList.add('hidden');
+      // Cookie Consent
+      function acceptCookies() {
+        localStorage.setItem("cookiesAccepted", "true");
+        document.getElementById("cookieConsent").classList.add("hidden");
+      }
+
+      function declineCookies() {
+        localStorage.setItem("cookiesAccepted", "false");
+        document.getElementById("cookieConsent").classList.add("hidden");
+      }
+
+      // Show cookie banner if not previously accepted/declined
+      window.addEventListener("load", () => {
+        if (!localStorage.getItem("cookiesAccepted")) {
+          document.getElementById("cookieConsent").classList.remove("hidden");
         }
-
-        function declineCookies() {
-            localStorage.setItem('cookiesAccepted', 'false');
-            document.getElementById('cookieConsent').classList.add('hidden');
-        }
-
-        // Show cookie banner if not previously accepted/declined
-        window.addEventListener('load', () => {
-            if (!localStorage.getItem('cookiesAccepted')) {
-                document.getElementById('cookieConsent').classList.remove('hidden');
-            }
-            loadUser();
-        });
+        loadUser();
+      });
     </script>
-</body>
+  </body>
 </html>
