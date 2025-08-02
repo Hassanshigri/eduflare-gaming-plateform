@@ -38,7 +38,7 @@
     <!-- Cookie Consent Banner -->
     <div
       id="cookieConsent"
-      class="fixed bottom-0 left-0 right-0  border-t border-gray-700 p-4 z-50 hidden animate-fade-in"
+      class="fixed bottom-0 left-0 right-0 border-t border-gray-700 p-4 z-50 hidden animate-fade-in"
     >
       <div
         class="container mx-auto flex flex-col md:flex-row items-center justify-between"
@@ -69,7 +69,7 @@
       id="authModal"
       class="fixed inset-0 bg-black/50 z-50 hidden flex items-center justify-center"
     >
-      <div class=" p-6 rounded-lg w-full max-w-md relative">
+      <div class="p-6 rounded-lg w-full max-w-md relative">
         <button
           id="closeModal"
           class="absolute top-2 right-2 text-gray-400 hover:text-white"
@@ -258,6 +258,18 @@
           </div>
         </div>
       </div>
+      <!-- Mobile Menu -->
+      <div
+        id="mobileMenu"
+        class="hidden md:hidden bg-dark-light border-t border-gray-800"
+      >
+        <div class="container mx-auto px-4 py-4 flex flex-col space-y-4">
+          <a href="/" class="hover:text-primary">Home</a>
+          <a href="/products/" class="hover:text-primary">Products</a>
+          <a href="/blog/" class="hover:text-primary">Blog</a>
+          <a href="/contact/" class="hover:text-primary">Contact</a>
+        </div>
+      </div>
     </nav>
 
     <!-- Hero Section -->
@@ -318,7 +330,7 @@
     </section>
 
     <!-- Games Section -->
-    <section id="games" class="py-20  animate-fade-in">
+    <section id="games" class="py-20 animate-fade-in">
       <div class="container mx-auto px-4">
         <div class="text-center mb-16">
           <h2 class="text-4xl md:text-5xl font-bold mb-4 animate-fade-in">
@@ -444,7 +456,7 @@
     </section>
 
     <!-- Featured Coaches Section -->
-    <section class="py-20  animate-fade-in">
+    <section class="py-20 animate-fade-in">
       <div class="container mx-auto px-4">
         <div class="text-center mb-16">
           <h2 class="text-4xl md:text-5xl font-bold mb-4 animate-fade-in">
@@ -579,7 +591,8 @@
               <h4 class="text-2xl font-bold mb-2">Liam 'Wraith' Carter</h4>
               <p class="text-md text-gray-400 mb-2">Apex Legends Specialist</p>
               <p class="text-gray-300 mb-4">
-                Apex Predator with expertise in movement, control and positioning.
+                Apex Predator with expertise in movement, control and
+                positioning.
               </p>
               <div class="flex justify-center space-x-4 mb-4">
                 <span class="text-gray-300 font-semibold">1-hour: $30</span>
@@ -638,7 +651,7 @@
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div
-            class=" p-6 rounded-xl transform transition-all duration-300 hover:scale-105"
+            class="p-6 rounded-xl transform transition-all duration-300 hover:scale-105"
           >
             <div class="flex items-center mb-4">
               <img
@@ -658,7 +671,7 @@
           </div>
 
           <div
-            class=" p-6 rounded-xl transform transition-all duration-300 hover:scale-105"
+            class="p-6 rounded-xl transform transition-all duration-300 hover:scale-105"
           >
             <div class="flex items-center mb-4">
               <img
@@ -678,7 +691,7 @@
           </div>
 
           <div
-            class=" p-6 rounded-xl transform transition-all duration-300 hover:scale-105"
+            class="p-6 rounded-xl transform transition-all duration-300 hover:scale-105"
           >
             <div class="flex items-center mb-4">
               <img
@@ -700,8 +713,6 @@
       </div>
     </section>
 
- 
-    
     <!-- Footer -->
     <footer
       class="bg-dark-light border-t border-gray-800 py-12 animate-fade-in"
@@ -718,7 +729,8 @@
               <span class="text-xl font-bold text-primary">Eduflare</span>
             </div>
             <p class="text-gray-400">
-              We are not an affiliate agency. All products are sold independently through our platform.
+              We are not an affiliate agency. All products are sold
+              independently through our platform.
             </p>
           </div>
 
@@ -806,136 +818,159 @@
 
     <script src="/assets/js/main.js"></script>
     <script>
-      // User Login Status
-      const userSection = document.getElementById("userSection");
-      const authSection = document.getElementById("authSection");
-      const userName = document.getElementById("userName");
-      const authModal = document.getElementById("authModal");
-      const loginForm = document.getElementById("loginForm");
-      const registerForm = document.getElementById("registerForm");
-      const closeModal = document.getElementById("closeModal");
-      let user;
-      let redirectParams = null;
+          // User Login Status
+          const userSection = document.getElementById("userSection");
+          const authSection = document.getElementById("authSection");
+          const userName = document.getElementById("userName");
+          const authModal = document.getElementById("authModal");
+          const loginForm = document.getElementById("loginForm");
+          const registerForm = document.getElementById("registerForm");
+          const closeModal = document.getElementById("closeModal");
+          let user;
+          let redirectParams = null;
 
-      // Load user from localStorage
-      function loadUser() {
-        try {
-          user = JSON.parse(localStorage.getItem("user"));
-          console.log("User data loaded:", user);
-        } catch (e) {
-          console.error("Error parsing user data:", e);
-          user = null;
-        }
-        if (user && user.name && user.email) {
-          userSection.classList.remove("hidden");
-          authSection.classList.add("hidden");
-          userName.textContent = `Welcome, ${user.name}`;
-        } else {
-          userSection.classList.add("hidden");
-          authSection.classList.remove("hidden");
-        }
-      }
-
-      // Show auth modal
-      function showAuthModal(formType) {
-        authModal.classList.remove("hidden");
-        toggleForm(formType);
-      }
-
-      // Close auth modal
-      closeModal.addEventListener("click", () => {
-        authModal.classList.add("hidden");
-        loginForm.classList.remove("hidden");
-        registerForm.classList.add("hidden");
-      });
-
-      // Toggle between login and register forms
-      function toggleForm(formType) {
-        if (formType === "login") {
-          loginForm.classList.remove("hidden");
-          registerForm.classList.add("hidden");
-        } else {
-          loginForm.classList.add("hidden");
-          registerForm.classList.remove("hidden");
-        }
-      }
-
-      // Handle login
-      function handleLogin() {
-        const email = document.getElementById("loginEmail").value;
-        const password = document.getElementById("loginPassword").value;
-        if (email && password) {
-          // Mock login (replace with actual authentication logic)
-          user = { name: email.split("@")[0], email };
-          localStorage.setItem("user", JSON.stringify(user));
-          authModal.classList.add("hidden");
-          loadUser();
-          if (redirectParams) {
-            window.location.href = `/booking/index.html?coach=${encodeURIComponent(
-              redirectParams.coach
-            )}&game=${encodeURIComponent(redirectParams.game)}`;
+          // Load user from localStorage
+          function loadUser() {
+            try {
+              user = JSON.parse(localStorage.getItem("user"));
+              console.log("User data loaded:", user);
+            } catch (e) {
+              console.error("Error parsing user data:", e);
+              user = null;
+            }
+            if (user && user.name && user.email) {
+              userSection.classList.remove("hidden");
+              authSection.classList.add("hidden");
+              userName.textContent = `Welcome, ${user.name}`;
+            } else {
+              userSection.classList.add("hidden");
+              authSection.classList.remove("hidden");
+            }
           }
-          // Clear form
-          document.getElementById("loginEmail").value = "";
-          document.getElementById("loginPassword").value = "";
-        } else {
-          alert("Please fill in all fields");
-        }
-      }
 
-      // Handle register
-      function handleRegister() {
-        const name = document.getElementById("registerName").value;
-        const email = document.getElementById("registerEmail").value;
-        const password = document.getElementById("registerPassword").value;
-        if (name && email && password) {
-          // Mock register (replace with actual registration logic)
-          user = { name, email };
-          localStorage.setItem("user", JSON.stringify(user));
-          authModal.classList.add("hidden");
-          loadUser();
-          if (redirectParams) {
-            window.location.href = `/booking/index.html?coach=${encodeURIComponent(
-              redirectParams.coach
-            )}&game=${encodeURIComponent(redirectParams.game)}`;
+          // Show auth modal
+          function showAuthModal(formType) {
+            authModal.classList.remove("hidden");
+            toggleForm(formType);
           }
-          // Clear form
-          document.getElementById("registerName").value = "";
-          document.getElementById("registerEmail").value = "";
-          document.getElementById("registerPassword").value = "";
-        } else {
-          alert("Please fill in all fields");
-        }
+
+          // Close auth modal
+          closeModal.addEventListener("click", () => {
+            authModal.classList.add("hidden");
+            loginForm.classList.remove("hidden");
+            registerForm.classList.add("hidden");
+          });
+
+          // Toggle between login and register forms
+          function toggleForm(formType) {
+            if (formType === "login") {
+              loginForm.classList.remove("hidden");
+              registerForm.classList.add("hidden");
+            } else {
+              loginForm.classList.add("hidden");
+              registerForm.classList.remove("hidden");
+            }
+          }
+
+          // Handle login
+          function handleLogin() {
+            const email = document.getElementById("loginEmail").value;
+            const password = document.getElementById("loginPassword").value;
+            if (email && password) {
+              // Mock login (replace with actual authentication logic)
+              user = { name: email.split("@")[0], email };
+              localStorage.setItem("user", JSON.stringify(user));
+              authModal.classList.add("hidden");
+              loadUser();
+              if (redirectParams) {
+                window.location.href = `/booking/index.html?coach=${encodeURIComponent(
+                  redirectParams.coach
+                )}&game=${encodeURIComponent(redirectParams.game)}`;
+              }
+              // Clear form
+              document.getElementById("loginEmail").value = "";
+              document.getElementById("loginPassword").value = "";
+            } else {
+              alert("Please fill in all fields");
+            }
+          }
+
+          // Handle register
+          function handleRegister() {
+            const name = document.getElementById("registerName").value;
+            const email = document.getElementById("registerEmail").value;
+            const password = document.getElementById("registerPassword").value;
+            if (name && email && password) {
+              // Mock register (replace with actual registration logic)
+              user = { name, email };
+              localStorage.setItem("user", JSON.stringify(user));
+              authModal.classList.add("hidden");
+              loadUser();
+              if (redirectParams) {
+                window.location.href = `/booking/index.html?coach=${encodeURIComponent(
+                  redirectParams.coach
+                )}&game=${encodeURIComponent(redirectParams.game)}`;
+              }
+              // Clear form
+              document.getElementById("registerName").value = "";
+              document.getElementById("registerEmail").value = "";
+              document.getElementById("registerPassword").value = "";
+            } else {
+              alert("Please fill in all fields");
+            }
+          }
+
+          // Book Coach
+          window.bookCoach = (coachName, game) => {
+            console.log(`Booking coach: ${coachName} for ${game}`);
+            try {
+              user = JSON.parse(localStorage.getItem("user"));
+            } catch (e) {
+              console.error("Error parsing user data:", e);
+              user = null;
+            }
+            if (user && user.name && user.email) {
+              window.location.href = `/booking/index.html?coach=${encodeURIComponent(
+                coachName
+              )}&game=${encodeURIComponent(game)}`;
+            } else {
+              redirectParams = { coach: coachName, game };
+              showAuthModal("login");
+            }
+          };
+
+          // Logout
+          window.logout = () => {
+            localStorage.removeItem("user");
+            user = null;
+            loadUser();
+          };
+
+          // Mobile Menu Toggle
+          const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+          const mobileMenu = document.getElementById("mobileMenu");
+          mobileMenuBtn.addEventListener("click", () => {
+            mobileMenu.classList.toggle("hidden");
+          });
+
+          // Cookie Consent
+          function acceptCookies() {
+            localStorage.setItem("cookiesAccepted", "true");
+            document.getElementById("cookieConsent").classList.add("hidden");
+          }
+          function declineCookies() {
+        localStorage.setItem("cookiesAccepted", "false");
+        document.getElementById("cookieConsent").classList.add("hidden");
       }
 
-      // Book Coach
-      window.bookCoach = (coachName, game) => {
-        console.log(`Booking coach: ${coachName} for ${game}`);
-        try {
-          user = JSON.parse(localStorage.getItem("user"));
-        } catch (e) {
-          console.error("Error parsing user data:", e);
-          user = null;
+      // Initialize
+      window.addEventListener("load", () => {
+        if (!localStorage.getItem("cookiesAccepted")) {
+          document.getElementById("cookieConsent").classList.remove("hidden");
         }
-        if (user && user.name && user.email) {
-          window.location.href = `/booking/index.html?coach=${encodeURIComponent(
-            coachName
-          )}&game=${encodeURIComponent(game)}`;
-        } else {
-          redirectParams = { coach: coachName, game };
-          showAuthModal("login");
-        }
-      };
-
-      // Logout
-      window.logout = () => {
-        localStorage.removeItem("user");
-        user = null;
-        loadUser();
-      };
-
-      // Initialize user state
-      loadUser();
+          // Initialize user state
+          loadUser();
+           });
     </script>
   </body>
 </html>
