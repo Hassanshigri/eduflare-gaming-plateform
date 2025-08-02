@@ -1,32 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gaming Blog & News - Eduflare Gaming Coaching Tips</title>
-    <meta name="description" content="Stay updated with the latest gaming news, coaching tips, and esports insights from Eduflare's expert coaches and gaming community.">
-    <meta name="keywords" content="gaming blog, esports news, gaming tips, coaching advice, valorant tips, cs2 strategies, gaming community">
-    <link rel="canonical" href="https://eduflare.org/blog/">
-    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Complete Valorant Ranking Guide 2025 - Climb to Radiant | Eduflare
+    </title>
+    <meta
+      name="description"
+      content="Master Valorant ranking with our comprehensive 2025 guide. Learn proven strategies, aim training techniques, and game sense tips to climb from Iron to Radiant."
+    />
+    <meta
+      name="keywords"
+      content="valorant ranking guide, valorant tips 2025, climb valorant ranks, valorant strategies, radiant guide, valorant coaching, valorant rank system, aim training valorant"
+    />
+    <link
+      rel="canonical"
+      href="https://eduflare.org/blog/valorant-ranking-guide-2025/"
+    />
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico" />
+
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/style.css" />
     <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#6366f1',
-                        secondary: '#8b5cf6',
-                        accent: '#f59e0b',
-                        dark: '#0f172a',
-                        'dark-light': '#1e293b'
-                    }
-                }
-            }
-        }
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#6366f1",
+              secondary: "#8b5cf6",
+              accent: "#f59e0b",
+              dark: "#0f172a",
+              "dark-light": "#1e293b",
+            },
+          },
+        },
+      };
     </script>
-</head>
-<body class="bg-dark text-white">
+  </head>
+
+  <body class="bg-dark text-white">
     <!-- Cookie Consent Banner -->
     <div
       id="cookieConsent"
@@ -57,24 +70,59 @@
     </div>
 
     <!-- Login/Register Modal -->
-    <div id="authModal" class="fixed inset-0 bg-black/50 z-50 hidden flex items-center justify-center">
+    <div
+      id="authModal"
+      class="fixed inset-0 bg-black/50 z-50 hidden flex items-center justify-center"
+    >
       <div class="bg-dark-light p-6 rounded-lg w-full max-w-md relative">
-        <button id="closeModal" class="absolute top-2 right-2 text-gray-400 hover:text-white">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        <button
+          id="closeModal"
+          class="absolute top-2 right-2 text-gray-400 hover:text-white"
+        >
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"
+            ></path>
           </svg>
         </button>
         <!-- Login Form -->
         <div id="loginForm" class="">
           <h3 class="text-2xl font-bold mb-4 text-center">Login</h3>
           <div class="space-y-4">
-            <input id="loginEmail" type="email" placeholder="Email" class="w-full p-2 rounded bg-dark text-white border border-gray-600 focus:outline-none focus:border-primary" />
-            <input id="loginPassword" type="password" placeholder="Password" class="w-full p-2 rounded bg-dark text-white border border-gray-600 focus:outline-none focus:border-primary" />
-            <button onclick="handleLogin()" class="w-full bg-primary hover:bg-primary/80 px-4 py-2 rounded transition-colors transform hover:scale-105">
+            <input
+              id="loginEmail"
+              type="email"
+              placeholder="Email"
+              class="w-full p-2 rounded bg-dark text-white border border-gray-600 focus:outline-none focus:border-primary"
+            />
+            <input
+              id="loginPassword"
+              type="password"
+              placeholder="Password"
+              class="w-full p-2 rounded bg-dark text-white border border-gray-600 focus:outline-none focus:border-primary"
+            />
+            <button
+              onclick="handleLogin()"
+              class="w-full bg-primary hover:bg-primary/80 px-4 py-2 rounded transition-colors transform hover:scale-105"
+            >
               Login
             </button>
             <p class="text-center text-sm text-gray-400">
-              Don't have an account? <a href="javascript:void(0)" onclick="toggleForm('register')" class="text-primary hover:underline">Register</a>
+              Don't have an account?
+              <a
+                href="javascript:void(0)"
+                onclick="toggleForm('register')"
+                class="text-primary hover:underline"
+                >Register</a
+              >
             </p>
           </div>
         </div>
@@ -82,14 +130,38 @@
         <div id="registerForm" class="hidden">
           <h3 class="text-2xl font-bold mb-4 text-center">Register</h3>
           <div class="space-y-4">
-            <input id="registerName" type="text" placeholder="Full Name" class="w-full p-2 rounded bg-dark text-white border border-gray-600 focus:outline-none focus:border-primary" />
-            <input id="registerEmail" type="email" placeholder="Email" class="w-full p-2 rounded bg-dark text-white border border-gray-600 focus:outline-none focus:border-primary" />
-            <input id="registerPassword" type="password" placeholder="Password" class="w-full p-2 rounded bg-dark text-white border border-gray-600 focus:outline-none focus:border-primary" />
-            <button onclick="handleRegister()" class="w-full bg-primary hover:bg-primary/80 px-4 py-2 rounded transition-colors transform hover:scale-105">
+            <input
+              id="registerName"
+              type="text"
+              placeholder="Full Name"
+              class="w-full p-2 rounded bg-dark text-white border border-gray-600 focus:outline-none focus:border-primary"
+            />
+            <input
+              id="registerEmail"
+              type="email"
+              placeholder="Email"
+              class="w-full p-2 rounded bg-dark text-white border border-gray-600 focus:outline-none focus:border-primary"
+            />
+            <input
+              id="registerPassword"
+              type="password"
+              placeholder="Password"
+              class="w-full p-2 rounded bg-dark text-white border border-gray-600 focus:outline-none focus:border-primary"
+            />
+            <button
+              onclick="handleRegister()"
+              class="w-full bg-primary hover:bg-primary/80 px-4 py-2 rounded transition-colors transform hover:scale-105"
+            >
               Register
             </button>
             <p class="text-center text-sm text-gray-400">
-              Already have an account? <a href="javascript:void(0)" onclick="toggleForm('login')" class="text-primary hover:underline">Login</a>
+              Already have an account?
+              <a
+                href="javascript:void(0)"
+                onclick="toggleForm('login')"
+                class="text-primary hover:underline"
+                >Login</a
+              >
             </p>
           </div>
         </div>
@@ -116,10 +188,26 @@
 
           <!-- Center: Menu -->
           <div class="hidden md:flex justify-center space-x-6 flex-1">
-            <a href="/" class="hover:text-primary transition-colors transform hover:scale-105">Home</a>
-            <a href="/products/" class="hover:text-primary transition-colors transform hover:scale-105">Products</a>
-            <a href="/blog/" class="hover:text-primary transition-colors transform hover:scale-105">Blog</a>
-            <a href="/contact/" class="hover:text-primary transition-colors transform hover:scale-105">Contact</a>
+            <a
+              href="/"
+              class="hover:text-primary transition-colors transform hover:scale-105"
+              >Home</a
+            >
+            <a
+              href="/products/"
+              class="hover:text-primary transition-colors transform hover:scale-105"
+              >Products</a
+            >
+            <a
+              href="/blog/"
+              class="hover:text-primary transition-colors transform hover:scale-105"
+              >Blog</a
+            >
+            <a
+              href="/contact/"
+              class="hover:text-primary transition-colors transform hover:scale-105"
+              >Contact</a
+            >
           </div>
 
           <!-- Right: Auth & Mobile Menu -->
@@ -130,8 +218,18 @@
                 onclick="logout()"
                 class="ml-2 text-sm text-red-400 hover:text-red-300 flex items-center transform hover:scale-105"
               >
-                <svg class="w-5 h-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h3a3 3 0 013 3v1"></path>
+                <svg
+                  class="w-5 h-5 mr-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M17 16l4-4m0 0l-4-4m4 4H7m5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h3a3 3 0 013 3v1"
+                  ></path>
                 </svg>
                 Logout
               </button>
@@ -140,9 +238,14 @@
               <button
                 onclick="showAuthModal('login')"
                 class="bg-primary hover:bg-primary/80 px-4 py-2 rounded transition-colors transform hover:scale-105"
-              >Login</button>
+              >
+                Login
+              </button>
             </div>
-            <button id="mobileMenuBtn" class="md:hidden transform hover:scale-105">
+            <button
+              id="mobileMenuBtn"
+              class="md:hidden transform hover:scale-105"
+            >
               <svg
                 class="w-6 h-6"
                 fill="none"
@@ -161,7 +264,10 @@
         </div>
       </div>
       <!-- Mobile Menu -->
-      <div id="mobileMenu" class="hidden md:hidden bg-dark-light border-t border-gray-800">
+      <div
+        id="mobileMenu"
+        class="hidden md:hidden bg-dark-light border-t border-gray-800"
+      >
         <div class="container mx-auto px-4 py-4 flex flex-col space-y-4">
           <a href="/" class="hover:text-primary">Home</a>
           <a href="/products/" class="hover:text-primary">Products</a>
@@ -173,335 +279,524 @@
 
     <!-- Hero Section -->
     <section class="py-20 bg-gradient-to-r from-primary/20 to-secondary/20">
-        <div class="container mx-auto px-4 text-center">
-            <h1 class="text-4xl md:text-6xl font-bold mb-6">Gaming Blog & News</h1>
-            <p class="text-xl text-gray-300 mb-8">Expert insights, tips, and the latest gaming news</p>
-        </div>
+      <div class="container mx-auto px-4 text-center">
+        <h1 class="text-4xl md:text-6xl font-bold mb-6"><span class="text-primary">Gaming</span> Blog & News</h1>
+        <p class="text-xl text-gray-300 mb-8">
+          Expert insights, tips, and the latest gaming news
+        </p>
+      </div>
     </section>
 
     <!-- Featured Post -->
     <section class="py-20">
-        <div class="container mx-auto px-4">
-            <div class="mb-16">
-                <h2 class="text-3xl font-bold mb-8">Featured Article</h2>
-                <div class="bg-dark-light rounded-xl overflow-hidden">
-                    <div class="md:flex">
-                        <div class="md:w-1/2">
-                            <img src="/assets/images/blog/val-blog.webp" alt="Valorant Ranking Guide" class="w-full h-64 md:h-full object-cover">
-                        </div>
-                        <div class="md:w-1/2 p-8">
-                            <div class="text-sm text-primary mb-2">FEATURED • VALORANT</div>
-                            <h3 class="text-2xl font-bold mb-4">The Complete Guide to Ranking Up in Valorant 2025</h3>
-                            <p class="text-gray-400 mb-6">Master the fundamentals and advanced strategies that will help you climb from Iron to Radiant. Our comprehensive guide covers everything from aim training to game sense.</p>
-                            <div class="flex items-center justify-between">
-                                <div class="flex items-center space-x-3">
-                                    <img src="/assets/images/coaches/c10.jpg" alt="Coach Alex" class="w-8 h-8 rounded-full">
-                                    <span class="text-sm text-gray-400">By Coach Alex • Jan 15, 2025</span>
-                                </div>
-                                <a href="/blog/valorant-ranking-guide-2025/" class="bg-primary hover:bg-primary/80 px-4 py-2 rounded transition-colors">
-                                    Read More
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+      <div class="container mx-auto px-4">
+        <div class="mb-16">
+          <h2 class="text-3xl font-bold mb-8">Featured Article</h2>
+          <div class="bg-dark-light rounded-xl overflow-hidden">
+            <div class="md:flex">
+              <div class="md:w-1/2">
+                <img
+                  src="/assets/images/blog/val-blog.webp"
+                  alt="Valorant Ranking Guide"
+                  class="w-full h-64 md:h-full object-cover"
+                />
+              </div>
+              <div class="md:w-1/2 p-8">
+                <div class="text-sm text-primary mb-2">FEATURED • VALORANT</div>
+                <h3 class="text-2xl font-bold mb-4">
+                  The Complete Guide to Ranking Up in Valorant 2025
+                </h3>
+                <p class="text-gray-400 mb-6">
+                  Master the fundamentals and advanced strategies that will help
+                  you climb from Iron to Radiant. Our comprehensive guide covers
+                  everything from aim training to game sense.
+                </p>
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center space-x-3">
+                    <img
+                      src="/assets/images/coaches/c10.jpg"
+                      alt="Coach Alex"
+                      class="w-8 h-8 rounded-full"
+                    />
+                    <span class="text-sm text-gray-400"
+                      >By Coach Alex • Jan 15, 2025</span
+                    >
+                  </div>
+                  <a
+                    href="/blog/valorant-ranking-guide-2025/"
+                    class="bg-primary hover:bg-primary/80 px-4 py-2 rounded transition-colors"
+                  >
+                    Read More
+                  </a>
                 </div>
+              </div>
             </div>
-
-            <!-- Blog Posts Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Post 1 -->
-                <article class="bg-dark-light rounded-xl overflow-hidden hover:transform hover:scale-105 transition-all duration-300">
-                    <img src="/assets/images/blog/cs2 blog.avif" alt="CS2 Crosshair Settings" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <div class="text-sm text-accent mb-2">CS2 • TIPS</div>
-                        <h3 class="text-xl font-bold mb-3">Best CS2 Crosshair Settings for 2025</h3>
-                        <p class="text-gray-400 mb-4">Discover the optimal crosshair configurations used by professional players to improve your aim and accuracy.</p>
-                        <div class="flex items-center justify-between">
-                            <div class="flex items-center space-x-2">
-                                <img src="/assets/images/coaches/c11.jpeg" alt="Coach Sarah" class="w-6 h-6 rounded-full">
-                                <span class="text-xs text-gray-500">Coach Sarah</span>
-                            </div>
-                            <a href="/blog/cs2-crosshair-settings-2025/" class="text-primary hover:text-primary/80 text-sm">Read More →</a>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Post 2 -->
-                <article class="bg-dark-light rounded-xl overflow-hidden hover:transform hover:scale-105 transition-all duration-300">
-                    <img src="/assets/images/blog/season14.webp" alt="League of Legends Meta" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <div class="text-sm text-secondary mb-2">LEAGUE OF LEGENDS • META</div>
-                        <h3 class="text-xl font-bold mb-3">Season 14 Meta Analysis: Top Champions</h3>
-                        <p class="text-gray-400 mb-4">Breaking down the strongest champions in the current meta and how to play them effectively in ranked games.</p>
-                        <div class="flex items-center justify-between">
-                            <div class="flex items-center space-x-2">
-                                <img src="/assets/images/coaches/c7.jpg" alt="Coach Mike" class="w-6 h-6 rounded-full">
-                                <span class="text-xs text-gray-500">Coach Mike</span>
-                            </div>
-                            <a href="/blog/lol-season-14-meta-analysis/" class="text-primary hover:text-primary/80 text-sm">Read More →</a>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Post 3 -->
-                <article class="bg-dark-light rounded-xl overflow-hidden hover:transform hover:scale-105 transition-all duration-300">
-                    <img src="/assets/images/blog/apx=movement.jpg" alt="Apex Legends Movement" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <div class="text-sm text-accent mb-2">APEX LEGENDS • ADVANCED</div>
-                        <h3 class="text-xl font-bold mb-3">Master Advanced Movement in Apex</h3>
-                        <p class="text-gray-400 mb-4">Learn wall-bouncing, slide-jumping, and other advanced movement techniques to outplay your opponents.</p>
-                        <div class="flex items-center justify-between">
-                            <div class="flex items-center space-x-2">
-                                <img src="/assets/images/coaches/c2.webp" alt="Coach Emma" class="w-6 h-6 rounded-full">
-                                <span class="text-xs text-gray-500">Coach Emma</span>
-                            </div>
-                            <a href="/blog/apex-advanced-movement-guide/" class="text-primary hover:text-primary/80 text-sm">Read More →</a>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Post 4 -->
-                <article class="bg-dark-light rounded-xl overflow-hidden hover:transform hover:scale-105 transition-all duration-300">
-                    <img src="/assets/images/blog/dota.png" alt="Dota 2 Drafting" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <div class="text-sm text-primary mb-2">DOTA 2 • STRATEGY</div>
-                        <h3 class="text-xl font-bold mb-3">Dota 2 Drafting: Win Before the Game Starts</h3>
-                        <p class="text-gray-400 mb-4">Understanding draft phases, hero synergies, and counter-picks to gain a strategic advantage.</p>
-                        <div class="flex items-center justify-between">
-                            <div class="flex items-center space-x-2">
-                                <img src="/assets/images/coaches/c5.avif" alt="Coach David" class="w-6 h-6 rounded-full">
-                                <span class="text-xs text-gray-500">Coach David</span>
-                            </div>
-                            <a href="/blog/dota2-drafting-strategy-guide/" class="text-primary hover:text-primary/80 text-sm">Read More →</a>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Post 5 -->
-                <article class="bg-dark-light rounded-xl overflow-hidden hover:transform hover:scale-105 transition-all duration-300">
-                    <img src="/assets/images/blog/behind.avif" alt="Gaming Psychology" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <div class="text-sm text-secondary mb-2">PSYCHOLOGY • MINDSET</div>
-                        <h3 class="text-xl font-bold mb-3">The Psychology of Competitive Gaming</h3>
-                        <p class="text-gray-400 mb-4">Mental strategies to overcome tilt, maintain focus, and perform under pressure in competitive matches.</p>
-                        <div class="flex items-center justify-between">
-                            <div class="flex items-center space-x-2">
-                                <img src="/assets/images/coaches/c9.avif" alt="Coach Lisa" class="w-6 h-6 rounded-full">
-                                <span class="text-xs text-gray-500">Coach Lisa</span>
-                            </div>
-                            <a href="/blog/gaming-psychology-mindset/" class="text-primary hover:text-primary/80 text-sm">Read More →</a>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Post 6 -->
-                <article class="bg-dark-light rounded-xl overflow-hidden hover:transform hover:scale-105 transition-all duration-300">
-                    <img src="/assets/images/blog/career.jpeg" alt="Esports Career Guide" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <div class="text-sm text-accent mb-2">CAREER • ESPORTS</div>
-                        <h3 class="text-xl font-bold mb-3">Building a Career in Esports: 2025 Guide</h3>
-                        <p class="text-gray-400 mb-4">From player to coach to content creator - explore different paths in the growing esports industry.</p>
-                        <div class="flex items-center justify-between">
-                            <div class="flex items-center space-x-2">
-                                <img src="/assets/images/testimonials/Jordan L..jpg" alt="Coach Alex" class="w-6 h-6 rounded-full">
-                                <span class="text-xs text-gray-500">Coach Alex</span>
-                            </div>
-                            <a href="/blog/esports-career-guide-2025/" class="text-primary hover:text-primary/80 text-sm">Read More →</a>
-                        </div>
-                    </div>
-                </article>
-            </div>
-
-            
+          </div>
         </div>
+
+        <!-- Blog Posts Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Post 1 -->
+          <article
+            class="bg-dark-light rounded-xl overflow-hidden hover:transform hover:scale-105 transition-all duration-300"
+          >
+            <img
+              src="/assets/images/blog/cs2 blog.avif"
+              alt="CS2 Crosshair Settings"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <div class="text-sm text-accent mb-2">CS2 • TIPS</div>
+              <h3 class="text-xl font-bold mb-3">
+                Best CS2 Crosshair Settings for 2025
+              </h3>
+              <p class="text-gray-400 mb-4">
+                Discover the optimal crosshair configurations used by
+                professional players to improve your aim and accuracy.
+              </p>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-2">
+                  <img
+                    src="/assets/images/coaches/c11.jpeg"
+                    alt="Coach Sarah"
+                    class="w-6 h-6 rounded-full"
+                  />
+                  <span class="text-xs text-gray-500">Coach Sarah</span>
+                </div>
+                <a
+                  href="/blog/cs2-crosshair-settings-2025/"
+                  class="text-primary hover:text-primary/80 text-sm"
+                  >Read More →</a
+                >
+              </div>
+            </div>
+          </article>
+
+          <!-- Post 2 -->
+          <article
+            class="bg-dark-light rounded-xl overflow-hidden hover:transform hover:scale-105 transition-all duration-300"
+          >
+            <img
+              src="/assets/images/blog/season14.webp"
+              alt="League of Legends Meta"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <div class="text-sm text-secondary mb-2">
+                LEAGUE OF LEGENDS • META
+              </div>
+              <h3 class="text-xl font-bold mb-3">
+                Season 14 Meta Analysis: Top Champions
+              </h3>
+              <p class="text-gray-400 mb-4">
+                Breaking down the strongest champions in the current meta and
+                how to play them effectively in ranked games.
+              </p>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-2">
+                  <img
+                    src="/assets/images/coaches/c7.jpg"
+                    alt="Coach Mike"
+                    class="w-6 h-6 rounded-full"
+                  />
+                  <span class="text-xs text-gray-500">Coach Mike</span>
+                </div>
+                <a
+                  href="/blog/lol-season-14-meta-analysis/"
+                  class="text-primary hover:text-primary/80 text-sm"
+                  >Read More →</a
+                >
+              </div>
+            </div>
+          </article>
+
+          <!-- Post 3 -->
+          <article
+            class="bg-dark-light rounded-xl overflow-hidden hover:transform hover:scale-105 transition-all duration-300"
+          >
+            <img
+              src="/assets/images/blog/apx=movement.jpg"
+              alt="Apex Legends Movement"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <div class="text-sm text-accent mb-2">
+                APEX LEGENDS • ADVANCED
+              </div>
+              <h3 class="text-xl font-bold mb-3">
+                Master Advanced Movement in Apex
+              </h3>
+              <p class="text-gray-400 mb-4">
+                Learn wall-bouncing, slide-jumping, and other advanced movement
+                techniques to outplay your opponents.
+              </p>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-2">
+                  <img
+                    src="/assets/images/coaches/c2.webp"
+                    alt="Coach Emma"
+                    class="w-6 h-6 rounded-full"
+                  />
+                  <span class="text-xs text-gray-500">Coach Emma</span>
+                </div>
+                <a
+                  href="/blog/apex-advanced-movement-guide/"
+                  class="text-primary hover:text-primary/80 text-sm"
+                  >Read More →</a
+                >
+              </div>
+            </div>
+          </article>
+
+          <!-- Post 4 -->
+          <article
+            class="bg-dark-light rounded-xl overflow-hidden hover:transform hover:scale-105 transition-all duration-300"
+          >
+            <img
+              src="/assets/images/blog/dota.png"
+              alt="Dota 2 Drafting"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <div class="text-sm text-primary mb-2">DOTA 2 • STRATEGY</div>
+              <h3 class="text-xl font-bold mb-3">
+                Dota 2 Drafting: Win Before the Game Starts
+              </h3>
+              <p class="text-gray-400 mb-4">
+                Understanding draft phases, hero synergies, and counter-picks to
+                gain a strategic advantage.
+              </p>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-2">
+                  <img
+                    src="/assets/images/coaches/c5.avif"
+                    alt="Coach David"
+                    class="w-6 h-6 rounded-full"
+                  />
+                  <span class="text-xs text-gray-500">Coach David</span>
+                </div>
+                <a
+                  href="/blog/dota2-drafting-strategy-guide/"
+                  class="text-primary hover:text-primary/80 text-sm"
+                  >Read More →</a
+                >
+              </div>
+            </div>
+          </article>
+
+          <!-- Post 5 -->
+          <article
+            class="bg-dark-light rounded-xl overflow-hidden hover:transform hover:scale-105 transition-all duration-300"
+          >
+            <img
+              src="/assets/images/blog/behind.avif"
+              alt="Gaming Psychology"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <div class="text-sm text-secondary mb-2">
+                PSYCHOLOGY • MINDSET
+              </div>
+              <h3 class="text-xl font-bold mb-3">
+                The Psychology of Competitive Gaming
+              </h3>
+              <p class="text-gray-400 mb-4">
+                Mental strategies to overcome tilt, maintain focus, and perform
+                under pressure in competitive matches.
+              </p>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-2">
+                  <img
+                    src="/assets/images/coaches/c9.avif"
+                    alt="Coach Lisa"
+                    class="w-6 h-6 rounded-full"
+                  />
+                  <span class="text-xs text-gray-500">Coach Lisa</span>
+                </div>
+                <a
+                  href="/blog/gaming-psychology-mindset/"
+                  class="text-primary hover:text-primary/80 text-sm"
+                  >Read More →</a
+                >
+              </div>
+            </div>
+          </article>
+
+          <!-- Post 6 -->
+          <article
+            class="bg-dark-light rounded-xl overflow-hidden hover:transform hover:scale-105 transition-all duration-300"
+          >
+            <img
+              src="/assets/images/blog/Career-in-Esports.png"
+              alt="Esports Career Guide"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <div class="text-sm text-accent mb-2">CAREER • ESPORTS</div>
+              <h3 class="text-xl font-bold mb-3">
+                Building a Career in Esports: 2025 Guide
+              </h3>
+              <p class="text-gray-400 mb-4">
+                From player to coach to content creator - explore different
+                paths in the growing esports industry.
+              </p>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-2">
+                  <img
+                    src="/assets/images/testimonials/Jordan L..jpg"
+                    alt="Coach Alex"
+                    class="w-6 h-6 rounded-full"
+                  />
+                  <span class="text-xs text-gray-500">Coach Alex</span>
+                </div>
+                <a
+                  href="/blog/esports-career-guide-2025/"
+                  class="text-primary hover:text-primary/80 text-sm"
+                  >Read More →</a
+                >
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
     </section>
 
     <!-- Newsletter Signup -->
     <section class="py-20 bg-gradient-to-r from-primary/20 to-secondary/20">
-        <div class="container mx-auto px-4 text-center">
-            <h2 class="text-3xl font-bold mb-4">Stay Updated</h2>
-            <p class="text-xl text-gray-300 mb-8">Get the latest gaming tips and news delivered to your inbox</p>
-            <div class="max-w-md mx-auto flex">
-                <input type="email" placeholder="Enter your email" class="flex-1 bg-dark border border-gray-600 rounded-l-lg px-4 py-3 focus:border-primary focus:outline-none">
-                <button class="bg-primary hover:bg-primary/80 px-6 py-3 rounded-r-lg font-semibold transition-colors">
-                    Subscribe
-                </button>
-            </div>
+      <div class="container mx-auto px-4 text-center">
+        <h2 class="text-3xl font-bold mb-4">Stay Updated</h2>
+        <p class="text-xl text-gray-300 mb-8">
+          Get the latest gaming tips and news delivered to your inbox
+        </p>
+        <div class="max-w-md mx-auto flex">
+          <input
+            type="email"
+            placeholder="Enter your email"
+            class="flex-1 bg-dark border border-gray-600 rounded-l-lg px-4 py-3 focus:border-primary focus:outline-none"
+          />
+          <button
+            class="bg-primary hover:bg-primary/80 px-6 py-3 rounded-r-lg font-semibold transition-colors"
+          >
+            Subscribe
+          </button>
         </div>
+      </div>
     </section>
 
     <!-- Footer -->
     <footer class="bg-dark-light border-t border-gray-800 py-12">
-        <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <div>
-                    <div class="flex items-center space-x-2 mb-4">
-                        <img src="/assets/images/logo.png" alt="Eduflare Logo" class="h-8 w-8">
-                        <span class="text-xl font-bold text-primary">Eduflare</span>
-                    </div>
-                    <p class="text-gray-400">We are not an affiliate agency. All products are sold independently through our platform.</p>
-                </div>
-                
-                <div>
-                    <h4 class="font-semibold mb-4">Quick Links</h4>
-                    <ul class="space-y-2 text-gray-400">
-                        <li><a href="/" class="hover:text-primary transition-colors">Home</a></li>
-                        <li><a href="/products/" class="hover:text-primary transition-colors">Products</a></li>
-                        <li><a href="/blog/" class="hover:text-primary transition-colors">Blog</a></li>
-                        <li><a href="/contact/" class="hover:text-primary transition-colors">Contact</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h4 class="font-semibold mb-4">Legal</h4>
-                    <ul class="space-y-2 text-gray-400">
-                        <li><a href="/privacy/" class="hover:text-primary transition-colors">Privacy Policy</a></li>
-                        <li><a href="/terms/" class="hover:text-primary transition-colors">Terms of Service</a></li>
-                        <li><a href="/cookies/" class="hover:text-primary transition-colors">Cookies Policy</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h4 class="font-semibold mb-4">Contact</h4>
-                    <ul class="space-y-2 text-gray-400">
-                        <li>Email: info@eduflare.org</li>
-                        <li>Phone: +1 555-123-4567</li>
-                    </ul>
-                </div>
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div>
+            <div class="flex items-center space-x-2 mb-4">
+              <img
+                src="/assets/images/logo.png"
+                alt="Eduflare Logo"
+                class="h-8 w-8"
+              />
+              <span class="text-xl font-bold text-primary">Eduflare</span>
             </div>
-            
-            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-                <p>&copy; 2025 Eduflare. All rights reserved.</p>
-                <p class="mt-2">We are not an affiliate agency. All products are sold independently through our platform.</p>
-            </div>
+            <p class="text-gray-400">
+              We are not an affiliate agency. All products are sold
+              independently through our platform.
+            </p>
+          </div>
+
+          <div>
+            <h4 class="font-semibold mb-4">Quick Links</h4>
+            <ul class="space-y-2 text-gray-400">
+              <li>
+                <a href="/" class="hover:text-primary transition-colors"
+                  >Home</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/products/"
+                  class="hover:text-primary transition-colors"
+                  >Products</a
+                >
+              </li>
+              <li>
+                <a href="/blog/" class="hover:text-primary transition-colors"
+                  >Blog</a
+                >
+              </li>
+              <li>
+                <a href="/contact/" class="hover:text-primary transition-colors"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="font-semibold mb-4">Legal</h4>
+            <ul class="space-y-2 text-gray-400">
+              <li>
+                <a href="/privacy/" class="hover:text-primary transition-colors"
+                  >Privacy Policy</a
+                >
+              </li>
+              <li>
+                <a href="/terms/" class="hover:text-primary transition-colors"
+                  >Terms of Service</a
+                >
+              </li>
+              <li>
+                <a href="/cookies/" class="hover:text-primary transition-colors"
+                  >Cookies Policy</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="font-semibold mb-4">Contact</h4>
+            <ul class="space-y-2 text-gray-400">
+              <li>Email: info@eduflare.org</li>
+              <li>Phone: +1 555-123-4567</li>
+            </ul>
+          </div>
         </div>
+
+        <div
+          class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400"
+        >
+          <p>&copy; 2025 Eduflare. All rights reserved.</p>
+          <p class="mt-2">
+            We are not an affiliate agency. All products are sold independently
+            through our platform.
+          </p>
+        </div>
+      </div>
     </footer>
 
     <script src="/assets/js/main.js"></script>
     <script>
-        // User Login Status
-        const userSection = document.getElementById('userSection');
-        const authSection = document.getElementById('authSection');
-        const userName = document.getElementById('userName');
-        const authModal = document.getElementById('authModal');
-        const loginForm = document.getElementById('loginForm');
-        const registerForm = document.getElementById('registerForm');
-        const closeModal = document.getElementById('closeModal');
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const mobileMenu = document.getElementById('mobileMenu');
-        let user;
+      // User Login Status
+      const userSection = document.getElementById("userSection");
+      const authSection = document.getElementById("authSection");
+      const userName = document.getElementById("userName");
+      const authModal = document.getElementById("authModal");
+      const loginForm = document.getElementById("loginForm");
+      const registerForm = document.getElementById("registerForm");
+      const closeModal = document.getElementById("closeModal");
+      const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+      const mobileMenu = document.getElementById("mobileMenu");
+      let user;
 
-        // Load user from localStorage
-        function loadUser() {
-            try {
-                user = JSON.parse(localStorage.getItem('user'));
-                console.log('User data loaded:', user);
-            } catch (e) {
-                console.error('Error parsing user data:', e);
-                user = null;
-            }
-            if (user && user.name && user.email) {
-                userSection.classList.remove('hidden');
-                authSection.classList.add('hidden');
-                userName.textContent = `Welcome, ${user.name}`;
-            } else {
-                userSection.classList.add('hidden');
-                authSection.classList.remove('hidden');
-            }
+      // Load user from localStorage
+      function loadUser() {
+        try {
+          user = JSON.parse(localStorage.getItem("user"));
+          console.log("User data loaded:", user);
+        } catch (e) {
+          console.error("Error parsing user data:", e);
+          user = null;
         }
-
-        // Show auth modal
-        function showAuthModal(formType) {
-            authModal.classList.remove('hidden');
-            toggleForm(formType);
+        if (user && user.name && user.email) {
+          userSection.classList.remove("hidden");
+          authSection.classList.add("hidden");
+          userName.textContent = `Welcome, ${user.name}`;
+        } else {
+          userSection.classList.add("hidden");
+          authSection.classList.remove("hidden");
         }
+      }
 
-        // Close auth modal
-        closeModal.addEventListener('click', () => {
-            authModal.classList.add('hidden');
-            loginForm.classList.remove('hidden');
-            registerForm.classList.add('hidden');
-        });
+      // Show auth modal
+      function showAuthModal(formType) {
+        authModal.classList.remove("hidden");
+        toggleForm(formType);
+      }
 
-        // Toggle between login and register forms
-        function toggleForm(formType) {
-            if (formType === 'login') {
-                loginForm.classList.remove('hidden');
-                registerForm.classList.add('hidden');
-            } else {
-                loginForm.classList.add('hidden');
-                registerForm.classList.remove('hidden');
-            }
+      // Close auth modal
+      closeModal.addEventListener("click", () => {
+        authModal.classList.add("hidden");
+        loginForm.classList.remove("hidden");
+        registerForm.classList.add("hidden");
+      });
+
+      // Toggle between login and register forms
+      function toggleForm(formType) {
+        if (formType === "login") {
+          loginForm.classList.remove("hidden");
+          registerForm.classList.add("hidden");
+        } else {
+          loginForm.classList.add("hidden");
+          registerForm.classList.remove("hidden");
         }
+      }
 
-        // Handle login
-        function handleLogin() {
-            const email = document.getElementById('loginEmail').value;
-            const password = document.getElementById('loginPassword').value;
-            if (email && password) {
-                // Mock login (replace with actual authentication logic)
-                user = { name: email.split('@')[0], email };
-                localStorage.setItem('user', JSON.stringify(user));
-                authModal.classList.add('hidden');
-                loadUser();
-                // Clear form
-                document.getElementById('loginEmail').value = '';
-                document.getElementById('loginPassword').value = '';
-            } else {
-                alert('Please fill in all fields');
-            }
+      // Handle login
+      function handleLogin() {
+        const email = document.getElementById("loginEmail").value;
+        const password = document.getElementById("loginPassword").value;
+        if (email && password) {
+          // Mock login (replace with actual authentication logic)
+          user = { name: email.split("@")[0], email };
+          localStorage.setItem("user", JSON.stringify(user));
+          authModal.classList.add("hidden");
+          loadUser();
+          // Clear form
+          document.getElementById("loginEmail").value = "";
+          document.getElementById("loginPassword").value = "";
+        } else {
+          alert("Please fill in all fields");
         }
+      }
 
-        // Handle register
-        function handleRegister() {
-            const name = document.getElementById('registerName').value;
-            const email = document.getElementById('registerEmail').value;
-            const password = document.getElementById('registerPassword').value;
-            if (name && email && password) {
-                // Mock register (replace with actual registration logic)
-                user = { name, email };
-                localStorage.setItem('user', JSON.stringify(user));
-                authModal.classList.add('hidden');
-                loadUser();
-                // Clear form
-                document.getElementById('registerName').value = '';
-                document.getElementById('registerEmail').value = '';
-                document.getElementById('registerPassword').value = '';
-            } else {
-                alert('Please fill in all fields');
-            }
+      // Handle register
+      function handleRegister() {
+        const name = document.getElementById("registerName").value;
+        const email = document.getElementById("registerEmail").value;
+        const password = document.getElementById("registerPassword").value;
+        if (name && email && password) {
+          // Mock register (replace with actual registration logic)
+          user = { name, email };
+          localStorage.setItem("user", JSON.stringify(user));
+          authModal.classList.add("hidden");
+          loadUser();
+          // Clear form
+          document.getElementById("registerName").value = "";
+          document.getElementById("registerEmail").value = "";
+          document.getElementById("registerPassword").value = "";
+        } else {
+          alert("Please fill in all fields");
         }
+      }
 
-        // Logout
-        window.logout = () => {
-            localStorage.removeItem('user');
-            user = null;
-            loadUser();
-        };
+      // Logout
+      window.logout = () => {
+        localStorage.removeItem("user");
+        user = null;
+        loadUser();
+      };
 
-        // Mobile Menu Toggle
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
+      // Mobile Menu Toggle
+      mobileMenuBtn.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
 
-        // Cookie Consent
-        function acceptCookies() {
-            localStorage.setItem('cookiesAccepted', 'true');
-            document.getElementById('cookieConsent').classList.add('hidden');
+      // Cookie Consent
+      function acceptCookies() {
+        localStorage.setItem("cookiesAccepted", "true");
+        document.getElementById("cookieConsent").classList.add("hidden");
+      }
+
+      function declineCookies() {
+        localStorage.setItem("cookiesAccepted", "false");
+        document.getElementById("cookieConsent").classList.add("hidden");
+      }
+
+      // Show cookie banner if not previously accepted/declined
+      window.addEventListener("load", () => {
+        if (!localStorage.getItem("cookiesAccepted")) {
+          document.getElementById("cookieConsent").classList.remove("hidden");
         }
-
-        function declineCookies() {
-            localStorage.setItem('cookiesAccepted', 'false');
-            document.getElementById('cookieConsent').classList.add('hidden');
-        }
-
-        // Show cookie banner if not previously accepted/declined
-        window.addEventListener('load', () => {
-            if (!localStorage.getItem('cookiesAccepted')) {
-                document.getElementById('cookieConsent').classList.remove('hidden');
-            }
-            loadUser();
-        });
+        loadUser();
+      });
     </script>
-</body>
+  </body>
 </html>
