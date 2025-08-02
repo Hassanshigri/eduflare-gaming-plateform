@@ -272,27 +272,28 @@
 
     <!-- Hero Section -->
     <section
-      class="relative min-h-screen flex items-center justify-center px-4 py-20 bg-cover bg-center animate-fade-in"
+      class="relative min-h-screen flex items-center justify-center px-4 py-20 bg-cover bg-center"
       style="background-image: url('./assets/images/hero1.jpg')"
     >
+      <!-- Overlay -->
       <div class="absolute inset-0 bg-black/70 z-0"></div>
+
+      <!-- Content Container -->
       <div
         class="container mx-auto flex flex-col lg:flex-row items-center justify-between gap-10 relative z-10"
       >
-        <!-- Left Side: Text -->
-        <div class="lg:w-1/2 text-center lg:text-left">
-          <h1
-            class="text-5xl md:text-6xl font-bold mb-6 text-white animate-fade-in"
-          >
+        <!-- Left: Text Content -->
+        <div class="lg:w-1/2 text-center lg:text-left text-white">
+          <h1 class="text-5xl md:text-6xl font-bold mb-6">
             Level Up Your <span class="text-primary">Gaming</span>
           </h1>
-          <p
-            class="text-xl md:text-2xl mb-8 text-gray-300 animate-fade-in-delay"
-          >
-            Train with professional coaches and dominate your favorite games
+          <p class="text-xl md:text-2xl mb-8 text-gray-300">
+            Join thousands of gamers improving their skills with expert coaching. Whether you're climbing ranks or prepping for tournaments our pros have your back.
           </p>
+
+          <!-- CTA Buttons -->
           <div
-            class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-fade-in-delay-2"
+            class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
           >
             <a
               href="#games"
@@ -307,10 +308,53 @@
               Register Now - Get Bonuses!
             </button>
           </div>
+
+          <!-- Reviews and Player Count -->
+          <div
+            class="mt-10 flex items-center gap-4 text-white animate-fade-in-delay-3"
+          >
+            <div>
+              <span class="text-lg font-semibold">
+                Join <span class="text-yellow-400">1,000+</span> players
+                improving daily
+              </span>
+              <div class="flex items-center mt-1">
+                <!-- Star Icons -->
+                <svg class="w-5 h-5 fill-yellow-400" viewBox="0 0 20 20">
+                  <path
+                    d="M10 15l-5.878 3.09 1.122-6.545L.489 6.91l6.561-.954L10 0l2.95 5.956 6.561.954-4.755 4.635 1.122 6.545z"
+                  />
+                </svg>
+                <svg class="w-5 h-5 fill-yellow-400" viewBox="0 0 20 20">
+                  <path
+                    d="M10 15l-5.878 3.09 1.122-6.545L.489 6.91l6.561-.954L10 0l2.95 5.956 6.561.954-4.755 4.635 1.122 6.545z"
+                  />
+                </svg>
+                <svg class="w-5 h-5 fill-yellow-400" viewBox="0 0 20 20">
+                  <path
+                    d="M10 15l-5.878 3.09 1.122-6.545L.489 6.91l6.561-.954L10 0l2.95 5.956 6.561.954-4.755 4.635 1.122 6.545z"
+                  />
+                </svg>
+                <svg class="w-5 h-5 fill-yellow-400" viewBox="0 0 20 20">
+                  <path
+                    d="M10 15l-5.878 3.09 1.122-6.545L.489 6.91l6.561-.954L10 0l2.95 5.956 6.561.954-4.755 4.635 1.122 6.545z"
+                  />
+                </svg>
+                <svg class="w-5 h-5 fill-yellow-400" viewBox="0 0 20 20">
+                  <path
+                    d="M10 15l-5.878 3.09 1.122-6.545L.489 6.91l6.561-.954L10 0l2.95 5.956 6.561.954-4.755 4.635 1.122 6.545z"
+                  />
+                </svg>
+                <span class="ml-2 text-gray-300 text-sm"
+                  >(5.0 based on 420 reviews)</span
+                >
+              </div>
+            </div>
+          </div>
         </div>
 
-        <!-- Right Side: Video -->
-        <div class="lg:w-1/2 w-full animate-fade-in-delay-2">
+        <!-- Right: Video Embed -->
+        <div class="lg:w-1/2 w-full">
           <div class="w-full aspect-video rounded-lg overflow-hidden shadow-lg">
             <iframe
               width="100%"
@@ -320,8 +364,7 @@
               frameborder="0"
               allow="autoplay; encrypted-media"
               allowfullscreen
-            >
-            </iframe>
+            ></iframe>
           </div>
         </div>
       </div>
