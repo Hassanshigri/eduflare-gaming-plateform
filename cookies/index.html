@@ -1,32 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cookies Policy - Eduflare Gaming Coaching Platform</title>
-    <meta name="description" content="Learn about how Eduflare uses cookies and tracking technologies to improve your gaming coaching experience and platform functionality.">
-    <meta name="keywords" content="eduflare cookies policy, website cookies, tracking technologies, gaming platform cookies, data collection">
-    <link rel="canonical" href="https://eduflare.org/cookies/">
-    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Cookies Policy | How Eduflare Uses Cookies & Tracking</title>
+
+    <meta
+      name="description"
+      content="Discover how Eduflare uses cookies and tracking tools to enhance your coaching experience, personalize content, and ensure platform performance."
+    />
+
+    <meta
+      name="keywords"
+      content="Eduflare cookies policy, cookie usage, tracking technologies, data collection, privacy, gaming platform cookies, Eduflare coaching, analytics cookies, cookie consent"
+    />
+
+    <link rel="canonical" href="https://eduflare.org/cookies/" />
+
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico" />
+
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/style.css" />
+
     <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#6366f1',
-                        secondary: '#8b5cf6',
-                        accent: '#f59e0b',
-                        dark: '#0f172a',
-                        'dark-light': '#1e293b'
-                    }
-                }
-            }
-        }
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#6366f1",
+              secondary: "#8b5cf6",
+              accent: "#f59e0b",
+              dark: "#0f172a",
+              "dark-light": "#1e293b",
+            },
+          },
+        },
+      };
     </script>
-</head>
-<body class="bg-dark text-white">
+  </head>
+
+  <body class="bg-dark text-white">
     <!-- Cookie Consent Banner -->
     <div
       id="cookieConsent"
@@ -57,24 +71,59 @@
     </div>
 
     <!-- Login/Register Modal -->
-    <div id="authModal" class="fixed inset-0 bg-black/50 z-50 hidden flex items-center justify-center">
+    <div
+      id="authModal"
+      class="fixed inset-0 bg-black/50 z-50 hidden flex items-center justify-center"
+    >
       <div class="bg-dark-light p-6 rounded-lg w-full max-w-md relative">
-        <button id="closeModal" class="absolute top-2 right-2 text-gray-400 hover:text-white">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        <button
+          id="closeModal"
+          class="absolute top-2 right-2 text-gray-400 hover:text-white"
+        >
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"
+            ></path>
           </svg>
         </button>
         <!-- Login Form -->
         <div id="loginForm" class="">
           <h3 class="text-2xl font-bold mb-4 text-center">Login</h3>
           <div class="space-y-4">
-            <input id="loginEmail" type="email" placeholder="Email" class="w-full p-2 rounded bg-dark text-white border border-gray-600 focus:outline-none focus:border-primary" />
-            <input id="loginPassword" type="password" placeholder="Password" class="w-full p-2 rounded bg-dark text-white border border-gray-600 focus:outline-none focus:border-primary" />
-            <button onclick="handleLogin()" class="w-full bg-primary hover:bg-primary/80 px-4 py-2 rounded transition-colors transform hover:scale-105">
+            <input
+              id="loginEmail"
+              type="email"
+              placeholder="Email"
+              class="w-full p-2 rounded bg-dark text-white border border-gray-600 focus:outline-none focus:border-primary"
+            />
+            <input
+              id="loginPassword"
+              type="password"
+              placeholder="Password"
+              class="w-full p-2 rounded bg-dark text-white border border-gray-600 focus:outline-none focus:border-primary"
+            />
+            <button
+              onclick="handleLogin()"
+              class="w-full bg-primary hover:bg-primary/80 px-4 py-2 rounded transition-colors transform hover:scale-105"
+            >
               Login
             </button>
             <p class="text-center text-sm text-gray-400">
-              Don't have an account? <a href="javascript:void(0)" onclick="toggleForm('register')" class="text-primary hover:underline">Register</a>
+              Don't have an account?
+              <a
+                href="javascript:void(0)"
+                onclick="toggleForm('register')"
+                class="text-primary hover:underline"
+                >Register</a
+              >
             </p>
           </div>
         </div>
@@ -82,14 +131,38 @@
         <div id="registerForm" class="hidden">
           <h3 class="text-2xl font-bold mb-4 text-center">Register</h3>
           <div class="space-y-4">
-            <input id="registerName" type="text" placeholder="Full Name" class="w-full p-2 rounded bg-dark text-white border border-gray-600 focus:outline-none focus:border-primary" />
-            <input id="registerEmail" type="email" placeholder="Email" class="w-full p-2 rounded bg-dark text-white border border-gray-600 focus:outline-none focus:border-primary" />
-            <input id="registerPassword" type="password" placeholder="Password" class="w-full p-2 rounded bg-dark text-white border border-gray-600 focus:outline-none focus:border-primary" />
-            <button onclick="handleRegister()" class="w-full bg-primary hover:bg-primary/80 px-4 py-2 rounded transition-colors transform hover:scale-105">
+            <input
+              id="registerName"
+              type="text"
+              placeholder="Full Name"
+              class="w-full p-2 rounded bg-dark text-white border border-gray-600 focus:outline-none focus:border-primary"
+            />
+            <input
+              id="registerEmail"
+              type="email"
+              placeholder="Email"
+              class="w-full p-2 rounded bg-dark text-white border border-gray-600 focus:outline-none focus:border-primary"
+            />
+            <input
+              id="registerPassword"
+              type="password"
+              placeholder="Password"
+              class="w-full p-2 rounded bg-dark text-white border border-gray-600 focus:outline-none focus:border-primary"
+            />
+            <button
+              onclick="handleRegister()"
+              class="w-full bg-primary hover:bg-primary/80 px-4 py-2 rounded transition-colors transform hover:scale-105"
+            >
               Register
             </button>
             <p class="text-center text-sm text-gray-400">
-              Already have an account? <a href="javascript:void(0)" onclick="toggleForm('login')" class="text-primary hover:underline">Login</a>
+              Already have an account?
+              <a
+                href="javascript:void(0)"
+                onclick="toggleForm('login')"
+                class="text-primary hover:underline"
+                >Login</a
+              >
             </p>
           </div>
         </div>
@@ -116,10 +189,26 @@
 
           <!-- Center: Menu -->
           <div class="hidden md:flex justify-center space-x-6 flex-1">
-            <a href="/" class="hover:text-primary transition-colors transform hover:scale-105">Home</a>
-            <a href="/products/" class="hover:text-primary transition-colors transform hover:scale-105">Products</a>
-            <a href="/blog/" class="hover:text-primary transition-colors transform hover:scale-105">Blog</a>
-            <a href="/contact/" class="hover:text-primary transition-colors transform hover:scale-105">Contact</a>
+            <a
+              href="/"
+              class="hover:text-primary transition-colors transform hover:scale-105"
+              >Home</a
+            >
+            <a
+              href="/products/"
+              class="hover:text-primary transition-colors transform hover:scale-105"
+              >Products</a
+            >
+            <a
+              href="/blog/"
+              class="hover:text-primary transition-colors transform hover:scale-105"
+              >Blog</a
+            >
+            <a
+              href="/contact/"
+              class="hover:text-primary transition-colors transform hover:scale-105"
+              >Contact</a
+            >
           </div>
 
           <!-- Right: Auth & Mobile Menu -->
@@ -130,8 +219,18 @@
                 onclick="logout()"
                 class="ml-2 text-sm text-red-400 hover:text-red-300 flex items-center transform hover:scale-105"
               >
-                <svg class="w-5 h-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h3a3 3 0 013 3v1"></path>
+                <svg
+                  class="w-5 h-5 mr-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M17 16l4-4m0 0l-4-4m4 4H7m5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h3a3 3 0 013 3v1"
+                  ></path>
                 </svg>
                 Logout
               </button>
@@ -140,9 +239,14 @@
               <button
                 onclick="showAuthModal('login')"
                 class="bg-primary hover:bg-primary/80 px-4 py-2 rounded transition-colors transform hover:scale-105"
-              >Login</button>
+              >
+                Login
+              </button>
             </div>
-            <button id="mobileMenuBtn" class="md:hidden transform hover:scale-105">
+            <button
+              id="mobileMenuBtn"
+              class="md:hidden transform hover:scale-105"
+            >
               <svg
                 class="w-6 h-6"
                 fill="none"
@@ -161,7 +265,10 @@
         </div>
       </div>
       <!-- Mobile Menu -->
-      <div id="mobileMenu" class="hidden md:hidden bg-dark-light border-t border-gray-800">
+      <div
+        id="mobileMenu"
+        class="hidden md:hidden bg-dark-light border-t border-gray-800"
+      >
         <div class="container mx-auto px-4 py-4 flex flex-col space-y-4">
           <a href="/" class="hover:text-primary">Home</a>
           <a href="/products/" class="hover:text-primary">Products</a>
@@ -173,284 +280,394 @@
 
     <!-- Cookies Policy Content -->
     <section class="py-20">
-        <div class="container mx-auto px-4 max-w-4xl">
-            <div class="text-center mb-12">
-                <h1 class="text-4xl md:text-5xl font-bold mb-4">Cookies Policy</h1>
-                <p class="text-gray-400">Last updated: January 2025</p>
-            </div>
-
-            <div class="bg-dark-light rounded-xl p-8 space-y-8">
-                <section>
-                    <h2 class="text-2xl font-bold mb-4 text-primary">What Are Cookies?</h2>
-                    <p class="text-gray-300 mb-4">
-                        Cookies are small text files that are stored on your device when you visit our website. They help us provide you with a better experience by remembering your preferences, keeping you logged in, and analyzing how you use our platform.
-                    </p>
-                    <p class="text-gray-300">
-                        We use both session cookies (which expire when you close your browser) and persistent cookies (which remain on your device for a set period) to enhance your gaming coaching experience on Eduflare.
-                    </p>
-                </section>
-
-                <section>
-                    <h2 class="text-2xl font-bold mb-4 text-primary">Types of Cookies We Use</h2>
-                    <div class="space-y-4">
-                        <div>
-                            <h3 class="text-lg font-semibold text-accent mb-2">Essential Cookies</h3>
-                            <p class="text-gray-300">
-                                These cookies are necessary for our website to function properly. They enable core functionality such as security, network management, and accessibility. You cannot opt out of these cookies as they are essential for the platform to work.
-                            </p>
-                        </div>
-                        
-                        <div>
-                            <h3 class="text-lg font-semibold text-accent mb-2">Performance Cookies</h3>
-                            <p class="text-gray-300">
-                                These cookies help us understand how visitors interact with our website by collecting and reporting information anonymously. This helps us improve our platform's performance and user experience.
-                            </p>
-                        </div>
-                        
-                        <div>
-                            <h3 class="text-lg font-semibold text-accent mb-2">Functionality Cookies</h3>
-                            <p class="text-gray-300">
-                                These cookies allow our website to remember choices you make and provide enhanced, more personal features. They may be set by us or by third-party providers whose services we have added to our pages.
-                            </p>
-                        </div>
-                        
-                        <div>
-                            <h3 class="text-lg font-semibold text-accent mb-2">Targeting Cookies</h3>
-                            <p class="text-gray-300">
-                                These cookies are used to deliver advertisements more relevant to you and your interests. They are also used to limit the number of times you see an advertisement and help measure the effectiveness of advertising campaigns.
-                            </p>
-                        </div>
-                    </div>
-                </section>
-
-                <section>
-                    <h2 class="text-2xl font-bold mb-4 text-primary">How We Use Cookies</h2>
-                    <p class="text-gray-300 mb-4">
-                        We use cookies to enhance your experience on our gaming coaching platform. This includes remembering your login status, storing your preferences for game categories and coach filters, and tracking your progress through coaching sessions.
-                    </p>
-                    <p class="text-gray-300 mb-4">
-                        Cookies also help us analyze website traffic and usage patterns, which allows us to improve our platform's functionality and develop new features that benefit our gaming community.
-                    </p>
-                    <p class="text-gray-300">
-                        Additionally, we use cookies to personalize content and recommendations, ensuring you see the most relevant coaches and training programs for your gaming goals.
-                    </p>
-                </section>
-
-                <section>
-                    <h2 class="text-2xl font-bold mb-4 text-primary">Managing Your Cookie Preferences</h2>
-                    <p class="text-gray-300 mb-4">
-                        You can control and manage cookies in various ways. Most web browsers automatically accept cookies, but you can modify your browser settings to decline cookies if you prefer. However, this may prevent you from taking full advantage of our platform's features.
-                    </p>
-                    <p class="text-gray-300 mb-4">
-                        You can also delete cookies that have already been set on your device. The method for doing this varies depending on your browser and device. Please refer to your browser's help documentation for specific instructions.
-                    </p>
-                    <p class="text-gray-300">
-                        When you first visit our website, you'll see a cookie consent banner that allows you to accept or decline non-essential cookies. You can change your preferences at any time by clearing your browser cookies and revisiting our site.
-                    </p>
-                </section>
-
-                <section>
-                    <h2 class="text-2xl font-bold mb-4 text-primary">Third-Party Cookies</h2>
-                    <p class="text-gray-300 mb-4">
-                        Some cookies on our website are set by third-party services that appear on our pages. These may include analytics services, payment processors, and social media platforms that help us provide a comprehensive gaming coaching experience.
-                    </p>
-                    <p class="text-gray-300">
-                        We do not control these third-party cookies, and they are subject to the respective privacy policies of the third parties. We recommend reviewing the privacy policies of these services to understand how they use cookies and other tracking technologies.
-                    </p>
-                </section>
-
-                <section>
-                    <h2 class="text-2xl font-bold mb-4 text-primary">Updates to This Policy</h2>
-                    <p class="text-gray-300 mb-4">
-                        We may update this Cookies Policy from time to time to reflect changes in our practices or applicable laws. When we make changes, we will update the "Last updated" date at the top of this policy.
-                    </p>
-                    <p class="text-gray-300">
-                        We encourage you to review this policy periodically to stay informed about how we use cookies and other tracking technologies on our platform.
-                    </p>
-                </section>
-
-                <section>
-                    <h2 class="text-2xl font-bold mb-4 text-primary">Contact Us</h2>
-                    <p class="text-gray-300">
-                        If you have any questions about our use of cookies or this Cookies Policy, please contact us at info@eduflare.org or +1 555-123-4567. We're here to help you understand how we protect your privacy while providing the best gaming coaching experience.
-                    </p>
-                </section>
-            </div>
+      <div class="container mx-auto px-4 max-w-4xl">
+        <div class="text-center mb-12">
+          <h1 class="text-4xl md:text-5xl font-bold mb-4"><span class="text-primary">Cookies</span> Policy</h1>
+          <p class="text-gray-400">Last updated: January 2025</p>
         </div>
+
+        <div class="bg-dark-light rounded-xl p-8 space-y-8">
+          <section>
+            <h2 class="text-2xl font-bold mb-4 text-primary">
+              What Are Cookies?
+            </h2>
+            <p class="text-gray-300 mb-4">
+              Cookies are small text files that are stored on your device when
+              you visit our website. They help us provide you with a better
+              experience by remembering your preferences, keeping you logged in,
+              and analyzing how you use our platform.
+            </p>
+            <p class="text-gray-300">
+              We use both session cookies (which expire when you close your
+              browser) and persistent cookies (which remain on your device for a
+              set period) to enhance your gaming coaching experience on
+              Eduflare.
+            </p>
+          </section>
+
+          <section>
+            <h2 class="text-2xl font-bold mb-4 text-primary">
+              Types of Cookies We Use
+            </h2>
+            <div class="space-y-4">
+              <div>
+                <h3 class="text-lg font-semibold text-accent mb-2">
+                  Essential Cookies
+                </h3>
+                <p class="text-gray-300">
+                  These cookies are necessary for our website to function
+                  properly. They enable core functionality such as security,
+                  network management, and accessibility. You cannot opt out of
+                  these cookies as they are essential for the platform to work.
+                </p>
+              </div>
+
+              <div>
+                <h3 class="text-lg font-semibold text-accent mb-2">
+                  Performance Cookies
+                </h3>
+                <p class="text-gray-300">
+                  These cookies help us understand how visitors interact with
+                  our website by collecting and reporting information
+                  anonymously. This helps us improve our platform's performance
+                  and user experience.
+                </p>
+              </div>
+
+              <div>
+                <h3 class="text-lg font-semibold text-accent mb-2">
+                  Functionality Cookies
+                </h3>
+                <p class="text-gray-300">
+                  These cookies allow our website to remember choices you make
+                  and provide enhanced, more personal features. They may be set
+                  by us or by third-party providers whose services we have added
+                  to our pages.
+                </p>
+              </div>
+
+              <div>
+                <h3 class="text-lg font-semibold text-accent mb-2">
+                  Targeting Cookies
+                </h3>
+                <p class="text-gray-300">
+                  These cookies are used to deliver advertisements more relevant
+                  to you and your interests. They are also used to limit the
+                  number of times you see an advertisement and help measure the
+                  effectiveness of advertising campaigns.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <section>
+            <h2 class="text-2xl font-bold mb-4 text-primary">
+              How We Use Cookies
+            </h2>
+            <p class="text-gray-300 mb-4">
+              We use cookies to enhance your experience on our gaming coaching
+              platform. This includes remembering your login status, storing
+              your preferences for game categories and coach filters, and
+              tracking your progress through coaching sessions.
+            </p>
+            <p class="text-gray-300 mb-4">
+              Cookies also help us analyze website traffic and usage patterns,
+              which allows us to improve our platform's functionality and
+              develop new features that benefit our gaming community.
+            </p>
+            <p class="text-gray-300">
+              Additionally, we use cookies to personalize content and
+              recommendations, ensuring you see the most relevant coaches and
+              training programs for your gaming goals.
+            </p>
+          </section>
+
+          <section>
+            <h2 class="text-2xl font-bold mb-4 text-primary">
+              Managing Your Cookie Preferences
+            </h2>
+            <p class="text-gray-300 mb-4">
+              You can control and manage cookies in various ways. Most web
+              browsers automatically accept cookies, but you can modify your
+              browser settings to decline cookies if you prefer. However, this
+              may prevent you from taking full advantage of our platform's
+              features.
+            </p>
+            <p class="text-gray-300 mb-4">
+              You can also delete cookies that have already been set on your
+              device. The method for doing this varies depending on your browser
+              and device. Please refer to your browser's help documentation for
+              specific instructions.
+            </p>
+            <p class="text-gray-300">
+              When you first visit our website, you'll see a cookie consent
+              banner that allows you to accept or decline non-essential cookies.
+              You can change your preferences at any time by clearing your
+              browser cookies and revisiting our site.
+            </p>
+          </section>
+
+          <section>
+            <h2 class="text-2xl font-bold mb-4 text-primary">
+              Third-Party Cookies
+            </h2>
+            <p class="text-gray-300 mb-4">
+              Some cookies on our website are set by third-party services that
+              appear on our pages. These may include analytics services, payment
+              processors, and social media platforms that help us provide a
+              comprehensive gaming coaching experience.
+            </p>
+            <p class="text-gray-300">
+              We do not control these third-party cookies, and they are subject
+              to the respective privacy policies of the third parties. We
+              recommend reviewing the privacy policies of these services to
+              understand how they use cookies and other tracking technologies.
+            </p>
+          </section>
+
+          <section>
+            <h2 class="text-2xl font-bold mb-4 text-primary">
+              Updates to This Policy
+            </h2>
+            <p class="text-gray-300 mb-4">
+              We may update this Cookies Policy from time to time to reflect
+              changes in our practices or applicable laws. When we make changes,
+              we will update the "Last updated" date at the top of this policy.
+            </p>
+            <p class="text-gray-300">
+              We encourage you to review this policy periodically to stay
+              informed about how we use cookies and other tracking technologies
+              on our platform.
+            </p>
+          </section>
+
+          <section>
+            <h2 class="text-2xl font-bold mb-4 text-primary">Contact Us</h2>
+            <p class="text-gray-300">
+              If you have any questions about our use of cookies or this Cookies
+              Policy, please contact us at info@eduflare.org or +1 555-123-4567.
+              We're here to help you understand how we protect your privacy
+              while providing the best gaming coaching experience.
+            </p>
+          </section>
+        </div>
+      </div>
     </section>
 
     <!-- Footer -->
     <footer class="bg-dark-light border-t border-gray-800 py-12">
-        <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <div>
-                    <div class="flex items-center space-x-2 mb-4">
-                        <img src="/assets/images/logo.png" alt="Eduflare Logo" class="h-8 w-8">
-                        <span class="text-xl font-bold text-primary">Eduflare</span>
-                    </div>
-                    <p class="text-gray-400">We are not an affiliate agency. All products are sold independently through our platform.</p>
-                </div>
-                
-                <div>
-                    <h4 class="font-semibold mb-4">Quick Links</h4>
-                    <ul class="space-y-2 text-gray-400">
-                        <li><a href="/" class="hover:text-primary transition-colors">Home</a></li>
-                        <li><a href="/products/" class="hover:text-primary transition-colors">Products</a></li>
-                        <li><a href="/blog/" class="hover:text-primary transition-colors">Blog</a></li>
-                        <li><a href="/contact/" class="hover:text-primary transition-colors">Contact</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h4 class="font-semibold mb-4">Legal</h4>
-                    <ul class="space-y-2 text-gray-400">
-                        <li><a href="/privacy/" class="hover:text-primary transition-colors">Privacy Policy</a></li>
-                        <li><a href="/terms/" class="hover:text-primary transition-colors">Terms of Service</a></li>
-                        <li><a href="/cookies/" class="hover:text-primary transition-colors">Cookies Policy</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h4 class="font-semibold mb-4">Contact</h4>
-                    <ul class="space-y-2 text-gray-400">
-                        <li>Email: info@eduflare.org</li>
-                        <li>Phone: +1 555-123-4567</li>
-                    </ul>
-                </div>
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div>
+            <div class="flex items-center space-x-2 mb-4">
+              <img
+                src="/assets/images/logo.png"
+                alt="Eduflare Logo"
+                class="h-8 w-8"
+              />
+              <span class="text-xl font-bold text-primary">Eduflare</span>
             </div>
-            
-            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-                <p>&copy; 2025 Eduflare. All rights reserved.</p>
-                <p class="mt-2">We are not an affiliate agency. All products are sold independently through our platform.</p>
-            </div>
+            <p class="text-gray-400">
+              We are not an affiliate agency. All products are sold
+              independently through our platform.
+            </p>
+          </div>
+
+          <div>
+            <h4 class="font-semibold mb-4">Quick Links</h4>
+            <ul class="space-y-2 text-gray-400">
+              <li>
+                <a href="/" class="hover:text-primary transition-colors"
+                  >Home</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/products/"
+                  class="hover:text-primary transition-colors"
+                  >Products</a
+                >
+              </li>
+              <li>
+                <a href="/blog/" class="hover:text-primary transition-colors"
+                  >Blog</a
+                >
+              </li>
+              <li>
+                <a href="/contact/" class="hover:text-primary transition-colors"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="font-semibold mb-4">Legal</h4>
+            <ul class="space-y-2 text-gray-400">
+              <li>
+                <a href="/privacy/" class="hover:text-primary transition-colors"
+                  >Privacy Policy</a
+                >
+              </li>
+              <li>
+                <a href="/terms/" class="hover:text-primary transition-colors"
+                  >Terms of Service</a
+                >
+              </li>
+              <li>
+                <a href="/cookies/" class="hover:text-primary transition-colors"
+                  >Cookies Policy</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="font-semibold mb-4">Contact</h4>
+            <ul class="space-y-2 text-gray-400">
+              <li>Email: info@eduflare.org</li>
+              <li>Phone: +1 555-123-4567</li>
+            </ul>
+          </div>
         </div>
+
+        <div
+          class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400"
+        >
+          <p>&copy; 2025 Eduflare. All rights reserved.</p>
+          <p class="mt-2">
+            We are not an affiliate agency. All products are sold independently
+            through our platform.
+          </p>
+        </div>
+      </div>
     </footer>
 
     <script src="/assets/js/main.js"></script>
     <script>
-        // User Login Status
-        const userSection = document.getElementById('userSection');
-        const authSection = document.getElementById('authSection');
-        const userName = document.getElementById('userName');
-        const authModal = document.getElementById('authModal');
-        const loginForm = document.getElementById('loginForm');
-        const registerForm = document.getElementById('registerForm');
-        const closeModal = document.getElementById('closeModal');
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const mobileMenu = document.getElementById('mobileMenu');
-        let user;
+      // User Login Status
+      const userSection = document.getElementById("userSection");
+      const authSection = document.getElementById("authSection");
+      const userName = document.getElementById("userName");
+      const authModal = document.getElementById("authModal");
+      const loginForm = document.getElementById("loginForm");
+      const registerForm = document.getElementById("registerForm");
+      const closeModal = document.getElementById("closeModal");
+      const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+      const mobileMenu = document.getElementById("mobileMenu");
+      let user;
 
-        // Load user from localStorage
-        function loadUser() {
-            try {
-                user = JSON.parse(localStorage.getItem('user'));
-                console.log('User data loaded:', user);
-            } catch (e) {
-                console.error('Error parsing user data:', e);
-                user = null;
-            }
-            if (user && user.name && user.email) {
-                userSection.classList.remove('hidden');
-                authSection.classList.add('hidden');
-                userName.textContent = `Welcome, ${user.name}`;
-            } else {
-                userSection.classList.add('hidden');
-                authSection.classList.remove('hidden');
-            }
+      // Load user from localStorage
+      function loadUser() {
+        try {
+          user = JSON.parse(localStorage.getItem("user"));
+          console.log("User data loaded:", user);
+        } catch (e) {
+          console.error("Error parsing user data:", e);
+          user = null;
         }
-
-        // Show auth modal
-        function showAuthModal(formType) {
-            authModal.classList.remove('hidden');
-            toggleForm(formType);
+        if (user && user.name && user.email) {
+          userSection.classList.remove("hidden");
+          authSection.classList.add("hidden");
+          userName.textContent = `Welcome, ${user.name}`;
+        } else {
+          userSection.classList.add("hidden");
+          authSection.classList.remove("hidden");
         }
+      }
 
-        // Close auth modal
-        closeModal.addEventListener('click', () => {
-            authModal.classList.add('hidden');
-            loginForm.classList.remove('hidden');
-            registerForm.classList.add('hidden');
-        });
+      // Show auth modal
+      function showAuthModal(formType) {
+        authModal.classList.remove("hidden");
+        toggleForm(formType);
+      }
 
-        // Toggle between login and register forms
-        function toggleForm(formType) {
-            if (formType === 'login') {
-                loginForm.classList.remove('hidden');
-                registerForm.classList.add('hidden');
-            } else {
-                loginForm.classList.add('hidden');
-                registerForm.classList.remove('hidden');
-            }
+      // Close auth modal
+      closeModal.addEventListener("click", () => {
+        authModal.classList.add("hidden");
+        loginForm.classList.remove("hidden");
+        registerForm.classList.add("hidden");
+      });
+
+      // Toggle between login and register forms
+      function toggleForm(formType) {
+        if (formType === "login") {
+          loginForm.classList.remove("hidden");
+          registerForm.classList.add("hidden");
+        } else {
+          loginForm.classList.add("hidden");
+          registerForm.classList.remove("hidden");
         }
+      }
 
-        // Handle login
-        function handleLogin() {
-            const email = document.getElementById('loginEmail').value;
-            const password = document.getElementById('loginPassword').value;
-            if (email && password) {
-                // Mock login (replace with actual authentication logic)
-                user = { name: email.split('@')[0], email };
-                localStorage.setItem('user', JSON.stringify(user));
-                authModal.classList.add('hidden');
-                loadUser();
-                // Clear form
-                document.getElementById('loginEmail').value = '';
-                document.getElementById('loginPassword').value = '';
-            } else {
-                alert('Please fill in all fields');
-            }
+      // Handle login
+      function handleLogin() {
+        const email = document.getElementById("loginEmail").value;
+        const password = document.getElementById("loginPassword").value;
+        if (email && password) {
+          // Mock login (replace with actual authentication logic)
+          user = { name: email.split("@")[0], email };
+          localStorage.setItem("user", JSON.stringify(user));
+          authModal.classList.add("hidden");
+          loadUser();
+          // Clear form
+          document.getElementById("loginEmail").value = "";
+          document.getElementById("loginPassword").value = "";
+        } else {
+          alert("Please fill in all fields");
         }
+      }
 
-        // Handle register
-        function handleRegister() {
-            const name = document.getElementById('registerName').value;
-            const email = document.getElementById('registerEmail').value;
-            const password = document.getElementById('registerPassword').value;
-            if (name && email && password) {
-                // Mock register (replace with actual registration logic)
-                user = { name, email };
-                localStorage.setItem('user', JSON.stringify(user));
-                authModal.classList.add('hidden');
-                loadUser();
-                // Clear form
-                document.getElementById('registerName').value = '';
-                document.getElementById('registerEmail').value = '';
-                document.getElementById('registerPassword').value = '';
-            } else {
-                alert('Please fill in all fields');
-            }
+      // Handle register
+      function handleRegister() {
+        const name = document.getElementById("registerName").value;
+        const email = document.getElementById("registerEmail").value;
+        const password = document.getElementById("registerPassword").value;
+        if (name && email && password) {
+          // Mock register (replace with actual registration logic)
+          user = { name, email };
+          localStorage.setItem("user", JSON.stringify(user));
+          authModal.classList.add("hidden");
+          loadUser();
+          // Clear form
+          document.getElementById("registerName").value = "";
+          document.getElementById("registerEmail").value = "";
+          document.getElementById("registerPassword").value = "";
+        } else {
+          alert("Please fill in all fields");
         }
+      }
 
-        // Logout
-        window.logout = () => {
-            localStorage.removeItem('user');
-            user = null;
-            loadUser();
-        };
+      // Logout
+      window.logout = () => {
+        localStorage.removeItem("user");
+        user = null;
+        loadUser();
+      };
 
-        // Mobile Menu Toggle
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
+      // Mobile Menu Toggle
+      mobileMenuBtn.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
 
-        // Cookie Consent
-        function acceptCookies() {
-            localStorage.setItem('cookiesAccepted', 'true');
-            document.getElementById('cookieConsent').classList.add('hidden');
+      // Cookie Consent
+      function acceptCookies() {
+        localStorage.setItem("cookiesAccepted", "true");
+        document.getElementById("cookieConsent").classList.add("hidden");
+      }
+
+      function declineCookies() {
+        localStorage.setItem("cookiesAccepted", "false");
+        document.getElementById("cookieConsent").classList.add("hidden");
+      }
+
+      // Show cookie banner if not previously accepted/declined
+      window.addEventListener("load", () => {
+        if (!localStorage.getItem("cookiesAccepted")) {
+          document.getElementById("cookieConsent").classList.remove("hidden");
         }
-
-        function declineCookies() {
-            localStorage.setItem('cookiesAccepted', 'false');
-            document.getElementById('cookieConsent').classList.add('hidden');
-        }
-
-        // Show cookie banner if not previously accepted/declined
-        window.addEventListener('load', () => {
-            if (!localStorage.getItem('cookiesAccepted')) {
-                document.getElementById('cookieConsent').classList.remove('hidden');
-            }
-            loadUser();
-        });
+        loadUser();
+      });
     </script>
-</body>
+  </body>
 </html>
