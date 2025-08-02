@@ -3,16 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>
-      Eduflare - Premium Gaming Coaching Platform | Expert Game Coaches
-    </title>
+    <title>Eduflare: Expert Gaming Coaching</title>
     <meta
       name="description"
-      content="Join Eduflare for professional gaming coaching. Expert coaches for Valorant, CS2, League of Legends, Dota 2, and more. Boost your skills with personalized training sessions."
+      content="Join Eduflare for expert gaming coaching in Valorant, CS2, LoL, Dota 2, and more. Boost skills with personalized sessions."
     />
     <meta
       name="keywords"
-      content="gaming coaching, esports training, valorant coach, cs2 coach, league of legends coach, dota 2 coach, gaming skills, professional gaming"
+      content="gaming coaching, esports training, valorant coaching, cs2 coaching, league of legends coaching, dota 2 coaching, apex legends coaching, professional gaming, game skills, online coaching"
     />
     <link rel="canonical" href="https://eduflare.org/" />
     <link rel="icon" type="image/x-icon" href="/assets/favicon.ico" />
@@ -818,147 +816,147 @@
 
     <script src="/assets/js/main.js"></script>
     <script>
-          // User Login Status
-          const userSection = document.getElementById("userSection");
-          const authSection = document.getElementById("authSection");
-          const userName = document.getElementById("userName");
-          const authModal = document.getElementById("authModal");
-          const loginForm = document.getElementById("loginForm");
-          const registerForm = document.getElementById("registerForm");
-          const closeModal = document.getElementById("closeModal");
-          let user;
-          let redirectParams = null;
+      // User Login Status
+      const userSection = document.getElementById("userSection");
+      const authSection = document.getElementById("authSection");
+      const userName = document.getElementById("userName");
+      const authModal = document.getElementById("authModal");
+      const loginForm = document.getElementById("loginForm");
+      const registerForm = document.getElementById("registerForm");
+      const closeModal = document.getElementById("closeModal");
+      let user;
+      let redirectParams = null;
 
-          // Load user from localStorage
-          function loadUser() {
-            try {
-              user = JSON.parse(localStorage.getItem("user"));
-              console.log("User data loaded:", user);
-            } catch (e) {
-              console.error("Error parsing user data:", e);
-              user = null;
-            }
-            if (user && user.name && user.email) {
-              userSection.classList.remove("hidden");
-              authSection.classList.add("hidden");
-              userName.textContent = `Welcome, ${user.name}`;
-            } else {
-              userSection.classList.add("hidden");
-              authSection.classList.remove("hidden");
-            }
+      // Load user from localStorage
+      function loadUser() {
+        try {
+          user = JSON.parse(localStorage.getItem("user"));
+          console.log("User data loaded:", user);
+        } catch (e) {
+          console.error("Error parsing user data:", e);
+          user = null;
+        }
+        if (user && user.name && user.email) {
+          userSection.classList.remove("hidden");
+          authSection.classList.add("hidden");
+          userName.textContent = `Welcome, ${user.name}`;
+        } else {
+          userSection.classList.add("hidden");
+          authSection.classList.remove("hidden");
+        }
+      }
+
+      // Show auth modal
+      function showAuthModal(formType) {
+        authModal.classList.remove("hidden");
+        toggleForm(formType);
+      }
+
+      // Close auth modal
+      closeModal.addEventListener("click", () => {
+        authModal.classList.add("hidden");
+        loginForm.classList.remove("hidden");
+        registerForm.classList.add("hidden");
+      });
+
+      // Toggle between login and register forms
+      function toggleForm(formType) {
+        if (formType === "login") {
+          loginForm.classList.remove("hidden");
+          registerForm.classList.add("hidden");
+        } else {
+          loginForm.classList.add("hidden");
+          registerForm.classList.remove("hidden");
+        }
+      }
+
+      // Handle login
+      function handleLogin() {
+        const email = document.getElementById("loginEmail").value;
+        const password = document.getElementById("loginPassword").value;
+        if (email && password) {
+          // Mock login (replace with actual authentication logic)
+          user = { name: email.split("@")[0], email };
+          localStorage.setItem("user", JSON.stringify(user));
+          authModal.classList.add("hidden");
+          loadUser();
+          if (redirectParams) {
+            window.location.href = `/booking/index.html?coach=${encodeURIComponent(
+              redirectParams.coach
+            )}&game=${encodeURIComponent(redirectParams.game)}`;
           }
+          // Clear form
+          document.getElementById("loginEmail").value = "";
+          document.getElementById("loginPassword").value = "";
+        } else {
+          alert("Please fill in all fields");
+        }
+      }
 
-          // Show auth modal
-          function showAuthModal(formType) {
-            authModal.classList.remove("hidden");
-            toggleForm(formType);
+      // Handle register
+      function handleRegister() {
+        const name = document.getElementById("registerName").value;
+        const email = document.getElementById("registerEmail").value;
+        const password = document.getElementById("registerPassword").value;
+        if (name && email && password) {
+          // Mock register (replace with actual registration logic)
+          user = { name, email };
+          localStorage.setItem("user", JSON.stringify(user));
+          authModal.classList.add("hidden");
+          loadUser();
+          if (redirectParams) {
+            window.location.href = `/booking/index.html?coach=${encodeURIComponent(
+              redirectParams.coach
+            )}&game=${encodeURIComponent(redirectParams.game)}`;
           }
+          // Clear form
+          document.getElementById("registerName").value = "";
+          document.getElementById("registerEmail").value = "";
+          document.getElementById("registerPassword").value = "";
+        } else {
+          alert("Please fill in all fields");
+        }
+      }
 
-          // Close auth modal
-          closeModal.addEventListener("click", () => {
-            authModal.classList.add("hidden");
-            loginForm.classList.remove("hidden");
-            registerForm.classList.add("hidden");
-          });
+      // Book Coach
+      window.bookCoach = (coachName, game) => {
+        console.log(`Booking coach: ${coachName} for ${game}`);
+        try {
+          user = JSON.parse(localStorage.getItem("user"));
+        } catch (e) {
+          console.error("Error parsing user data:", e);
+          user = null;
+        }
+        if (user && user.name && user.email) {
+          window.location.href = `/booking/index.html?coach=${encodeURIComponent(
+            coachName
+          )}&game=${encodeURIComponent(game)}`;
+        } else {
+          redirectParams = { coach: coachName, game };
+          showAuthModal("login");
+        }
+      };
 
-          // Toggle between login and register forms
-          function toggleForm(formType) {
-            if (formType === "login") {
-              loginForm.classList.remove("hidden");
-              registerForm.classList.add("hidden");
-            } else {
-              loginForm.classList.add("hidden");
-              registerForm.classList.remove("hidden");
-            }
-          }
+      // Logout
+      window.logout = () => {
+        localStorage.removeItem("user");
+        user = null;
+        loadUser();
+      };
 
-          // Handle login
-          function handleLogin() {
-            const email = document.getElementById("loginEmail").value;
-            const password = document.getElementById("loginPassword").value;
-            if (email && password) {
-              // Mock login (replace with actual authentication logic)
-              user = { name: email.split("@")[0], email };
-              localStorage.setItem("user", JSON.stringify(user));
-              authModal.classList.add("hidden");
-              loadUser();
-              if (redirectParams) {
-                window.location.href = `/booking/index.html?coach=${encodeURIComponent(
-                  redirectParams.coach
-                )}&game=${encodeURIComponent(redirectParams.game)}`;
-              }
-              // Clear form
-              document.getElementById("loginEmail").value = "";
-              document.getElementById("loginPassword").value = "";
-            } else {
-              alert("Please fill in all fields");
-            }
-          }
+      // Mobile Menu Toggle
+      const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+      const mobileMenu = document.getElementById("mobileMenu");
+      mobileMenuBtn.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
 
-          // Handle register
-          function handleRegister() {
-            const name = document.getElementById("registerName").value;
-            const email = document.getElementById("registerEmail").value;
-            const password = document.getElementById("registerPassword").value;
-            if (name && email && password) {
-              // Mock register (replace with actual registration logic)
-              user = { name, email };
-              localStorage.setItem("user", JSON.stringify(user));
-              authModal.classList.add("hidden");
-              loadUser();
-              if (redirectParams) {
-                window.location.href = `/booking/index.html?coach=${encodeURIComponent(
-                  redirectParams.coach
-                )}&game=${encodeURIComponent(redirectParams.game)}`;
-              }
-              // Clear form
-              document.getElementById("registerName").value = "";
-              document.getElementById("registerEmail").value = "";
-              document.getElementById("registerPassword").value = "";
-            } else {
-              alert("Please fill in all fields");
-            }
-          }
-
-          // Book Coach
-          window.bookCoach = (coachName, game) => {
-            console.log(`Booking coach: ${coachName} for ${game}`);
-            try {
-              user = JSON.parse(localStorage.getItem("user"));
-            } catch (e) {
-              console.error("Error parsing user data:", e);
-              user = null;
-            }
-            if (user && user.name && user.email) {
-              window.location.href = `/booking/index.html?coach=${encodeURIComponent(
-                coachName
-              )}&game=${encodeURIComponent(game)}`;
-            } else {
-              redirectParams = { coach: coachName, game };
-              showAuthModal("login");
-            }
-          };
-
-          // Logout
-          window.logout = () => {
-            localStorage.removeItem("user");
-            user = null;
-            loadUser();
-          };
-
-          // Mobile Menu Toggle
-          const mobileMenuBtn = document.getElementById("mobileMenuBtn");
-          const mobileMenu = document.getElementById("mobileMenu");
-          mobileMenuBtn.addEventListener("click", () => {
-            mobileMenu.classList.toggle("hidden");
-          });
-
-          // Cookie Consent
-          function acceptCookies() {
-            localStorage.setItem("cookiesAccepted", "true");
-            document.getElementById("cookieConsent").classList.add("hidden");
-          }
-          function declineCookies() {
+      // Cookie Consent
+      function acceptCookies() {
+        localStorage.setItem("cookiesAccepted", "true");
+        document.getElementById("cookieConsent").classList.add("hidden");
+      }
+      function declineCookies() {
         localStorage.setItem("cookiesAccepted", "false");
         document.getElementById("cookieConsent").classList.add("hidden");
       }
@@ -968,9 +966,9 @@
         if (!localStorage.getItem("cookiesAccepted")) {
           document.getElementById("cookieConsent").classList.remove("hidden");
         }
-          // Initialize user state
-          loadUser();
-           });
+        // Initialize user state
+        loadUser();
+      });
     </script>
   </body>
 </html>
